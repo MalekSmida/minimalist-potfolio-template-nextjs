@@ -29,5 +29,8 @@
     "onlyBuiltDependencies": [
       "sharp"
     ]
+  },
+  "engines": {
+    "node": ">= 22.14.0"
   }
 }
