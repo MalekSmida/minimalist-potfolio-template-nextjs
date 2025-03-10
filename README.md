@@ -1,6 +1,13 @@
+# Portfolio
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 In this project we did configure Vitest for unit test, and Playwright for e2e to try them.
+
+Following:
+
+- CDD (Component driven development) => Develop component first then assemble UI
+- TDD (test driven development) => Write test until fails the write code until test pass
 
 ## Getting Started
 
