@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+In this project we did configure Vitest for unit test, and Playwright for e2e to try them.
+
 ## Getting Started
 
 First, run the development server:
@@ -39,23 +41,31 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 in this project we are using pnpm
 to activate it please run as admin
+
 ```bash
 corepack enable
 ```
-then run 
+
+then run
+
 ```bash
 pnpm -v
 ```
+
 And download it when corepack asks
 
 this project is created with
+
 ```bash
 npx create-next-app@latest --use-pnpm
 ```
+
 with all default recommendation (like typescript and eslint …)
 
-after creating the project, I run 
+after creating the project, I run
+
 ```bash
 pnpm approve-builds
 ```
+
 as it was mentioned in the console
