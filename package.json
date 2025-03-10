@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --ignore-path .gitignore .",
+    "format": "prettier --write .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",

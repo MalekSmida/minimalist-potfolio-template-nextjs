@@ -1,4 +1,9 @@
 .github
+.next
+.cache
+coverage
+node_modules
+playwright-report
 public
 test-results
 .gitignore
