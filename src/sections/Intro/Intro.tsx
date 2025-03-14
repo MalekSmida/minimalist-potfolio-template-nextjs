@@ -93,8 +93,8 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
           alt={`${name}'s presentation picture`}
           className="relative"
           priority={true}
-          width={700}
-          height={700}
+          width={768}
+          height={768}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
 
@@ -104,7 +104,7 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
           width={450}
           height={200}
           loading="lazy"
-          className="absolute right-0 bottom-20 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-80 xl:bottom-32"
+          className="absolute right-0 bottom-0 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-80 xl:bottom-32"
         />
       </div>
     </section>

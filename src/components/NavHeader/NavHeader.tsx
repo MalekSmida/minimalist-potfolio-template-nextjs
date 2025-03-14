@@ -12,7 +12,11 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
         <h2 className="sr-only" id="header-navigation">
           Navigation Header
         </h2>
-        <ul className="flex gap-10 text-sm" role="list" aria-label="Main navigation">
+        <ul
+          className="flex gap-4 text-sm md:gap-8 lg:gap-10"
+          role="list"
+          aria-label="Main navigation"
+        >
           {navButtonList?.map((item) => (
             <NavButton key={item.anchorLink} title={item.title} anchorLink={item.anchorLink} />
           ))}
