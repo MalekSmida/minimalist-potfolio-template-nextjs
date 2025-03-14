@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 
 // local files
 import '../styles/globals.css';
-import { Footer } from '@/components/Footer';
-import contactInfo from '@/data/contactInfo';
-import hyperlinks from '@/data/hyperlinks';
+import { Footer } from '@/components';
+import { contactInfo, hyperlinks } from '@/data';
 
 export const metadata: Metadata = {
   title: 'Malek Smida | Software Engineer | Profile and CV',
@@ -24,13 +23,13 @@ export default function RootLayout({
           {children}
         </main>
         <Footer
-          email={contactInfo.Email}
-          address={contactInfo.Address}
-          phone={contactInfo.Phone}
-          googleMapsURLForAddress={hyperlinks.GoogleMapsURLForAddress}
-          linkedinUrl={hyperlinks.Linkedin}
-          githubUrl={hyperlinks.Github}
-          githubRepo={hyperlinks.GithubRepo}
+          email={contactInfo?.Email}
+          address={contactInfo?.Address}
+          phone={contactInfo?.Phone}
+          googleMapsURLForAddress={hyperlinks?.GoogleMapsURLForAddress}
+          linkedinUrl={hyperlinks?.Linkedin}
+          githubUrl={hyperlinks?.Github}
+          githubRepo={hyperlinks?.GithubRepo}
         />
       </body>
     </html>
