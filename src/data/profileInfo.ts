@@ -1,4 +1,4 @@
 export default {
   Name: 'Malek Smida',
-  Job: 'Senior Full Stack Engineer - Teck Lead',
+  JobTitleList: ['Senior Software Engineer', 'Full Stack Web/Mobile', 'Tech Lead'],
 };
