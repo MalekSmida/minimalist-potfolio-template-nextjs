@@ -2,25 +2,69 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #141e30;
+  --primary: #4f46e5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
+  padding: 0;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /*
+  Font fallback chain's config explained :
+  Segoe UI            => Primary font on Windows
+  -apple-system       => Native font for macOS and iOS 
+  BlinkMacSystemFont  => Chrome’s Apple-specific font
+  Roboto              => Default font on Android and used in Google products
+  Oxygen              => Default font for the KDE desktop environment on Linux
+  Ubuntu              => Default font for Ubuntu Linux
+  Cantarell           => Default font for GNOME desktop environments on Linux
+  Fira Sans           => Developed for Mozilla Firefox OS
+  Droid Sans          => Older default font for Android
+  Helvetica Neue      => Default on older versions of macOS (before Yosemite)
+  sans-serif          => Universal fallback
+  */
+  font-family:
+    Segoe UI,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+*::selection {
+  background: var(--primary); /* WebKit/Blink Browsers */
+  color: white;
+}
+*::-moz-selection {
+  background: var(--primary); /* Gecko Browsers */
+  color: white;
 }
