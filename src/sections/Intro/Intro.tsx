@@ -1,0 +1,111 @@
+import Image from 'next/image';
+
+// local files
+import PresentationPicture from '../../../public/images/presentation.png';
+import RecommendationPicture from '../../../public/images/recommendation.png';
+
+interface PropsIntro {
+  name?: string;
+  jobTitleList?: string[];
+  cvPdfLink?: string;
+}
+
+const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
+  return (
+    <section className="grid w-full grid-cols-1 p-10 lg:grid-cols-2">
+      <div
+        className="p-4 text-center lg:px-8 lg:py-16 lg:text-start"
+        aria-labelledby="profile-heading"
+      >
+        <h1 id="profile-heading" className="my-2 text-2xl font-bold sm:text-3xl lg:my-4">
+          I am {name || 'No body'}
+        </h1>
+        {jobTitleList?.map((title) => (
+          <p key={title} className="my-2 text-lg text-gray-500 sm:text-xl">
+            {title}
+          </p>
+        ))}
+        {cvPdfLink && (
+          <a
+            className="group relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:ring active:text-indigo-500 sm:mt-8"
+            href={cvPdfLink}
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label={`Download ${name || 'No body'}'s resume as PDF`}
+          >
+            <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
+              <svg
+                className="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-label="Download icon"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+            <span className="text-sm font-medium transition-all group-hover:mr-4">
+              Download my CV
+            </span>
+          </a>
+        )}
+      </div>
+      <div className="group relative mt-6 p-4 lg:mt-0 lg:p-0">
+        <svg
+          className="absolute right-0 bottom-6 transition-transform duration-1000 ease-in-out group-hover:rotate-12"
+          height="100%"
+          viewBox="0 0 1010 1005"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Intro animation icon"
+          aria-hidden="true"
+          focusable="false"
+          role="img"
+        >
+          <rect
+            x="-74"
+            y="641.438"
+            width="834.091"
+            height="849.994"
+            rx="200"
+            transform="rotate(-59.0645 -74 641.438)"
+            fill="#6C63FF"
+          />
+        </svg>
+
+        {PresentationPicture && (
+          <Image
+            src={PresentationPicture}
+            alt={`${name || 'No body'}'s presentation picture`}
+            className="relative"
+            priority={true}
+            width={700}
+            height={700}
+          />
+        )}
+
+        {RecommendationPicture && (
+          <Image
+            src={RecommendationPicture}
+            alt={`${name || 'No body'}'s recommendation picture`}
+            width={450}
+            height={200}
+            loading="lazy"
+            className="absolute right-0 bottom-20 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-80 lg:bottom-32"
+          />
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Intro;
