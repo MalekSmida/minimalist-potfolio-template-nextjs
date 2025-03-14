@@ -10,15 +10,19 @@ interface PropsIntro {
   cvPdfLink?: string;
 }
 
-const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
+const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink }) => {
   return (
-    <section className="grid w-full grid-cols-1 p-10 lg:grid-cols-2">
+    <section
+      className="grid w-full grid-cols-1 p-10 lg:grid-cols-2"
+      aria-labelledby="profile-heading"
+    >
+      {/* Profile Info Section */}
       <div
         className="p-4 text-center lg:px-8 lg:py-16 lg:text-start"
         aria-labelledby="profile-heading"
       >
         <h1 id="profile-heading" className="my-2 text-2xl font-bold sm:text-3xl lg:my-4">
-          I am {name || 'No body'}
+          I am {name}
         </h1>
         {jobTitleList?.map((title) => (
           <p key={title} className="my-2 text-lg text-gray-500 sm:text-xl">
@@ -31,7 +35,7 @@ const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
-            aria-label={`Download ${name || 'No body'}'s resume as PDF`}
+            aria-label={`Download ${name}'s resume as PDF`}
           >
             <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
               <svg
@@ -59,6 +63,8 @@ const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
           </a>
         )}
       </div>
+
+      {/* Images Section */}
       <div className="group relative mt-6 p-4 lg:mt-0 lg:p-0">
         <svg
           className="absolute right-0 bottom-6 transition-transform duration-1000 ease-in-out group-hover:rotate-12"
@@ -66,7 +72,7 @@ const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
           viewBox="0 0 1010 1005"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          aria-label="Intro animation icon"
+          aria-label="Presentation's animation icon"
           aria-hidden="true"
           focusable="false"
           role="img"
@@ -82,27 +88,24 @@ const Intro: React.FC<PropsIntro> = ({ name, jobTitleList, cvPdfLink }) => {
           />
         </svg>
 
-        {PresentationPicture && (
-          <Image
-            src={PresentationPicture}
-            alt={`${name || 'No body'}'s presentation picture`}
-            className="relative"
-            priority={true}
-            width={700}
-            height={700}
-          />
-        )}
+        <Image
+          src={PresentationPicture}
+          alt={`${name}'s presentation picture`}
+          className="relative"
+          priority={true}
+          width={700}
+          height={700}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
 
-        {RecommendationPicture && (
-          <Image
-            src={RecommendationPicture}
-            alt={`${name || 'No body'}'s recommendation picture`}
-            width={450}
-            height={200}
-            loading="lazy"
-            className="absolute right-0 bottom-20 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-80 lg:bottom-32"
-          />
-        )}
+        <Image
+          src={RecommendationPicture}
+          alt={`${name}'s recommendation picture`}
+          width={450}
+          height={200}
+          loading="lazy"
+          className="absolute right-0 bottom-20 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-80 xl:bottom-32"
+        />
       </div>
     </section>
   );
