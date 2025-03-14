@@ -1,5 +1,5 @@
 // local files
-import { INavButton, NavButton } from '../NavButton';
+import NavButton, { INavButton } from '../NavButton';
 
 interface PropsNavHeader {
   navButtonList: INavButton[];

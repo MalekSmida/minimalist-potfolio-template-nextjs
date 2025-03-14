@@ -1,5 +1,5 @@
 import { expect, test, describe, afterEach } from 'vitest';
-import { cleanup, render, screen, fireEvent } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
 import Footer from './Footer';
