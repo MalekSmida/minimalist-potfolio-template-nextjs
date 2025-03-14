@@ -23,7 +23,7 @@ describe('NavHeader Component', () => {
 
   test('should renders the navigation header component without errors', () => {
     render(<NavHeader navButtonList={[]} />);
-    expect(screen.getByRole('navigation')).toBeDefined();
+    expect(screen.getByRole('banner')).toBeDefined();
   });
 
   test('should renders the navigation buttons correctly', () => {
