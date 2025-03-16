@@ -4,13 +4,17 @@ import Image from 'next/image';
 import PresentationPicture from '../../../public/images/presentation.png';
 import RecommendationPicture from '../../../public/images/recommendation.png';
 
-interface PropsIntro {
+interface PropsPresentation {
   name?: string;
   jobTitleList?: string[];
   cvPdfLink?: string;
 }
 
-const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink }) => {
+const Presentation: React.FC<PropsPresentation> = ({
+  name = 'No body',
+  jobTitleList,
+  cvPdfLink,
+}) => {
   return (
     <section
       className="grid w-full grid-cols-1 p-10 lg:grid-cols-2"
@@ -31,7 +35,7 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
         ))}
         {cvPdfLink && (
           <a
-            className="group relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:ring active:text-indigo-500 sm:mt-8"
+            className="group border-primary bg-primary hover:text-primary active:text-primary relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring sm:mt-8"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
@@ -67,7 +71,7 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
       {/* Images Section */}
       <div className="group relative mt-6 p-4 lg:mt-0 lg:p-0">
         <svg
-          className="absolute right-0 bottom-6 transition-transform duration-1000 ease-in-out group-hover:rotate-12"
+          className="animate-spin-dynamic absolute right-0 bottom-6"
           height="100%"
           viewBox="0 0 1010 1005"
           fill="none"
@@ -84,7 +88,7 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
             height="849.994"
             rx="200"
             transform="rotate(-59.0645 -74 641.438)"
-            fill="#6C63FF"
+            fill="#6c63ff"
           />
         </svg>
 
@@ -111,4 +115,4 @@ const Intro: React.FC<PropsIntro> = ({ name = 'No body', jobTitleList, cvPdfLink
   );
 };
 
-export default Intro;
+export default Presentation;

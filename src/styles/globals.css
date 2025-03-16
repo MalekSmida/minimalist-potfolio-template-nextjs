@@ -3,7 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #141e30;
-  --primary: #4f46e5;
+  /* --background: #141e30;
+  --foreground: #ffffff; */
+  --primary: #6c63ff;
 }
 
 @theme inline {
@@ -67,4 +69,29 @@ body {
 *::-moz-selection {
   background: var(--primary); /* Gecko Browsers */
   color: white;
+}
+
+/* Presentation's svg animation */
+@keyframes spin-dynamic {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  40% {
+    transform: rotate(70deg);
+  } /* Slight reversal */
+  60% {
+    transform: rotate(200deg);
+  }
+  80% {
+    transform: rotate(170deg);
+  } /* Another subtle inversion */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-dynamic {
+  animation: spin-dynamic 20s ease-in-out infinite;
 }

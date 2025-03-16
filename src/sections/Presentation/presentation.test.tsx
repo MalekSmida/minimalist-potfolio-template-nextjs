@@ -2,7 +2,7 @@ import { expect, test, describe, afterEach } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
-import Intro from './Intro';
+import Presentation from './Presentation';
 
 const dummyData = {
   Name: 'John Doe',
@@ -10,25 +10,25 @@ const dummyData = {
   CvPdfLink: 'https://drive.google.com/file/test',
 };
 
-describe('Intro Section', () => {
+describe('Presentation Section', () => {
   afterEach(() => {
     cleanup();
   });
 
-  test('should renders the Intro component without errors', () => {
-    render(<Intro />);
+  test('should renders the Presentation component without errors', () => {
+    render(<Presentation />);
 
     // Should show fallback name
     expect(screen.getByText('I am No body')).toBeDefined();
   });
 
   test('should renders the name correctly', () => {
-    render(<Intro name={dummyData.Name} />);
+    render(<Presentation name={dummyData.Name} />);
     expect(screen.getByRole('heading', { name: 'I am John Doe' })).toBeDefined();
   });
 
   test('should renders job titles correctly', () => {
-    render(<Intro jobTitleList={dummyData.JobTitleList} />);
+    render(<Presentation jobTitleList={dummyData.JobTitleList} />);
     dummyData.JobTitleList.forEach((title) => {
       expect(screen.getByText(title)).toBeDefined();
     });
@@ -36,7 +36,7 @@ describe('Intro Section', () => {
 
   test('should renders download button correctly', () => {
     render(
-      <Intro
+      <Presentation
         name={dummyData.Name}
         jobTitleList={dummyData.JobTitleList}
         cvPdfLink={dummyData.CvPdfLink}
