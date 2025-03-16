@@ -1,8 +1,12 @@
 {
-  "name": "malek-smida-portfolio-v0.2",
+  "name": "minimalist-potfolio-template-nextjs",
+  "description": "A minimalist portfolio template created using Nextjs and TailwindCSS",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
+  "author": {
+    "name": "Malek Smida"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
