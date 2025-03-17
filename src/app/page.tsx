@@ -1,6 +1,6 @@
 // local files
 import { NavHeader } from '@/components';
-import { experiences, hyperlinks, profileInfo } from '@/data';
+import { experiences, hyperlinks, profileInfo, skills } from '@/data';
 import { About, Experiences, Presentation, Skills } from '@/sections';
 
 const navButtonList = [
@@ -30,7 +30,7 @@ export default function Home() {
         educationList={profileInfo.educationList}
         interestList={profileInfo.interestList}
       />
-      <Skills />
+      <Skills skills={skills} />
     </>
   );
 }
