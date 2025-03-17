@@ -11,6 +11,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
   phone,
   googleMapsURLForAddress,
 }) => {
+  // break when empty props
   if (!email && !address && !phone) return;
 
   return (

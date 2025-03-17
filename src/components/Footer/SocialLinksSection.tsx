@@ -4,7 +4,9 @@ interface PropsSocialLinksSection {
 }
 
 const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinUrl, githubUrl }) => {
+  // break when empty props
   if (!linkedinUrl && !githubUrl) return;
+
   return (
     <section>
       <ul className="mt-6 mb-2 flex items-center gap-6 md:gap-8" role="list">
