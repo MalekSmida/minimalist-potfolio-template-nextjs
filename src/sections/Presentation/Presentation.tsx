@@ -10,11 +10,9 @@ interface PropsPresentation {
   cvPdfLink?: string;
 }
 
-const Presentation: React.FC<PropsPresentation> = ({
-  name = 'No body',
-  jobTitleList,
-  cvPdfLink,
-}) => {
+const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLink }) => {
+  const displayName = name || 'No body';
+
   return (
     <section
       className="grid w-full grid-cols-1 p-10 lg:grid-cols-2"
@@ -26,7 +24,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         aria-labelledby="profile-heading"
       >
         <h1 id="profile-heading" className="my-2 text-2xl font-bold sm:text-3xl lg:my-4">
-          I am {name}
+          I am {displayName}
         </h1>
         {jobTitleList?.map((title) => (
           <p key={title} className="my-2 text-lg text-gray-500 sm:text-xl">
@@ -39,7 +37,7 @@ const Presentation: React.FC<PropsPresentation> = ({
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
-            aria-label={`Download ${name}'s resume as PDF`}
+            aria-label={`Download ${displayName}'s resume as PDF`}
           >
             <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
               <svg
@@ -94,7 +92,7 @@ const Presentation: React.FC<PropsPresentation> = ({
 
         <Image
           src={PresentationPicture}
-          alt={`${name}'s presentation picture`}
+          alt={`${displayName}'s presentation picture`}
           className="relative"
           priority={true}
           width={768}
@@ -104,7 +102,7 @@ const Presentation: React.FC<PropsPresentation> = ({
 
         <Image
           src={RecommendationPicture}
-          alt={`${name}'s recommendation picture`}
+          alt={`${displayName}'s recommendation picture`}
           width={450}
           height={200}
           loading="lazy"

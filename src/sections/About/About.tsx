@@ -7,12 +7,9 @@ interface PropsAbout {
   interestList: string[];
 }
 
-const About: React.FC<PropsAbout> = ({
-  name = 'No body',
-  aboutDescription,
-  educationList,
-  interestList,
-}) => {
+const About: React.FC<PropsAbout> = ({ name, aboutDescription, educationList, interestList }) => {
+  const displayName = name || 'No body';
+
   return (
     <section className="grid grid-cols-1 px-4 py-16 lg:grid-cols-2">
       {/* Image section*/}
@@ -29,7 +26,9 @@ const About: React.FC<PropsAbout> = ({
       {/* About me */}
       <div className="relative flex items-center bg-gray-50">
         <div className="xl:text-md p-8 text-sm sm:p-16 lg:p-24">
-          <h2 className="mb-3 text-2xl font-bold sm:mb-6 sm:text-3xl">Hello, I&apos;m {name} 👋</h2>
+          <h2 className="mb-3 text-2xl font-bold sm:mb-6 sm:text-3xl">
+            Hello, I&apos;m {displayName} 👋
+          </h2>
 
           {aboutDescription && (
             <p className="list-disc space-y-2 text-gray-600">{aboutDescription}</p>

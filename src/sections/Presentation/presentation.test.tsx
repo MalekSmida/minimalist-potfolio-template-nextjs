@@ -28,7 +28,7 @@ describe('Presentation Section', () => {
   });
 
   test('should renders job titles correctly', () => {
-    render(<Presentation name='' jobTitleList={mockData.JobTitleList} />);
+    render(<Presentation name="" jobTitleList={mockData.JobTitleList} />);
     mockData.JobTitleList.forEach((title) => {
       expect(screen.getByText(title)).toBeDefined();
     });
