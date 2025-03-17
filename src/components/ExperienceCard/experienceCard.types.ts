@@ -1,12 +1,15 @@
-export interface IExperience {
+export interface IExperienceCard {
   _id: string;
   contractType: string;
-  company?: string;
-  dates: string;
   positions: string[];
+  company?: string;
+  summary: string;
+}
+
+export interface IExperience extends IExperienceCard {
+  dates: string;
   iconPath: string;
   iconWidth: number;
   iconHeight: number;
   contributions: string[];
-  summary: string;
 }

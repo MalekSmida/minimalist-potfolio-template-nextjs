@@ -5,8 +5,8 @@ import { cleanup, render, screen } from '@testing-library/react';
 import NavButton from './NavButton';
 
 // Constants
-const dummyTitle = 'dummy title',
-  dummyAnchorLink = 'dummy anchor link';
+const mockTitle = 'Test Title',
+  mockAnchorLink = 'Test anchor link';
 
 describe('NavButton Component', () => {
   afterEach(() => {
@@ -14,11 +14,11 @@ describe('NavButton Component', () => {
   });
 
   test('should renders the navigation button component without errors', () => {
-    render(<NavButton title={dummyTitle} anchorLink={dummyAnchorLink} />);
+    render(<NavButton title={mockTitle} anchorLink={mockAnchorLink} />);
 
     // Test on aria-label for accessibility
     expect(
-      screen.getByRole('link', { name: `Navigate to the section ${dummyTitle}` }),
+      screen.getByRole('link', { name: `Navigate to the section ${mockTitle}` }),
     ).toBeDefined();
 
     /**
@@ -27,6 +27,6 @@ describe('NavButton Component', () => {
      * An alternative is to use "data-testid" : https://stackoverflow.com/a/78227205/13987596
      */
 
-    expect(screen.getByText(dummyTitle)).toBeDefined();
+    expect(screen.getByText(mockTitle)).toBeDefined();
   });
 });

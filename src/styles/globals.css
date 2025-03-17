@@ -93,5 +93,5 @@ body {
   }
 }
 .animate-spin-dynamic {
-  animation: spin-dynamic 20s ease-in-out infinite;
+  animation: spin-dynamic 25s ease-in-out infinite;
 }

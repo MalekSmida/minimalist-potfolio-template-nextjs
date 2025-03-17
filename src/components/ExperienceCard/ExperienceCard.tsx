@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
 // local files
-import { IExperience } from './experienceCard.types';
+import { IExperienceCard } from './experienceCard.types';
 
 /**
  * Experience card shown in home under Career section
  */
-const ExperienceCard: React.FC<IExperience> = ({
-  contractType,
+const ExperienceCard: React.FC<IExperienceCard> = ({
   _id,
+  contractType,
   positions,
   company,
   summary,

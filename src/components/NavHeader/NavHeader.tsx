@@ -7,7 +7,7 @@ interface PropsNavHeader {
 
 const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
   return (
-    <header id="header" role="banner" className="flex h-16 items-center px-4 sm:px-6 lg:px-8">
+    <header id="header" role="banner" className="z-10 flex h-16 items-center px-4 sm:px-6 lg:px-8">
       <nav aria-labelledby="header-navigation">
         <h2 className="sr-only" id="header-navigation">
           Navigation Header

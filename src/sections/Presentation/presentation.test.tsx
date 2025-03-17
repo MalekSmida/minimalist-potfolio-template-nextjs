@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 // local files
 import Presentation from './Presentation';
 
-const dummyData = {
+const mockData = {
   Name: 'John Doe',
   JobTitleList: ['Software Engineer', 'Designer'],
   CvPdfLink: 'https://drive.google.com/file/test',
@@ -23,13 +23,13 @@ describe('Presentation Section', () => {
   });
 
   test('should renders the name correctly', () => {
-    render(<Presentation name={dummyData.Name} />);
+    render(<Presentation name={mockData.Name} />);
     expect(screen.getByRole('heading', { name: 'I am John Doe' })).toBeDefined();
   });
 
   test('should renders job titles correctly', () => {
-    render(<Presentation jobTitleList={dummyData.JobTitleList} />);
-    dummyData.JobTitleList.forEach((title) => {
+    render(<Presentation jobTitleList={mockData.JobTitleList} />);
+    mockData.JobTitleList.forEach((title) => {
       expect(screen.getByText(title)).toBeDefined();
     });
   });
@@ -37,15 +37,15 @@ describe('Presentation Section', () => {
   test('should renders download button correctly', () => {
     render(
       <Presentation
-        name={dummyData.Name}
-        jobTitleList={dummyData.JobTitleList}
-        cvPdfLink={dummyData.CvPdfLink}
+        name={mockData.Name}
+        jobTitleList={mockData.JobTitleList}
+        cvPdfLink={mockData.CvPdfLink}
       />,
     );
     expect(
       screen
-        .getByRole('link', { name: `Download ${dummyData.Name}'s resume as PDF` })
+        .getByRole('link', { name: `Download ${mockData.Name}'s resume as PDF` })
         .getAttribute('href'),
-    ).toBe(dummyData.CvPdfLink);
+    ).toBe(mockData.CvPdfLink);
   });
 });

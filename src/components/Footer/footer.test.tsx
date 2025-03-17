@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 // local files
 import Footer from './Footer';
 
-const dummyData = {
+const mockData = {
   Email: 'test@mail.com',
   Address: '123 Test Street',
   Phone: '+123456789',
@@ -41,28 +41,28 @@ describe('Footer Component', () => {
   test('should renders contact section when valid props', () => {
     render(
       <Footer
-        email={dummyData.Email}
-        address={dummyData.Address}
-        phone={dummyData.Phone}
-        googleMapsURLForAddress={dummyData.GoogleMapsURLForAddress}
+        email={mockData.Email}
+        address={mockData.Address}
+        phone={mockData.Phone}
+        googleMapsURLForAddress={mockData.GoogleMapsURLForAddress}
       />,
     );
 
     expect(screen.getByText(/Contact/i)).toBeDefined();
-    expect(screen.getByText(dummyData.Email)).toBeDefined();
-    expect(screen.getByText(dummyData.Address)).toBeDefined();
-    expect(screen.getByText(dummyData.Phone)).toBeDefined();
+    expect(screen.getByText(mockData.Email)).toBeDefined();
+    expect(screen.getByText(mockData.Address)).toBeDefined();
+    expect(screen.getByText(mockData.Phone)).toBeDefined();
   });
 
   test('should renders social links section when valid props', () => {
-    render(<Footer linkedinUrl={dummyData.Linkedin} githubUrl={dummyData.Github} />);
+    render(<Footer linkedinUrl={mockData.Linkedin} githubUrl={mockData.Github} />);
 
     expect(screen.getByRole('link', { name: 'Linkedin' })).toBeDefined();
     expect(screen.getByRole('link', { name: 'Github' })).toBeDefined();
   });
 
   test('should renders fork-it when valid props', () => {
-    render(<Footer githubRepo={dummyData.GithubRepo} />);
+    render(<Footer githubRepo={mockData.GithubRepo} />);
 
     expect(screen.getByText(/Fork it/i)).toBeDefined();
   });
@@ -70,13 +70,13 @@ describe('Footer Component', () => {
   test('should redirect to valid urls when clicked', () => {
     render(
       <Footer
-        email={dummyData.Email}
-        address={dummyData.Address}
-        phone={dummyData.Phone}
-        googleMapsURLForAddress={dummyData.GoogleMapsURLForAddress}
-        linkedinUrl={dummyData.Linkedin}
-        githubUrl={dummyData.Github}
-        githubRepo={dummyData.GithubRepo}
+        email={mockData.Email}
+        address={mockData.Address}
+        phone={mockData.Phone}
+        googleMapsURLForAddress={mockData.GoogleMapsURLForAddress}
+        linkedinUrl={mockData.Linkedin}
+        githubUrl={mockData.Github}
+        githubRepo={mockData.GithubRepo}
       />,
     );
 
@@ -87,31 +87,27 @@ describe('Footer Component', () => {
      */
     // Test email link
     expect(
-      screen
-        .getByRole('link', { name: `Send an email to ${dummyData.Email}` })
-        .getAttribute('href'),
-    ).toBe(`mailto:${dummyData.Email}`);
+      screen.getByRole('link', { name: `Send an email to ${mockData.Email}` }).getAttribute('href'),
+    ).toBe(`mailto:${mockData.Email}`);
     // Test address link
     expect(
       screen.getByRole('link', { name: 'View address on Google Maps' }).getAttribute('href'),
-    ).toBe(dummyData.GoogleMapsURLForAddress);
+    ).toBe(mockData.GoogleMapsURLForAddress);
     // Test phone link
-    expect(screen.getByRole('link', { name: `Call ${dummyData.Phone}` }).getAttribute('href')).toBe(
-      `tel:${dummyData.Phone}`,
+    expect(screen.getByRole('link', { name: `Call ${mockData.Phone}` }).getAttribute('href')).toBe(
+      `tel:${mockData.Phone}`,
     );
 
     // Test linkedin link
     expect(screen.getByRole('link', { name: 'Linkedin' }).getAttribute('href')).toBe(
-      dummyData.Linkedin,
+      mockData.Linkedin,
     );
     // Test github link
-    expect(screen.getByRole('link', { name: 'Github' }).getAttribute('href')).toBe(
-      dummyData.Github,
-    );
+    expect(screen.getByRole('link', { name: 'Github' }).getAttribute('href')).toBe(mockData.Github);
 
     // Test github repository link in "Fork it"
     expect(screen.getByRole('link', { name: 'Fork it' }).getAttribute('href')).toBe(
-      dummyData.GithubRepo,
+      mockData.GithubRepo,
     );
   });
 });
