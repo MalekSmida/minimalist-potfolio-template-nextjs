@@ -39,7 +39,7 @@ const experiences: Array<IExperience> = [
     _id: 'clevertech-france',
     contractType: 'Full-time job',
     company: 'CleverTech France',
-    dates: 'March 2022 - Mars 2023',
+    dates: 'March 2022 - March 2023',
     positions: ['Head of Frontend', 'Senior Full-stack JS'],
     iconPath: '/icons/clevertech-france.png',
     iconWidth: 80,

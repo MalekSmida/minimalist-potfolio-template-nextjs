@@ -15,10 +15,18 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
 }) => {
   return (
     <Link href={`/experience/${_id}`}>
-      <article className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6">
+      <article
+        className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6"
+        role="listitem"
+        aria-labelledby={`experience-title-${_id}`}
+      >
         <span className="absolute inset-x-0 top-0 h-2 rounded-t-lg bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
         {positions.map((position) => (
-          <h3 key={position} className="mt-0.5 line-clamp-1 text-lg font-medium text-gray-900">
+          <h3
+            key={position}
+            id={`experience-title-${_id}`}
+            className="mt-0.5 line-clamp-1 text-lg font-medium text-gray-900"
+          >
             {position}
           </h3>
         ))}
