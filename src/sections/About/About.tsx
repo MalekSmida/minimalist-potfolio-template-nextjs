@@ -21,7 +21,7 @@ const About: React.FC = () => {
       <div className="relative flex items-center bg-gray-50">
         <div className="xl:text-md p-8 text-sm sm:p-16 lg:p-24">
           <h2 className="mb-3 text-2xl font-bold sm:mb-6 sm:text-3xl">
-            Hello, I'm {profileInfo.Name} 👋
+            Hello, I&apos;m {profileInfo.Name} 👋
           </h2>
 
           <p className="list-disc space-y-2 text-gray-600">{profileInfo.AboutDescription}</p>

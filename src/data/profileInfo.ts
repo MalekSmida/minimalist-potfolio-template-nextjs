@@ -1,4 +1,4 @@
-export default {
+const profileInfo = {
   Name: 'Malek Smida',
   JobTitleList: ['Senior Software Engineer', 'Full Stack Web/Mobile', 'Tech Lead'],
   CareerDescriptionList: [
@@ -14,3 +14,5 @@ export default {
   ],
   interestList: ['🎸 Guitar', '📚 Reading', '🤸 Workout', '🏕️ Camping'],
 };
+
+export default profileInfo;

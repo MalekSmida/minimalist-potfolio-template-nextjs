@@ -36,9 +36,8 @@ describe('ExperienceCard Component', () => {
   });
 
   test('should displays contractType if no company is provided', () => {
-    const { company, ...propsWithoutCompany } = mockProps;
-    render(<ExperienceCard {...propsWithoutCompany} />);
-    expect(screen.getByText(propsWithoutCompany.contractType)).toBeDefined();
+    render(<ExperienceCard {...mockProps} company={undefined} />);
+    expect(screen.getByText(mockProps.contractType)).toBeDefined();
   });
 
   test('should displays summary correctly', () => {

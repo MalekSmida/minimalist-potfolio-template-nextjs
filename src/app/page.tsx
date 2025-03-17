@@ -20,7 +20,10 @@ export default function Home() {
         jobTitleList={profileInfo.JobTitleList}
         cvPdfLink={hyperlinks.CVPDF}
       />
-      <Experiences careerDescription={profileInfo.CareerDescription} experiences={experiences} />
+      <Experiences
+        careerDescriptionList={profileInfo.CareerDescriptionList}
+        experiences={experiences}
+      />
       <About />
       <Skills />
     </>
