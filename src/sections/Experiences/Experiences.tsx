@@ -2,22 +2,22 @@
 import ExperienceCard, { IExperienceCard } from '@/components/ExperienceCard';
 
 interface PropsExperiences {
-  careerDescription?: string[];
+  careerDescriptionList?: string[];
   experiences?: Array<IExperienceCard>;
 }
 
-const Experiences: React.FC<PropsExperiences> = ({ careerDescription, experiences }) => {
+const Experiences: React.FC<PropsExperiences> = ({ careerDescriptionList, experiences }) => {
   // break when empty props
-  if (!careerDescription?.length && !experiences?.length) return;
+  if (!careerDescriptionList?.length && !experiences?.length) return;
 
   return (
     <section className="relative my-8 w-full py-16">
       <div className="mb-8">
         <h2 className="my-4 text-3xl font-bold sm:text-4xl">Career</h2>
 
-        {careerDescription?.map((item) => (
-          <p key={item} className="mt-1 text-gray-500">
-            {item}
+        {careerDescriptionList?.map((description) => (
+          <p key={description} className="mt-1 text-gray-500">
+            {description}
           </p>
         ))}
       </div>
