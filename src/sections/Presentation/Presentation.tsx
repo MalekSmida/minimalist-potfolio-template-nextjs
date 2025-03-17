@@ -5,7 +5,7 @@ import PresentationPicture from '../../../public/images/presentation.png';
 import RecommendationPicture from '../../../public/images/recommendation.png';
 
 interface PropsPresentation {
-  name?: string;
+  name: string;
   jobTitleList?: string[];
   cvPdfLink?: string;
 }

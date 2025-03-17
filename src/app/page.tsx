@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <NavHeader navButtonList={navButtonList} />
       <Presentation
-        name={profileInfo?.Name}
+        name={profileInfo.Name}
         jobTitleList={profileInfo.JobTitleList}
         cvPdfLink={hyperlinks.CVPDF}
       />
@@ -24,7 +24,12 @@ export default function Home() {
         careerDescriptionList={profileInfo.CareerDescriptionList}
         experiences={experiences}
       />
-      <About />
+      <About
+        name={profileInfo.Name}
+        aboutDescription={profileInfo.AboutDescription}
+        educationList={profileInfo.educationList}
+        interestList={profileInfo.interestList}
+      />
       <Skills />
     </>
   );

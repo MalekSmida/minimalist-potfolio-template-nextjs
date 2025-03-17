@@ -16,7 +16,7 @@ describe('Presentation Section', () => {
   });
 
   test('should renders the Presentation component without errors', () => {
-    render(<Presentation />);
+    render(<Presentation name="" />);
 
     // Should show fallback name
     expect(screen.getByText('I am No body')).toBeDefined();
@@ -28,7 +28,7 @@ describe('Presentation Section', () => {
   });
 
   test('should renders job titles correctly', () => {
-    render(<Presentation jobTitleList={mockData.JobTitleList} />);
+    render(<Presentation name='' jobTitleList={mockData.JobTitleList} />);
     mockData.JobTitleList.forEach((title) => {
       expect(screen.getByText(title)).toBeDefined();
     });
