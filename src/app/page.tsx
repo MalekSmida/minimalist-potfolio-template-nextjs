@@ -1,14 +1,14 @@
 // local files
 import { NavHeader } from '@/components';
+import { INavButton } from '@/components/NavButton';
 import { experiences, hyperlinks, profileInfo, skills } from '@/data';
-import { About, Experiences, Presentation, Skills } from '@/sections';
+import { About, Career, Presentation, Skills } from '@/sections';
 
-const navButtonList = [
-  { title: 'Career', anchorLink: 'anchor link 1' },
-  { title: 'About', anchorLink: 'anchor link 2' },
-  { title: 'Clients', anchorLink: 'anchor link 3' },
-  { title: 'Skills', anchorLink: 'anchor link 4' },
-  { title: 'Contact', anchorLink: 'anchor link 5' },
+const navButtonList: INavButton[] = [
+  { title: 'Career', link: { id: 'career', type: 'anchorLink' } },
+  { title: 'About', link: { id: 'about', type: 'anchorLink' } },
+  { title: 'Skills', link: { id: 'skills', type: 'anchorLink' } },
+  { title: 'Contact', link: { id: 'contact', type: 'anchorLink' } },
 ];
 
 export default function Home() {
@@ -20,10 +20,7 @@ export default function Home() {
         jobTitleList={profileInfo.JobTitleList}
         cvPdfLink={hyperlinks.CVPDF}
       />
-      <Experiences
-        careerDescriptionList={profileInfo.CareerDescriptionList}
-        experiences={experiences}
-      />
+      <Career careerDescriptionList={profileInfo.CareerDescriptionList} experiences={experiences} />
       <About
         name={profileInfo.Name}
         aboutDescription={profileInfo.AboutDescription}
