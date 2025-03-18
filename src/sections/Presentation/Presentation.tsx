@@ -1,9 +1,5 @@
 import Image from 'next/image';
 
-// local files
-import PresentationPicture from '../../../public/images/presentation.png';
-import RecommendationPicture from '../../../public/images/recommendation.png';
-
 interface PropsPresentation {
   name: string;
   jobTitleList?: string[];
@@ -17,6 +13,7 @@ const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLi
     <section
       className="grid w-full grid-cols-1 p-10 lg:grid-cols-2"
       aria-labelledby="profile-heading"
+      id="presentation"
     >
       {/* Profile Info Section */}
       <div
@@ -69,7 +66,7 @@ const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLi
       {/* Images Section */}
       <div className="group relative mt-6 p-4 lg:mt-0 lg:p-0">
         <svg
-          className="animate-spin-dynamic absolute right-0 bottom-6"
+          className="animated-spin-dynamic absolute right-0 bottom-6"
           height="100%"
           viewBox="0 0 1010 1005"
           fill="none"
@@ -91,7 +88,7 @@ const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLi
         </svg>
 
         <Image
-          src={PresentationPicture}
+          src="/images/presentation.png"
           alt={`${displayName}'s presentation picture`}
           className="relative"
           priority={true}
@@ -101,7 +98,7 @@ const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLi
         />
 
         <Image
-          src={RecommendationPicture}
+          src="/images/recommendation.png"
           alt={`${displayName}'s recommendation picture`}
           width={450}
           height={200}
