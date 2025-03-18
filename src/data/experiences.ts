@@ -1,4 +1,4 @@
-import { IExperience } from '@/sections/Experiences';
+import { IExperience } from '@/components/ExperienceCard';
 
 const experiences: Array<IExperience> = [
   {
@@ -7,7 +7,7 @@ const experiences: Array<IExperience> = [
     company: 'SOPRA STERIA',
     dates: 'April 2023 - Dec 2024',
     positions: ['Tech Lead', 'Senior Full-stack Engineer'],
-    iconPath: '/icons/sopra-steria.png',
+    iconPath: '/icons/sopra-steria.jpeg',
     iconWidth: 100,
     iconHeight: 100,
     summary:
@@ -41,7 +41,7 @@ const experiences: Array<IExperience> = [
     company: 'CleverTech France',
     dates: 'March 2022 - March 2023',
     positions: ['Head of Frontend', 'Senior Full-stack JS'],
-    iconPath: '/icons/clevertech-france.png',
+    iconPath: '/icons/clevertech-france.jpg',
     iconWidth: 80,
     iconHeight: 80,
     summary:
@@ -87,8 +87,8 @@ const experiences: Array<IExperience> = [
     dates: 'Nov 2020 - Jan 2022',
     positions: ['Full-stack Engineer', 'UX Designer'],
     iconPath: '/icons/fallback.png',
-    iconWidth: 50,
-    iconHeight: 50,
+    iconWidth: 90,
+    iconHeight: 90,
     summary:
       'Managed complete development lifecycle from design to deployment, building responsive applications with real-time features, payment systems, and authentication workflows.',
     contributions: [
@@ -108,29 +108,6 @@ const experiences: Array<IExperience> = [
       'Time management: Manage time in efficient way to achieve maximum productivity as I am working on both freelance project and my full-time job',
     ],
   },
-
-  {
-    _id: 'expensya',
-    contractType: 'Full-time job',
-    company: 'Expensya',
-    dates: 'April 2021 - Sept 2021',
-    positions: ['Full-stack Engineer'],
-    iconPath: '/icons/expensya.webp',
-    iconWidth: 50,
-    iconHeight: 50,
-    summary:
-      'Integrated payment flow for virtual and physical cards while collaborating with partners and following SOLID principles.',
-    contributions: [
-      'Working in the payment team, we collaborated with Swan to integrate a complete payment flow of virtual and physical cards',
-      'Developed parts of the application using Angular/React for the frontend, mobile and .Net (c#) for the backend with Graphql integration',
-      'Follow SOLID principles, and recommended design patterns to deliver quality code',
-      'Debug and test work using Jasmine and Karma for unit and integration testing',
-      'Collaborate and follow a git branch strategy that contributes to productivity and speed of delivery',
-      'Participate in MEP (release to production) on Azure DevOps on a regular basis, to deliver fixes and new features to production, we run the necessary pipelines',
-      'Project management using TFS',
-      'Found a public speaking club, Klemet Expensya on collaboration with Manager, HR and Expensya language teachers',
-    ],
-  },
   {
     _id: 'xperiencia',
     contractType: 'End of studies internship',
@@ -138,8 +115,8 @@ const experiences: Array<IExperience> = [
     dates: 'Feb 2020 - Aug 2020',
     positions: ['MERN Stack Developer'],
     iconPath: '/icons/fallback.png',
-    iconWidth: 50,
-    iconHeight: 50,
+    iconWidth: 90,
+    iconHeight: 90,
     summary:
       'Developed usability testing web and desktop application (with Electron), implementing real-time emotion recognition analysis and WebSocket chat functionality.',
     contributions: [
@@ -159,8 +136,8 @@ const experiences: Array<IExperience> = [
     dates: 'July 2019 - Oct 2019',
     positions: ['Full Stack Developer'],
     iconPath: '/icons/fabskill.png',
-    iconWidth: 50,
-    iconHeight: 50,
+    iconWidth: 90,
+    iconHeight: 90,
     summary:
       'Enhanced user experience and developed internal management dashboard that significantly increased sales team productivity through real-time KPI tracking',
     contributions: [

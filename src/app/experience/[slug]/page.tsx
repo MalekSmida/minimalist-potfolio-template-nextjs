@@ -1,15 +1,19 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
 // local files
 import { NavHeader } from '@/components';
 import { IExperience } from '@/components/ExperienceCard';
 import { experiences } from '@/data';
+import { INavButton } from '@/components/NavButton';
 
 interface PropsPage {
   params: Promise<{ slug: string }>;
 }
 
-const navButtonList = [{ title: 'Back to main page', anchorLink: '/' }];
+const navButtonList: INavButton[] = [
+  { title: 'Back to main page', link: { id: '/', type: 'href' } },
+];
 
 const Page: React.FC<PropsPage> = async ({ params }) => {
   // In Nextjs 15 dynamic route segment is passed as Promise in the props when using App router
@@ -26,31 +30,54 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
     notFound();
   }
 
+  const {
+    company,
+    contractType,
+    iconPath,
+    iconHeight,
+    iconWidth,
+    positions,
+    dates,
+    contributions,
+  } = currentExperience;
+  const iconTitle = company || contractType;
+
   return (
     <>
       <NavHeader navButtonList={navButtonList} />
-      <span className="h-32 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500"></span>
-      <section className="container mx-auto max-w-3xl px-4 py-8">
-        <h1 className="mb-4 text-2xl font-bold">
-          {Array.isArray(currentExperience.positions)
-            ? currentExperience.positions.join(', ')
-            : currentExperience.positions}
-        </h1>
-        {/* Add more experience details here */}
-        {currentExperience.company && <h2 className="mb-3 text-xl">{currentExperience.company}</h2>}
-        <p className="mb-6 text-gray-600">{currentExperience.dates}</p>
+      <span className="relative h-48 w-full bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
+      <section className="relative container mx-auto max-w-3xl py-20">
+        <Image
+          src={iconPath}
+          alt={iconTitle}
+          title={iconTitle}
+          height={iconHeight}
+          width={iconWidth}
+          loading="lazy"
+          role="img"
+          aria-label={iconTitle}
+          className="absolute -top-12 left-5"
+        />
 
-        {/* Render contributions if available */}
-        {currentExperience.contributions && (
-          <div className="mt-8">
-            <h3 className="mb-4 text-lg font-semibold">Key Contributions</h3>
-            <ul className="list-disc space-y-2 pl-5">
-              {currentExperience.contributions.map((contribution, index) => (
-                <li key={index}>{contribution}</li>
-              ))}
-            </ul>
+        <article className="mx-auto max-w-3xl p-5">
+          <h1 className="mb-4 text-3xl font-semibold">
+            {Array.isArray(positions) ? positions.join(', ') : positions}
+          </h1>
+          {company && (
+            <strong className="border-indingo-50 text-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium">
+              @ {company}
+            </strong>
+          )}
+          <div className="mt-8 flex flex-col border-l-2 border-gray-500 px-4 py-1 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-xl">{contractType}</h2>
+            <p className="text-xs text-gray-500">{dates}</p>
           </div>
-        )}
+          <ul className="my-10 list-disc space-y-5 text-gray-700">
+            {contributions.map((contribution, index) => (
+              <li key={index}>{contribution}</li>
+            ))}
+          </ul>
+        </article>
       </section>
     </>
   );
