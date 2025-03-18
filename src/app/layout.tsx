@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 // local files
 import '../styles/globals.css';
-import { BackToTopButton, Footer, ProgressScrollBar } from '@/components';
+import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
 import { contactInfo, hyperlinks } from '@/data';
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex min-h-screen flex-col items-center justify-between">
         <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6">
-          <ProgressScrollBar />
+          <ScrollProgressIndicatorBar />
           {children}
         </main>
         <Footer

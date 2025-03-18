@@ -9,7 +9,7 @@ import { useMesureVerticalScroll } from '@/hooks';
 /**
  * Progress bar animation shown in top of page when scrolling
  */
-const ProgressScrollBar: React.FC = () => {
+const ScrollProgressIndicatorBar: React.FC = () => {
   const { scrollProgress } = useMesureVerticalScroll();
   return (
     <span
@@ -22,4 +22,4 @@ const ProgressScrollBar: React.FC = () => {
   );
 };
 
-export default ProgressScrollBar;
+export default ScrollProgressIndicatorBar;
