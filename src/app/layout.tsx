@@ -6,7 +6,7 @@ import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/component
 import { contactInfo, hyperlinks } from '@/data';
 
 export const metadata: Metadata = {
-  title: 'Malek Smida | Senior Full-stack Software Engineer',
+  title: 'Malek Smida | Senior Full-stack Engineer',
   description:
     'Malek Smida, a passionate, agile-minded Software Engineer who is scrupulous about the details. Manage full software development life-cycle of Mobile and Web apps',
 };

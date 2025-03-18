@@ -19,7 +19,7 @@ describe('Footer Component', () => {
     cleanup();
   });
 
-  test('should renders the footer component without errors', () => {
+  test('1- should renders the footer component without errors', () => {
     render(<Footer />);
 
     // Check official docs to detect the title of the role of the component : https://www.w3.org/TR/html-aria/#docconformance
@@ -38,7 +38,7 @@ describe('Footer Component', () => {
     expect(screen.queryByText(/Fork it/i)).toBeNull();
   });
 
-  test('should renders contact section when valid props', () => {
+  test('2- should renders contact section when valid props', () => {
     render(
       <Footer
         email={mockData.Email}
@@ -54,20 +54,20 @@ describe('Footer Component', () => {
     expect(screen.getByText(mockData.Phone)).toBeDefined();
   });
 
-  test('should renders social links section when valid props', () => {
+  test('3- should renders social links section when valid props', () => {
     render(<Footer linkedinUrl={mockData.Linkedin} githubUrl={mockData.Github} />);
 
     expect(screen.getByRole('link', { name: 'Linkedin' })).toBeDefined();
     expect(screen.getByRole('link', { name: 'Github' })).toBeDefined();
   });
 
-  test('should renders fork-it when valid props', () => {
+  test('4- should renders fork-it when valid props', () => {
     render(<Footer githubRepo={mockData.GithubRepo} />);
 
     expect(screen.getByText(/Fork it/i)).toBeDefined();
   });
 
-  test('should redirect to valid urls when clicked', () => {
+  test('5- should redirect to valid urls when clicked', () => {
     render(
       <Footer
         email={mockData.Email}

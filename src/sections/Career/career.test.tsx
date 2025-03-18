@@ -31,14 +31,14 @@ describe('Experiences Component', () => {
     cleanup();
   });
 
-  test('should renders career description when provided', () => {
+  test('1- should renders career description when provided', () => {
     render(<Experiences careerDescriptionList={mockCareerDescriptionList} experiences={[]} />);
     mockCareerDescriptionList.forEach((description) => {
       expect(screen.getByText(description)).toBeDefined();
     });
   });
 
-  test('should renders experiences when provided', () => {
+  test('2- should renders experiences when provided', () => {
     render(<Experiences experiences={mockExperiences} />);
     mockExperiences.forEach((exp) => {
       expect(screen.getByText(exp.positions[0])).toBeDefined();
@@ -47,7 +47,7 @@ describe('Experiences Component', () => {
     });
   });
 
-  test('should renders nothing when no data is provided', () => {
+  test('3- should renders nothing when no data is provided', () => {
     const { container } = render(<Experiences experiences={[]} careerDescriptionList={[]} />);
     // In React, when a component returns null, React does not remove the parent container.
     // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
@@ -55,7 +55,7 @@ describe('Experiences Component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  test('should renders heading correctly', () => {
+  test('4- should renders heading correctly', () => {
     render(<Experiences experiences={mockExperiences} />);
     expect(screen.getByRole('heading', { level: 2, name: 'Career' })).toBeDefined();
   });

@@ -6,7 +6,7 @@ import Presentation from './Presentation';
 
 const mockData = {
   Name: 'John Doe',
-  JobTitleList: ['Software Engineer', 'Designer'],
+  JobTitle: 'Software Engineer',
   CvPdfLink: 'https://drive.google.com/file/test',
 };
 
@@ -15,30 +15,28 @@ describe('Presentation Section', () => {
     cleanup();
   });
 
-  test('should renders the Presentation component without errors', () => {
+  test('1- should renders the Presentation component without errors', () => {
     render(<Presentation name="" />);
 
     // Should show fallback name
-    expect(screen.getByText('I am No body')).toBeDefined();
+    expect(screen.getByText('Hi, I am No body')).toBeDefined();
   });
 
-  test('should renders the name correctly', () => {
+  test('2- should renders the name correctly', () => {
     render(<Presentation name={mockData.Name} />);
-    expect(screen.getByRole('heading', { name: 'I am John Doe' })).toBeDefined();
+    expect(screen.getByRole('heading', { name: 'Hi, I am John Doe' })).toBeDefined();
   });
 
-  test('should renders job titles correctly', () => {
-    render(<Presentation name="" jobTitleList={mockData.JobTitleList} />);
-    mockData.JobTitleList.forEach((title) => {
-      expect(screen.getByText(title)).toBeDefined();
-    });
+  test('3- should renders job titles correctly', () => {
+    render(<Presentation name="" jobTitle={mockData.JobTitle} />);
+    expect(screen.getByText(mockData.JobTitle)).toBeDefined();
   });
 
-  test('should renders download button correctly', () => {
+  test('4- should renders download button correctly', () => {
     render(
       <Presentation
         name={mockData.Name}
-        jobTitleList={mockData.JobTitleList}
+        jobTitle={mockData.JobTitle}
         cvPdfLink={mockData.CvPdfLink}
       />,
     );

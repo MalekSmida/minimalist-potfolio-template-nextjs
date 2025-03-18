@@ -7,8 +7,8 @@ import { INavButton } from '../NavButton';
 
 // Constants
 const mockNavButtonList: INavButton[] = [
-  { title: 'test title 1', anchorLink: 'anchor link 1' },
-  { title: 'test title 2', anchorLink: 'anchor link 2' },
+  { title: 'test title 1', link: { type: 'href', id: 'anchor link 1' } },
+  { title: 'test title 2', link: { type: 'href', id: 'anchor link 1' } },
 ];
 
 describe('NavHeader Component', () => {
@@ -21,12 +21,12 @@ describe('NavHeader Component', () => {
     cleanup();
   });
 
-  test('should renders the navigation header component without errors', () => {
+  test('1- should renders the navigation header component without errors', () => {
     render(<NavHeader navButtonList={[]} />);
     expect(screen.getByRole('banner')).toBeDefined();
   });
 
-  test('should renders the navigation buttons correctly', () => {
+  test('2- should renders the navigation buttons correctly', () => {
     render(<NavHeader navButtonList={mockNavButtonList} />);
     expect(screen.getByRole('navigation')).toBeDefined();
 

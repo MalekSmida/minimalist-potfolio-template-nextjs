@@ -19,28 +19,28 @@ describe('ExperienceCard Component', () => {
     cleanup();
   });
 
-  test('should renders without crashing', () => {
+  test('1- should renders without crashing', () => {
     render(<ExperienceCard {...mockProps} />);
   });
 
-  test('should displays positions correctly', () => {
+  test('2- should displays positions correctly', () => {
     render(<ExperienceCard {...mockProps} />);
     mockProps.positions.forEach((position) => {
       expect(screen.getByText(position)).toBeDefined();
     });
   });
 
-  test('should displays company name with @ symbol', () => {
+  test('3- should displays company name with @ symbol', () => {
     render(<ExperienceCard {...mockProps} />);
     expect(screen.getByText(`@${mockProps.company}`)).toBeDefined();
   });
 
-  test('should displays contractType if no company is provided', () => {
+  test('4- should displays contractType if no company is provided', () => {
     render(<ExperienceCard {...mockProps} company={undefined} />);
     expect(screen.getByText(mockProps.contractType)).toBeDefined();
   });
 
-  test('should displays summary correctly', () => {
+  test('5- should displays summary correctly', () => {
     render(<ExperienceCard {...mockProps} />);
     expect(screen.getByText(mockProps.summary)).toBeDefined();
   });
