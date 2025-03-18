@@ -15,7 +15,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
   if (!email && !address && !phone) return;
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center" id="contact">
       <h3 className="my-2 font-medium">Contact</h3>
       <ul className="my-2 flex flex-col items-center font-light" role="list">
         {/* Email */}

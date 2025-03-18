@@ -1,17 +1,17 @@
 // local files
 import ExperienceCard, { IExperienceCard } from '@/components/ExperienceCard';
 
-interface PropsExperiences {
+interface PropsCareer {
   careerDescriptionList?: string[];
   experiences?: Array<IExperienceCard>;
 }
 
-const Experiences: React.FC<PropsExperiences> = ({ careerDescriptionList, experiences }) => {
+const Career: React.FC<PropsCareer> = ({ careerDescriptionList, experiences }) => {
   // break when empty props
   if (!careerDescriptionList?.length && !experiences?.length) return;
 
   return (
-    <section className="relative my-8 w-full py-16" aria-labelledby="career-heading">
+    <section className="relative my-8 w-full py-16" aria-labelledby="career-heading" id="career">
       <h2 id="career-heading" className="my-4 text-3xl font-bold sm:text-4xl">
         Career
       </h2>
@@ -43,4 +43,4 @@ const Experiences: React.FC<PropsExperiences> = ({ careerDescriptionList, experi
   );
 };
 
-export default Experiences;
+export default Career;

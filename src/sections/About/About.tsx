@@ -1,4 +1,5 @@
-import Image from 'next/image';
+// local files
+import { AnimatedGuitarPlayerImage } from '@/components';
 
 interface PropsAbout {
   name: string;
@@ -11,16 +12,10 @@ const About: React.FC<PropsAbout> = ({ name, aboutDescription, educationList, in
   const displayName = name || 'No body';
 
   return (
-    <section className="grid grid-cols-1 px-4 py-16 lg:grid-cols-2">
+    <section className="grid grid-cols-1 px-4 py-16 lg:grid-cols-2" id="about">
       {/* Image section*/}
       <div className="flex flex-col items-center justify-center lg:py-16">
-        <Image
-          src="/images/guitar-player.svg"
-          alt="Guitar Player"
-          height={500}
-          width={500}
-          loading="lazy"
-        />
+        <AnimatedGuitarPlayerImage />
       </div>
 
       {/* About me */}

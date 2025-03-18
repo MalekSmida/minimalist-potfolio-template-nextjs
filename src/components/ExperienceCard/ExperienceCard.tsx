@@ -20,7 +20,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         role="listitem"
         aria-labelledby={`experience-title-${_id}`}
       >
-        <span className="absolute inset-x-0 top-0 h-2 rounded-t-lg bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+        <span className="absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
         {positions.map((position) => (
           <h3
             key={position}

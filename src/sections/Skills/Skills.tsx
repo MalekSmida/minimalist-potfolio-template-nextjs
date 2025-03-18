@@ -9,7 +9,7 @@ interface PropsSkills {
 
 const Skills: React.FC<PropsSkills> = ({ skills }) => {
   return (
-    <section className="w-full">
+    <section className="w-full" id="skills">
       <div className="my-12 flex max-w-screen-xl flex-col items-center justify-center rounded-md p-12">
         <h2 className="text-2xl font-bold sm:text-3xl">Skills</h2>
 

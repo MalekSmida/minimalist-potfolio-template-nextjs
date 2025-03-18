@@ -2,7 +2,7 @@ import { expect, test, describe, afterEach } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
-import Experiences from './Experiences';
+import Experiences from './Career';
 
 // mock data
 const mockCareerDescriptionList = [

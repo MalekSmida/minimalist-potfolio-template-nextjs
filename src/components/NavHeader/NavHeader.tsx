@@ -18,7 +18,7 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
           aria-label="Main navigation"
         >
           {navButtonList?.map((item) => (
-            <NavButton key={item.anchorLink} title={item.title} anchorLink={item.anchorLink} />
+            <NavButton key={item.link.id} title={item.title} link={item.link} />
           ))}
         </ul>
       </nav>
