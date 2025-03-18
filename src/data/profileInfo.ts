@@ -1,18 +1,28 @@
 const profileInfo = {
   Name: 'Malek Smida',
-  JobTitleList: ['Senior Software Engineer', 'Full Stack Web/Mobile', 'Tech Lead'],
+  JobTitle: 'Tech Lead, Senior Full Stack Engineer',
+  PresentationDescription:
+    'A passionate, agile-minded, detail-oriented software engineer focused on building reliable web and mobile applications. I enjoy working with teams, and finding practical solutions to complex problems.',
+  YearsOfExperience: '5+ years',
   CareerDescriptionList: [
-    'Specialized in secure, high-performance web applications with 5+ years of professional experience across the full development stack.',
-    // TODO:
-    // 'Proven expertise in leadership, and clean, scalable architecture solutions.With experience developping mobile applications.',
+    'Crafting secure, high-performance web applications with a focus on leadership, clean architecture, and scalable solutions.',
   ],
-  AboutDescription:
-    'A passionate, agile-minded, detail-oriented software engineer focused on building reliable web and mobile applications. I enjoy working with teams, paying attention to details, and finding practical solutions to complex problems.',
-  educationList: [
+  FunctionalSkillsList: [
+    '🚀 Full Lifecycle Management: Oversees web and mobile app development from planning to maintenance, ensuring quality at every stage.',
+    '🏗️ Architecture & Design: Implements component-based architecture, mobile-first design, and delivers pixel-perfect, user-centric products.',
+    '⚙️ Best Practices & Leadership: Promotes agile methodologies, CI/CD, automated testing, and mentors teams to foster innovation.',
+    '📈 Continuous Improvement: Stays ahead of industry trends, enhancing security, performance, and development practices.',
+  ],
+  EducationList: [
     'Software Engineering degree from National Engineering School of Carthage, Tunisia (2020).',
-    'E-degree in Social Psychology (2020).',
+    'Certificate in Social Psychology (2020).',
   ],
-  interestList: ['🎸 Guitar', '📚 Reading', '🤸 Workout', '🏕️ Camping'],
+  InterestList: [
+    '🎸 Guitar — Passionate about exploring diverse musical styles.',
+    '📚 Reading — Curious mind, drawn to stories, ideas, and knowledge.',
+    '🏃 Workout — Enjoy running and calisthenics for strength and agility.',
+    '🏕️ Camping — Love immersing in nature, having fun, and dancing under the stars.',
+  ],
 };
 
 export default profileInfo;
