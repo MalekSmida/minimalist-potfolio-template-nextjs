@@ -8,19 +8,6 @@
   --primary: #6c63ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 body {
   padding: 0;
   margin: 0;
@@ -71,7 +58,20 @@ body {
   color: white;
 }
 
-/* Presentation's svg animation */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+/* SVG animation of the Presentation section */
 @keyframes spin-dynamic {
   0% {
     transform: rotate(0deg);
@@ -92,6 +92,89 @@ body {
     transform: rotate(360deg);
   }
 }
-.animate-spin-dynamic {
-  animation: spin-dynamic 25s ease-in-out infinite;
+.animated-spin-dynamic {
+  animation: spin-dynamic 40s ease-in-out infinite;
+}
+
+/* SVG animation of the About section */
+@keyframes bounce-to-bottom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+  55% {
+    transform: translateY(6px);
+  }
+  70% {
+    transform: translateY(-8px);
+  }
+  85% {
+    transform: translateY(3px);
+  }
+}
+.animated-bounce-to-bottom {
+  animation: bounce-to-bottom 4.7s ease-in-out infinite;
+}
+
+@keyframes bounce-light {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  45% {
+    transform: translateY(3px);
+  }
+  70% {
+    transform: translateY(-3px);
+  }
+  85% {
+    transform: translateY(1px);
+  }
+}
+.animated-bounce-light {
+  animation: bounce-light 6.2s ease-in-out infinite;
+}
+
+@keyframes bounce-to-top {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(18px);
+  }
+  55% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}
+.animated-bounce-to-top {
+  animation: bounce-to-top 5.4s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+}
+.animated-wiggle {
+  animation: wiggle 6.5s ease-in-out infinite;
 }
