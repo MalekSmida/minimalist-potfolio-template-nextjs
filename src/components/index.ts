@@ -5,3 +5,4 @@ export { default as ExperienceCard } from './ExperienceCard';
 export { default as ScrollProgressIndicatorBar } from './ScrollProgressIndicatorBar';
 export { default as BackToTopButton } from './BackToTopButton';
 export { default as AnimatedGuitarPlayerImage } from './AnimatedGuitarPlayerImage';
+export { default as DarkModeToggleButton } from './DarkModeToggleButton';

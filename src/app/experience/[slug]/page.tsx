@@ -64,15 +64,15 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
             {Array.isArray(positions) ? positions.join(', ') : positions}
           </h1>
           {company && (
-            <strong className="text-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium">
+            <strong className="text-primary dark:bg-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-normal dark:border-none dark:text-white">
               @ {company}
             </strong>
           )}
           <div className="mt-8 flex flex-col border-l-2 border-gray-500 px-4 py-1 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-xl">{contractType}</h2>
-            <p className="text-xs text-gray-500">{dates}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">{dates}</p>
           </div>
-          <ul className="my-10 list-disc space-y-5 text-gray-700">
+          <ul className="my-10 list-disc space-y-5 text-gray-700 dark:text-gray-200">
             {contributions.map((contribution, index) => (
               <li key={index}>{contribution}</li>
             ))}

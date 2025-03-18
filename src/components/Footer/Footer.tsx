@@ -23,7 +23,7 @@ const Footer: React.FC<PropsFooter> = ({
   githubRepo,
 }) => {
   return (
-    <footer className="flex w-full flex-col items-center bg-gray-900 p-4 text-white sm:p-6 lg:p-8">
+    <footer className="flex w-full flex-col items-center bg-gray-900 p-4 text-white sm:p-6 lg:p-8 dark:bg-gray-950">
       <ContactSection
         email={email}
         address={address}

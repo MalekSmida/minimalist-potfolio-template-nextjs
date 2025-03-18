@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-between">
+      <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
         <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6">
           <ScrollProgressIndicatorBar />
           {children}

@@ -14,7 +14,7 @@ const ScrollProgressIndicatorBar: React.FC = () => {
   return (
     <span
       aria-hidden="true"
-      className="bg-primary fixed top-0 left-0 z-50 h-1 rounded-r duration-300 ease-in-out"
+      className="bg-primary fixed top-0 left-0 z-40 h-1 rounded-r duration-300 ease-in-out"
       style={{
         width: `${scrollProgress}%`,
       }}

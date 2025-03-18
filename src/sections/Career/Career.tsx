@@ -17,7 +17,7 @@ const Career: React.FC<PropsCareer> = ({ careerDescriptionList, experiences }) =
       </h2>
 
       {careerDescriptionList?.map((description) => (
-        <p key={description} className="mt-1 text-gray-500">
+        <p key={description} className="mt-1 text-gray-600 dark:text-gray-200">
           {description}
         </p>
       ))}

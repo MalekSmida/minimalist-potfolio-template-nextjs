@@ -16,7 +16,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
   return (
     <Link href={`/experience/${_id}`}>
       <article
-        className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6"
+        className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6 dark:bg-gray-900 dark:shadow-gray-600/25"
         role="listitem"
         aria-labelledby={`experience-title-${_id}`}
       >
@@ -25,18 +25,18 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
           <h3
             key={position}
             id={`experience-title-${_id}`}
-            className="mt-0.5 line-clamp-1 text-lg font-medium text-gray-900"
+            className="mt-0.5 line-clamp-1 text-lg font-medium"
           >
             {position}
           </h3>
         ))}
 
         {/* It will check if your experience is within a company else it will renders contract type */}
-        <p className="mt-4 line-clamp-2 font-medium text-gray-600">
+        <p className="mt-4 line-clamp-2 font-medium text-indigo-700 dark:text-indigo-500">
           {company ? `@${company}` : contractType}
         </p>
 
-        <p className="mt-4 line-clamp-5 text-sm text-gray-600">{summary}</p>
+        <p className="mt-4 line-clamp-5 text-sm text-gray-600 dark:text-gray-200">{summary}</p>
       </article>
     </Link>
   );

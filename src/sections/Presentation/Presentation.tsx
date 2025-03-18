@@ -28,16 +28,20 @@ const Presentation: React.FC<PropsPresentation> = ({
         <h1 id="profile-heading" className="my-2 text-2xl font-bold sm:text-3xl lg:my-4">
           Hi, I am {displayName}
         </h1>
-        {jobTitle && <p className="my-2 text-lg text-gray-500 sm:text-xl">{jobTitle}</p>}
+        {jobTitle && (
+          <p className="my-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{jobTitle}</p>
+        )}
         {yearsOfExperience && (
           <p className="sm:text-md text-primary my-2 text-sm font-medium">{yearsOfExperience}</p>
         )}
         {description && (
-          <p className="mx-auto my-4 max-w-md text-gray-500 lg:mx-0">{description}</p>
+          <p className="mx-auto my-4 max-w-md text-gray-600 lg:mx-0 dark:text-gray-200">
+            {description}
+          </p>
         )}
         {cvPdfLink && (
           <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring"
+            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"

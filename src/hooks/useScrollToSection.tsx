@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 /**
  * Custom hook to handle smooth scrolling to sections on the page.
- * @returns {Function} scrollToSection - Function to scroll to a specific section by ID.
+ * @returns scrollToSection - Function to scroll to a specific section by ID.
  */
 const useScrollToSection = () => {
   const scrollToSection = useCallback((id: string) => {

@@ -1,18 +1,12 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #141e30;
-  /* --background: #141e30;
-  --foreground: #ffffff; */
   --primary: #6c63ff;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
   /*
   Font fallback chain's config explained :
   Segoe UI            => Primary font on Windows
@@ -59,17 +53,14 @@ body {
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --color-primary: var(--primary);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+/* 
+Toggling dark mode manually
+Docs: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+ */
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* SVG animation of the Presentation section */
 @keyframes spin-dynamic {

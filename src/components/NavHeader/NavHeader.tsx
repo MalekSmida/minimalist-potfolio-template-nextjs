@@ -1,4 +1,5 @@
 // local files
+import DarkModeToggleButton from '../DarkModeToggleButton';
 import NavButton, { INavButton } from '../NavButton';
 
 interface PropsNavHeader {
@@ -7,8 +8,13 @@ interface PropsNavHeader {
 
 const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
   return (
-    <header id="header" role="banner" className="z-10 flex h-16 items-center px-4 sm:px-6 lg:px-8">
-      <nav aria-labelledby="header-navigation">
+    <header
+      id="header"
+      role="banner"
+      className="z-30 flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8"
+    >
+      <div className="w-9"></div>
+      <nav aria-labelledby="header-navigation" className="flex flex-1 items-center justify-center">
         <h2 className="sr-only" id="header-navigation">
           Navigation Header
         </h2>
@@ -22,6 +28,9 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
           ))}
         </ul>
       </nav>
+      <div className="w-9">
+        <DarkModeToggleButton />
+      </div>
     </header>
   );
 };
