@@ -2,35 +2,42 @@ import Image from 'next/image';
 
 interface PropsPresentation {
   name: string;
-  jobTitleList?: string[];
+  jobTitle?: string;
+  yearsOfExperience?: string;
+  description?: string;
   cvPdfLink?: string;
 }
 
-const Presentation: React.FC<PropsPresentation> = ({ name, jobTitleList, cvPdfLink }) => {
+const Presentation: React.FC<PropsPresentation> = ({
+  name,
+  jobTitle,
+  yearsOfExperience,
+  description,
+  cvPdfLink,
+}) => {
   const displayName = name || 'No body';
 
   return (
     <section
-      className="grid w-full grid-cols-1 p-10 lg:grid-cols-2"
+      className="my-10 grid w-full grid-cols-1 lg:grid-cols-2"
       aria-labelledby="profile-heading"
       id="presentation"
     >
       {/* Profile Info Section */}
-      <div
-        className="p-4 text-center lg:px-8 lg:py-16 lg:text-start"
-        aria-labelledby="profile-heading"
-      >
+      <div className="p-4 text-center lg:p-8 lg:text-start" aria-labelledby="profile-heading">
         <h1 id="profile-heading" className="my-2 text-2xl font-bold sm:text-3xl lg:my-4">
-          I am {displayName}
+          Hi, I am {displayName}
         </h1>
-        {jobTitleList?.map((title) => (
-          <p key={title} className="my-2 text-lg text-gray-500 sm:text-xl">
-            {title}
-          </p>
-        ))}
+        {jobTitle && <p className="my-2 text-lg text-gray-500 sm:text-xl">{jobTitle}</p>}
+        {yearsOfExperience && (
+          <p className="sm:text-md text-primary my-2 text-sm font-medium">{yearsOfExperience}</p>
+        )}
+        {description && (
+          <p className="mx-auto my-4 max-w-md text-gray-500 lg:mx-0">{description}</p>
+        )}
         {cvPdfLink && (
           <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring sm:mt-8"
+            className="group border-primary bg-primary hover:text-primary active:text-primary relative my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"

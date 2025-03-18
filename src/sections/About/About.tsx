@@ -2,50 +2,39 @@
 import { AnimatedGuitarPlayerImage } from '@/components';
 
 interface PropsAbout {
-  name: string;
-  aboutDescription: string;
+  functionalSkillsList: string[];
   educationList: string[];
   interestList: string[];
 }
 
-const About: React.FC<PropsAbout> = ({ name, aboutDescription, educationList, interestList }) => {
-  const displayName = name || 'No body';
-
+const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, itemList }) => {
+  if (!itemList.length) return;
   return (
-    <section className="grid grid-cols-1 px-4 py-16 lg:grid-cols-2" id="about">
+    <>
+      <h3 className="mt-7 text-xl font-bold">{title}</h3>
+      <ul className="mt-3 list-disc space-y-1 text-gray-600">
+        {itemList?.map((item) => <li key={item}>{item}</li>)}
+      </ul>
+    </>
+  );
+};
+
+const About: React.FC<PropsAbout> = ({ functionalSkillsList, educationList, interestList }) => {
+  return (
+    <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">
       {/* Image section*/}
-      <div className="flex flex-col items-center justify-center lg:py-16">
+      <div className="flex w-full items-center justify-center px-8">
         <AnimatedGuitarPlayerImage />
       </div>
 
       {/* About me */}
       <div className="relative flex items-center bg-gray-50">
-        <div className="xl:text-md p-8 text-sm sm:p-16 lg:p-24">
-          <h2 className="mb-3 text-2xl font-bold sm:mb-6 sm:text-3xl">
-            Hello, I&apos;m {displayName} 👋
-          </h2>
+        <div className="xl:text-md p-8 text-sm md:px-16 md:py-8 lg:px-22 lg:py-16">
+          <h2 className="mb-4 text-2xl font-bold sm:mb-10 sm:text-3xl">Hello again 👋</h2>
 
-          {aboutDescription && (
-            <p className="list-disc space-y-2 text-gray-600">{aboutDescription}</p>
-          )}
-
-          {educationList.length && (
-            <>
-              <h3 className="mt-7 text-xl font-bold">Education & Continuous Learning</h3>
-              <ul className="mt-3 list-disc space-y-2 text-gray-600">
-                {educationList?.map((education) => <li key={education}>{education}</li>)}
-              </ul>
-            </>
-          )}
-
-          {interestList.length && (
-            <>
-              <h3 className="mt-7 text-xl font-bold">Personal Interests</h3>
-              <ul className="mt-3 space-y-1 text-gray-600">
-                {interestList?.map((interest) => <li key={interest}>{interest}</li>)}
-              </ul>
-            </>
-          )}
+          <AboutBlock title="What I Bring to the Table" itemList={functionalSkillsList} />
+          <AboutBlock title="Education & Continuous Learning" itemList={educationList} />
+          <AboutBlock title="Personal Interests" itemList={interestList} />
         </div>
       </div>
     </section>

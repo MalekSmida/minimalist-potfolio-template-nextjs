@@ -45,7 +45,7 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
   return (
     <>
       <NavHeader navButtonList={navButtonList} />
-      <span className="relative h-48 w-full bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
+      <span className="relative h-48 w-screen bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
       <section className="relative container mx-auto max-w-3xl py-20">
         <Image
           src={iconPath}
@@ -64,7 +64,7 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
             {Array.isArray(positions) ? positions.join(', ') : positions}
           </h1>
           {company && (
-            <strong className="border-indingo-50 text-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium">
+            <strong className="text-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium">
               @ {company}
             </strong>
           )}

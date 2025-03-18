@@ -11,7 +11,7 @@ const Career: React.FC<PropsCareer> = ({ careerDescriptionList, experiences }) =
   if (!careerDescriptionList?.length && !experiences?.length) return;
 
   return (
-    <section className="relative my-8 w-full py-16" aria-labelledby="career-heading" id="career">
+    <section className="relative my-10 w-full px-8" aria-labelledby="career-heading" id="career">
       <h2 id="career-heading" className="my-4 text-3xl font-bold sm:text-4xl">
         Career
       </h2>
@@ -25,7 +25,7 @@ const Career: React.FC<PropsCareer> = ({ careerDescriptionList, experiences }) =
       {experiences?.length && (
         <div
           role="list"
-          className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-8 lg:grid-cols-4"
+          className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-8 lg:grid-cols-4"
         >
           {experiences.map((experience) => (
             <ExperienceCard

@@ -93,7 +93,7 @@ body {
   }
 }
 .animated-spin-dynamic {
-  animation: spin-dynamic 40s ease-in-out infinite;
+  animation: spin-dynamic 60s ease-in-out infinite;
 }
 
 /* SVG animation of the About section */

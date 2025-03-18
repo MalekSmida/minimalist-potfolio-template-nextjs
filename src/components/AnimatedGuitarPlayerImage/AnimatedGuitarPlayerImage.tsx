@@ -6,6 +6,7 @@ const AnimatedGuitarPlayerImage: React.FC = () => {
       height="407.127"
       viewBox="0 0 397.72474 407.127"
       role="img"
+      className="h-full w-full"
     >
       <g>
         <polygon

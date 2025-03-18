@@ -32,7 +32,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         ))}
 
         {/* It will check if your experience is within a company else it will renders contract type */}
-        <p className="mt-4 line-clamp-2 text-sm font-medium text-gray-600">
+        <p className="mt-4 line-clamp-2 font-medium text-gray-600">
           {company ? `@${company}` : contractType}
         </p>
 

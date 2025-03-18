@@ -1,7 +1,16 @@
 // local files
 import { NavHeader } from '@/components';
 import { INavButton } from '@/components/NavButton';
-import { experiences, hyperlinks, profileInfo, skills } from '@/data';
+import {
+  backendSkills,
+  cloudDevOpsSkills,
+  databaseSkills,
+  experiences,
+  frontendSkills,
+  hyperlinks,
+  otherSkills,
+  profileInfo,
+} from '@/data';
 import { About, Career, Presentation, Skills } from '@/sections';
 
 const navButtonList: INavButton[] = [
@@ -17,17 +26,24 @@ export default function Home() {
       <NavHeader navButtonList={navButtonList} />
       <Presentation
         name={profileInfo.Name}
-        jobTitleList={profileInfo.JobTitleList}
+        jobTitle={profileInfo.JobTitle}
+        yearsOfExperience={profileInfo.YearsOfExperience}
+        description={profileInfo.PresentationDescription}
         cvPdfLink={hyperlinks.CVPDF}
       />
       <Career careerDescriptionList={profileInfo.CareerDescriptionList} experiences={experiences} />
       <About
-        name={profileInfo.Name}
-        aboutDescription={profileInfo.AboutDescription}
-        educationList={profileInfo.educationList}
-        interestList={profileInfo.interestList}
+        functionalSkillsList={profileInfo.FunctionalSkillsList}
+        educationList={profileInfo.EducationList}
+        interestList={profileInfo.InterestList}
       />
-      <Skills skills={skills} />
+      <Skills
+        frontendSkills={frontendSkills}
+        backendSkills={backendSkills}
+        databaseSkills={databaseSkills}
+        cloudDevOpsSkills={cloudDevOpsSkills}
+        otherSkills={otherSkills}
+      />
     </>
   );
 }
