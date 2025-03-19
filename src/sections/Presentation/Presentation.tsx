@@ -57,7 +57,6 @@ const Presentation: React.FC<PropsPresentation> = ({
                 aria-label="Download icon"
                 aria-hidden="true"
                 focusable="false"
-                role="img"
               >
                 <path
                   strokeLinecap="round"
@@ -85,7 +84,6 @@ const Presentation: React.FC<PropsPresentation> = ({
           aria-label="Presentation's animation icon"
           aria-hidden="true"
           focusable="false"
-          role="img"
         >
           <rect
             x="-74"

@@ -22,10 +22,11 @@ const BackToTopButton: React.FC = () => {
     <button
       onClick={onScrollToTop}
       className="border-primary text-primary hover:bg-primary active:bg-primary fixed right-10 bottom-10 inline-block cursor-pointer rounded-full border p-3 hover:text-white focus:ring focus:outline-none"
-      data-testid="button-scrollToTop"
       title="Scroll to top"
+      aria-label="Scroll to top"
+      aria-live="polite" // Announces the button action for screen readers
     >
-      <span className="sr-only">Back to top</span>
+      <span className="sr-only">Scroll to top</span>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"

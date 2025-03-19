@@ -5,8 +5,8 @@ const AnimatedGuitarPlayerImage: React.FC = () => {
       width="397.72474"
       height="407.127"
       viewBox="0 0 397.72474 407.127"
-      role="img"
       className="h-full w-full"
+      aria-hidden="true"
     >
       <g>
         <polygon

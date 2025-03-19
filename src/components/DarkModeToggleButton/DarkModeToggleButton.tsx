@@ -11,7 +11,10 @@ const DarkModeToggleButton: React.FC = () => {
       onClick={toggleDarkMode}
       className="cursor-pointer rounded-md bg-gray-100 p-2 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark} // Indicates the current state (pressed or not)
     >
+      <span className="sr-only">Switch dark mode</span>
+
       {isDark ? (
         // Sun icon for dark mode
         <svg
@@ -19,6 +22,7 @@ const DarkModeToggleButton: React.FC = () => {
           className="h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
+          aria-hidden="true" // Hides icon from screen readers, as the button label is enough
         >
           <path
             fillRule="evenodd"
@@ -33,6 +37,7 @@ const DarkModeToggleButton: React.FC = () => {
           className="h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
+          aria-hidden="true"
         >
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>

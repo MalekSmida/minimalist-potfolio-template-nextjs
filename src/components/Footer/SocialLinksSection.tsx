@@ -18,7 +18,8 @@ const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinLink, g
               rel="noopener noreferrer"
               target="_blank"
               className="transition hover:text-white/75"
-              title="Linkedin Profile"
+              title="Open Linkedin Profile"
+              aria-label="Open Linkedin Profile"
             >
               <span className="sr-only">Linkedin</span> {/* Accessible label for screen readers */}
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -35,7 +36,8 @@ const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinLink, g
               rel="noopener noreferrer"
               target="_blank"
               className="transition hover:text-white/75"
-              title="Github Profile"
+              title="Open Github Profile"
+              aria-label="Open Github Profile"
             >
               <span className="sr-only">Github</span> {/* Accessible label for screen readers */}
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

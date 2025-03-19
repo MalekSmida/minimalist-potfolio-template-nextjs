@@ -7,8 +7,8 @@ import { INavButton } from '../NavButton';
 
 // Constants
 const mockNavButtonList: INavButton[] = [
-  { title: 'test title 1', link: { type: 'href', id: 'anchor link 1' } },
-  { title: 'test title 2', link: { type: 'href', id: 'anchor link 1' } },
+  { title: 'Test title 1', link: { type: 'href', id: 'https://test.com/1' } },
+  { title: 'Test title 2', link: { type: 'href', id: 'https://test.com/2' } },
 ];
 
 describe('NavHeader Component', () => {
