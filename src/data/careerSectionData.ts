@@ -11,7 +11,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'SOPRA STERIA',
       dates: 'April 2023 - Dec 2024',
       positions: ['Tech Lead', 'Senior Full-stack Engineer'],
-      iconPath: '/icons/sopra-steria.jpeg',
+      iconPath: '/static/icons/sopra-steria.jpeg',
       iconWidth: 100,
       iconHeight: 100,
       summary:
@@ -45,7 +45,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'CleverTech France',
       dates: 'March 2022 - March 2023',
       positions: ['Head of Frontend', 'Senior Full-stack JS'],
-      iconPath: '/icons/clevertech-france.jpg',
+      iconPath: '/static/icons/clevertech-france.jpg',
       iconWidth: 80,
       iconHeight: 80,
       summary:
@@ -90,7 +90,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       contractType: 'Freelance',
       dates: 'Nov 2020 - Jan 2022',
       positions: ['Full-stack Engineer', 'UX Designer'],
-      iconPath: '/icons/fallback.png',
+      iconPath: '/static/icons/fallback.png',
       iconWidth: 90,
       iconHeight: 90,
       summary:
@@ -118,7 +118,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'Xperiencia',
       dates: 'Feb 2020 - Aug 2020',
       positions: ['MERN Stack Developer'],
-      iconPath: '/icons/fallback.png',
+      iconPath: '/static/icons/fallback.png',
       iconWidth: 90,
       iconHeight: 90,
       summary:
@@ -139,7 +139,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'Fabskill',
       dates: 'July 2019 - Oct 2019',
       positions: ['Full Stack Developer'],
-      iconPath: '/icons/fabskill.png',
+      iconPath: '/static/icons/fabskill.png',
       iconWidth: 90,
       iconHeight: 90,
       summary:
