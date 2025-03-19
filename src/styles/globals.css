@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-  --primary: #6c63ff;
+  --primary: #6500fa;
 }
 
 body {
@@ -34,8 +34,8 @@ body {
     Helvetica Neue,
     sans-serif;
 
-  /* transition's animation of dark mode */
-  @apply transition-colors duration-300 ease-in-out;
+  /* TODO: transition's animation of dark mode */
+  /* @apply transition-colors duration-300 ease-in-out; */
 }
 
 * {

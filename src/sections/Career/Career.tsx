@@ -23,10 +23,7 @@ const Career: React.FC<PropsCareer> = ({ descriptionList, experienceList }) => {
       ))}
 
       {experienceList?.length && (
-        <div
-          role="list"
-          className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-8 lg:grid-cols-4"
-        >
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
           {experienceList.map((experience) => (
             <ExperienceCard
               key={experience._id}

@@ -32,7 +32,9 @@ const Presentation: React.FC<PropsPresentation> = ({
           <p className="my-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{jobTitle}</p>
         )}
         {yearsOfExperience && (
-          <p className="sm:text-md text-primary my-2 text-sm font-medium">{yearsOfExperience}</p>
+          <p className="text-md text-primary my-2 font-medium dark:text-violet-300">
+            {yearsOfExperience}
+          </p>
         )}
         {description && (
           <p className="mx-auto my-4 max-w-md text-gray-600 lg:mx-0 dark:text-gray-200">
@@ -41,7 +43,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         )}
         {cvPdfLink && (
           <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring"
+            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:border-violet-300 dark:bg-violet-300 dark:text-gray-900 dark:hover:text-violet-300 dark:active:text-violet-300"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
@@ -92,7 +94,7 @@ const Presentation: React.FC<PropsPresentation> = ({
             height="849.994"
             rx="200"
             transform="rotate(-59.0645 -74 641.438)"
-            fill="#6c63ff"
+            fill="#6500fa"
           />
         </svg>
 

@@ -12,9 +12,9 @@ const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
   if (!['Advanced', 'Intermediate', 'Beginner'].includes(level)) return;
 
   const styleTagMapping = {
-    Advanced: 'bg-pink-50 text-pink-600 ring-pink-600/10 dark:bg-pink-600 dark:text-white',
-    Intermediate: 'bg-green-50 text-green-600 ring-green-600/20 dark:bg-green-600 dark:text-white',
-    Beginner: 'bg-yellow-50 text-yellow-600 ring-yellow-600/20 dark:bg-yellow-600 dark:text-white',
+    Advanced: 'bg-rose-800 text-white ring-rose-800/10',
+    Intermediate: 'bg-green-800 text-white ring-green-800/20',
+    Beginner: 'bg-yellow-900 text-white ring-yellow-900/20',
   };
 
   return (
