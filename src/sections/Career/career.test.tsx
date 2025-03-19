@@ -26,7 +26,7 @@ const mockExperienceList = [
   },
 ];
 
-describe('Experiences Component', () => {
+describe('Career Component', () => {
   afterEach(() => {
     cleanup();
   });
@@ -57,6 +57,6 @@ describe('Experiences Component', () => {
 
   test('4- should renders heading correctly', () => {
     render(<Experiences experienceList={mockExperienceList} />);
-    expect(screen.getByRole('heading', { level: 2, name: 'Career' })).toBeDefined();
+    expect(screen.getByRole('heading', { level: 1, name: 'Career' })).toBeDefined();
   });
 });
