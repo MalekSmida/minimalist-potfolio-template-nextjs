@@ -36,28 +36,28 @@ describe('Career Component', () => {
     cleanup();
   });
 
-  test('1- should renders career description when provided', () => {
+  test('1- should renders nothing when no data is provided', () => {
+    const { container } = render(<Experiences experienceList={[]} descriptionList={[]} />);
+    // In React, when a component returns null, React does not remove the parent container.
+    // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
+    // We should check if the container is empty
+    expect(container.firstChild).toBeNull();
+  });
+
+  test('2- should renders career description when provided', () => {
     render(<Experiences descriptionList={mockDescriptionList} experienceList={[]} />);
     mockDescriptionList.forEach((description) => {
       expect(screen.getByText(description)).toBeDefined();
     });
   });
 
-  test('2- should renders experiences when provided', () => {
+  test('3- should renders experiences when provided', () => {
     render(<Experiences experienceList={mockExperienceList} />);
     mockExperienceList.forEach((exp) => {
       expect(screen.getByText(exp.positions[0])).toBeDefined();
       expect(screen.getByText(`@${exp.company}`)).toBeDefined();
       expect(screen.getByText(exp.summary)).toBeDefined();
     });
-  });
-
-  test('3- should renders nothing when no data is provided', () => {
-    const { container } = render(<Experiences experienceList={[]} descriptionList={[]} />);
-    // In React, when a component returns null, React does not remove the parent container.
-    // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
-    // We should check if the container is empty
-    expect(container.firstChild).toBeNull();
   });
 
   test('4- should renders heading correctly', () => {

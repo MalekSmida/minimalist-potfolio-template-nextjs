@@ -7,6 +7,8 @@ import Presentation from './Presentation';
 const mockData = {
   Name: 'John Doe',
   JobTitle: 'Software Engineer',
+  yearsOfExperience: '1000 years',
+  description: 'Self motivated, agile mind software engineer.',
   CvPdfLink: 'https://drive.google.com/file/test',
 };
 
@@ -37,7 +39,17 @@ describe('Presentation Section', () => {
     expect(screen.getByText(mockData.JobTitle)).toBeDefined();
   });
 
-  test('4- should renders download button correctly', () => {
+  test('4- should renders years of experience correctly', () => {
+    render(<Presentation name="" yearsOfExperience={mockData.yearsOfExperience} />);
+    expect(screen.getByText(mockData.yearsOfExperience)).toBeDefined();
+  });
+
+  test('5- should renders description correctly', () => {
+    render(<Presentation name="" description={mockData.description} />);
+    expect(screen.getByText(mockData.description)).toBeDefined();
+  });
+
+  test('6- should renders download button correctly', () => {
     render(
       <Presentation
         name={mockData.Name}
