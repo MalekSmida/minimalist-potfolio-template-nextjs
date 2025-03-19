@@ -29,7 +29,9 @@ const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
 const SkillsBlock: React.FC<PropsSkills> = ({ title, skills }) => {
   return (
     <section className="flex w-full flex-col items-center">
-      <h2 className="my-4 text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">{title}</h2>
+      <h2 className="mt-4 mb-2 text-center text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">
+        {title}
+      </h2>
       <hr className="mb-4 h-0.5 w-full bg-gray-800 opacity-5" />
       <ul className="flex flex-wrap items-end justify-center gap-2 p-4 md:gap-4 lg:gap-6">
         {skills?.map((skill, index) => (
