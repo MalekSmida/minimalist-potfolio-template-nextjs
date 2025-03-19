@@ -26,26 +26,39 @@ describe('ExperienceCard Component', () => {
 
   test('1- should renders without crashing', () => {
     render(<ExperienceCard {...mockProps} />);
+
+    // The link and article should be in the document
+    const link = screen.getByRole('link');
+    expect(link).toBeDefined();
+    const article = screen.getByRole('article', { name: mockProps.positions[0] });
+    expect(article).toBeDefined();
   });
 
-  test('2- should displays positions correctly', () => {
+  test('2- should add page href to link', () => {
+    render(<ExperienceCard {...mockProps} />);
+
+    const link = screen.getByRole('link');
+    expect(link.getAttribute('href')).toBe(`/experience/${mockProps._id}`);
+  });
+
+  test('3- should displays positions correctly', () => {
     render(<ExperienceCard {...mockProps} />);
     mockProps.positions.forEach((position) => {
       expect(screen.getByText(position)).toBeDefined();
     });
   });
 
-  test('3- should displays company name with @ symbol', () => {
+  test('4- should displays company name with @ symbol', () => {
     render(<ExperienceCard {...mockProps} />);
     expect(screen.getByText(`@${mockProps.company}`)).toBeDefined();
   });
 
-  test('4- should displays contractType if no company is provided', () => {
+  test('5- should displays contractType if no company is provided', () => {
     render(<ExperienceCard {...mockProps} company={undefined} />);
     expect(screen.getByText(mockProps.contractType)).toBeDefined();
   });
 
-  test('5- should displays summary correctly', () => {
+  test('6- should displays summary correctly', () => {
     render(<ExperienceCard {...mockProps} />);
     expect(screen.getByText(mockProps.summary)).toBeDefined();
   });
