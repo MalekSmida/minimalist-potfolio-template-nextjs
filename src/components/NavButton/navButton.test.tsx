@@ -1,4 +1,4 @@
-import { expect, test, describe, afterEach } from 'vitest';
+import { expect, test, describe, afterEach, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
@@ -7,7 +7,8 @@ import { INavButton } from './navButton.types';
 
 // Constants
 const mockTitle = 'Test Title',
-  mockLink: INavButton['link'] = { type: 'href', id: 'Test link' };
+  mockLink: INavButton['link'] = { type: 'href', id: 'https://test.com/' },
+  mockAnchorLink: INavButton['link'] = { type: 'anchorLink', id: 'Test anchor link' };
 
 describe('NavButton Component', () => {
   /**
@@ -19,18 +20,30 @@ describe('NavButton Component', () => {
     cleanup();
   });
 
-  test('1- should renders the navigation button component without errors', () => {
-    render(<NavButton title={mockTitle} link={mockLink} />);
+  describe('NavButtonHref Component', () => {
+    test('1- should renders the href link component without errors', () => {
+      render(<NavButton title={mockTitle} link={mockLink} />);
 
-    // Test on aria-label for accessibility
-    expect(screen.getByRole('link', { name: `Navigate to the page ${mockTitle}` })).toBeDefined();
+      // Test on aria-label for accessibility
+      expect(screen.getByRole('link', { name: `Navigate to the page ${mockTitle}` })).toBeDefined();
 
-    /**
-     * For information:
-     * Could not test href value as it turns out that Vitest does not have toHaveAttribute() funtion.
-     * So I used getAttribute().
-     * An alternative is to use "data-testid" : https://stackoverflow.com/a/78227205/13987596
-     */
-    expect(screen.getByText(mockTitle).getAttribute('href')).toBe(mockLink.id);
+      /**
+       * For information:
+       * Could not test href value as it turns out that Vitest does not have toHaveAttribute() funtion.
+       * So I used getAttribute().
+       * An alternative is to use "data-testid" : https://stackoverflow.com/a/78227205/13987596
+       */
+      expect(screen.getByText(mockTitle).getAttribute('href')).toBe(mockLink.id);
+    });
+  });
+
+  describe('NavButtonAnchor Component', () => {
+    test('2- should renders the anchor link button component without errors', () => {
+      render(<NavButton title={mockTitle} link={mockAnchorLink} />);
+
+      expect(
+        screen.getByRole('button', { name: `Navigate to the section ${mockTitle}` }),
+      ).toBeDefined();
+    });
   });
 });

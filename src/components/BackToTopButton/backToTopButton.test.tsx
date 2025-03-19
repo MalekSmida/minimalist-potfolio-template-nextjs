@@ -14,11 +14,6 @@ const scrollToMock = vi.fn();
 window.scrollTo = scrollToMock;
 
 describe('BackToTopButton Component', () => {
-  beforeEach(() => {
-    // Reset mocks before each test
-    vi.clearAllMocks();
-  });
-
   /**
    * Important:
    * When having multiple test you should add cleanup as Vitest does not cleanup by default, leaving previously mounted components to be accessed by later tests
