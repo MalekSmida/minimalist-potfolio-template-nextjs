@@ -1,21 +1,25 @@
+// Next.js will still perform SSR (Server-Side Rendering) for the rest of your application.
+// But only renders the components with "use client" as client components, including this one.
+// This approach is called "islands architecture" in Next.js - where most of the page is static/server-rendered, with interactive "islands" that are client-rendered.
 'use client';
 
-// local files
+// Local files
 import { useShowBackToTop } from '@/hooks';
 
 /**
- * Button handle scroll back to position y=0
- * It is shown when we scroll to the position y > 300
+ * Button handle scroll back to position y=0.
+ * It is shown only when we scroll to the position y > 300, which is defined by useShowBackToTop hook.
  */
 const BackToTopButton: React.FC = () => {
-  // hooks
+  // Hooks
   const { showArrowButton } = useShowBackToTop();
 
-  // events
+  // Events
   const onScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Should not render the button when y position is less than 300
   if (!showArrowButton) return;
 
   return (

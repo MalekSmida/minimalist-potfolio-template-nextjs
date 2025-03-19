@@ -15,6 +15,11 @@ const mockProps: IExperienceCard = {
 };
 
 describe('ExperienceCard Component', () => {
+  /**
+   * Important:
+   * When having multiple test you should add cleanup as Vitest does not cleanup by default, leaving previously mounted components to be accessed by later tests
+   * Github issue : https://github.com/testing-library/vue-testing-library/issues/296
+   */
   afterEach(() => {
     cleanup();
   });
