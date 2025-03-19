@@ -3,7 +3,7 @@
 'use client';
 
 // local files
-import useScrollToSection from '@/hooks/useScrollToSection';
+import { useScrollToSection } from '@/hooks';
 import { INavButton } from './navButton.types';
 
 const NavButtonAnchor: React.FC<INavButton> = ({ title, link }) => {
