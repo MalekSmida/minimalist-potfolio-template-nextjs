@@ -12,12 +12,12 @@ const Career: React.FC<PropsCareer> = ({ descriptionList, experienceList }) => {
 
   return (
     <section className="relative my-10 w-full px-8" aria-labelledby="career-heading" id="career">
-      <h2 id="career-heading" className="my-4 text-3xl font-bold sm:text-4xl">
+      <h1 id="career-heading" className="my-4 text-3xl font-bold sm:text-4xl">
         Career
-      </h2>
+      </h1>
 
-      {descriptionList?.map((description) => (
-        <p key={description} className="mt-1 text-gray-600 dark:text-gray-200">
+      {descriptionList?.map((description, index) => (
+        <p key={index} className="mt-1 text-gray-600 dark:text-gray-200">
           {description}
         </p>
       ))}

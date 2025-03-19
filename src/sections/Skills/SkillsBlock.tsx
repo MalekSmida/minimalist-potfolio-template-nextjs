@@ -28,13 +28,13 @@ const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
 
 const SkillsBlock: React.FC<PropsSkills> = ({ title, skills }) => {
   return (
-    <div className="flex w-full flex-col items-center">
-      <h3 className="my-4 text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">{title}</h3>
+    <section className="flex w-full flex-col items-center">
+      <h2 className="my-4 text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">{title}</h2>
       <hr className="mb-4 h-0.5 w-full bg-gray-800 opacity-5" />
-      <div className="flex flex-wrap items-end justify-center gap-2 p-4 md:gap-4 lg:gap-6">
-        {skills?.map((skill) => (
-          <div
-            key={skill.label}
+      <ul className="flex flex-wrap items-end justify-center gap-2 p-4 md:gap-4 lg:gap-6">
+        {skills?.map((skill, index) => (
+          <li
+            key={index} // using index is OK if the props are static
             className="group relative flex h-32 w-34 flex-col items-center justify-center rounded-lg bg-gray-50 p-4 text-center dark:bg-gray-800"
           >
             <Image
@@ -44,19 +44,17 @@ const SkillsBlock: React.FC<PropsSkills> = ({ title, skills }) => {
               height={45}
               width={45}
               loading="lazy"
-              role="img"
               aria-label={skill.label}
-              key={skill.label}
               className="grayscale-70 transition-all duration-200 ease-in-out group-hover:grayscale-0"
             />
             <p className="mt-2 text-sm font-medium text-gray-600 dark:text-gray-200">
               {skill.label}
             </p>
             <LevelTag level={skill.level} />
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 

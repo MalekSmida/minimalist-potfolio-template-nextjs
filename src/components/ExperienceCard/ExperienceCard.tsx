@@ -21,9 +21,9 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         aria-labelledby={`experience-title-${_id}`}
       >
         <span className="absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
-        {positions.map((position) => (
+        {positions.map((position, index) => (
           <h3
-            key={position}
+            key={index}
             id={`experience-title-${_id}`}
             className="mt-0.5 line-clamp-1 text-lg font-medium"
           >
