@@ -9,7 +9,7 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
   if (!itemList.length) return;
   return (
     <>
-      <h2 className="mt-7 text-xl font-bold">{title}</h2>
+      {title && <h2 className="mt-7 text-xl font-bold">{title}</h2>}
       <ul className="mt-3 list-disc space-y-1 text-gray-600 dark:text-gray-200">
         {itemList?.map((item, index) => <li key={index}>{item}</li>)}
       </ul>
@@ -18,6 +18,8 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
 };
 
 const About: React.FC<PropsAbout> = ({ blockList }) => {
+  if (!blockList.length) return;
+
   return (
     <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">
       {/* Image section*/}
