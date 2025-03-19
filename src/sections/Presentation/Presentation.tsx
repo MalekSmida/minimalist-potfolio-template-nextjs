@@ -32,7 +32,7 @@ const Presentation: React.FC<PropsPresentation> = ({
           <p className="my-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{jobTitle}</p>
         )}
         {yearsOfExperience && (
-          <p className="text-md text-primary my-2 font-medium dark:text-violet-300">
+          <p className="text-md text-primary my-2 font-medium dark:text-blue-300">
             {yearsOfExperience}
           </p>
         )}
@@ -43,7 +43,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         )}
         {cvPdfLink && (
           <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:border-violet-300 dark:bg-violet-300 dark:text-gray-900 dark:hover:text-violet-300 dark:active:text-violet-300"
+            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:border-blue-300 dark:bg-blue-300 dark:text-gray-900 dark:hover:text-blue-300 dark:active:text-blue-300"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
@@ -87,6 +87,12 @@ const Presentation: React.FC<PropsPresentation> = ({
           aria-hidden="true"
           focusable="false"
         >
+          <defs>
+            <linearGradient id="primary-to-blue" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#3329ff" /> {/* primary color */}
+              <stop offset="100%" stopColor="#93c5fd" /> {/* blue-300 */}
+            </linearGradient>
+          </defs>
           <rect
             x="-74"
             y="641.438"
@@ -94,7 +100,7 @@ const Presentation: React.FC<PropsPresentation> = ({
             height="849.994"
             rx="200"
             transform="rotate(-59.0645 -74 641.438)"
-            fill="#6500fa"
+            fill="url(#primary-to-blue)"
           />
         </svg>
 
