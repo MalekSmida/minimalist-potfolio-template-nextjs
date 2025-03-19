@@ -5,11 +5,11 @@ import { cleanup, render, screen } from '@testing-library/react';
 import Experiences from './Career';
 
 // mock data
-const mockCareerDescriptionList = [
+const mockDescriptionList = [
   'Experienced full-stack developer with a passion for building scalable applications.',
   'Strong background in web and mobile development.',
 ];
-const mockExperiences = [
+const mockExperienceList = [
   {
     _id: '1',
     contractType: 'Full-Time',
@@ -32,15 +32,15 @@ describe('Experiences Component', () => {
   });
 
   test('1- should renders career description when provided', () => {
-    render(<Experiences careerDescriptionList={mockCareerDescriptionList} experiences={[]} />);
-    mockCareerDescriptionList.forEach((description) => {
+    render(<Experiences descriptionList={mockDescriptionList} experienceList={[]} />);
+    mockDescriptionList.forEach((description) => {
       expect(screen.getByText(description)).toBeDefined();
     });
   });
 
   test('2- should renders experiences when provided', () => {
-    render(<Experiences experiences={mockExperiences} />);
-    mockExperiences.forEach((exp) => {
+    render(<Experiences experienceList={mockExperienceList} />);
+    mockExperienceList.forEach((exp) => {
       expect(screen.getByText(exp.positions[0])).toBeDefined();
       expect(screen.getByText(`@${exp.company}`)).toBeDefined();
       expect(screen.getByText(exp.summary)).toBeDefined();
@@ -48,7 +48,7 @@ describe('Experiences Component', () => {
   });
 
   test('3- should renders nothing when no data is provided', () => {
-    const { container } = render(<Experiences experiences={[]} careerDescriptionList={[]} />);
+    const { container } = render(<Experiences experienceList={[]} descriptionList={[]} />);
     // In React, when a component returns null, React does not remove the parent container.
     // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
     // We should check if the container is empty
@@ -56,7 +56,7 @@ describe('Experiences Component', () => {
   });
 
   test('4- should renders heading correctly', () => {
-    render(<Experiences experiences={mockExperiences} />);
+    render(<Experiences experienceList={mockExperienceList} />);
     expect(screen.getByRole('heading', { level: 2, name: 'Career' })).toBeDefined();
   });
 });

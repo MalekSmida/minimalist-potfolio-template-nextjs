@@ -5,13 +5,13 @@ import { cleanup, render, screen } from '@testing-library/react';
 import Footer from './Footer';
 
 const mockData = {
-  Email: 'test@mail.com',
-  Address: '123 Test Street',
-  Phone: '+123456789',
-  GoogleMapsURLForAddress: 'https://maps.google.com/?q=123+Test+Street',
-  Linkedin: 'https://www.linkedin.com/in/testuser/',
-  Github: 'https://github.com/testuser',
-  GithubRepo: 'https://github.com/testuser/testrepo',
+  email: 'test@mail.com',
+  address: '123 Test Street',
+  phone: '+123456789',
+  googleMapsLinkForAddress: 'https://maps.google.com/?q=123+Test+Street',
+  linkedinLink: 'https://www.linkedinLink.com/in/testuser/',
+  githubLink: 'https://github.com/testuser',
+  githubRepoLink: 'https://github.com/testuser/testrepo',
 };
 
 describe('Footer Component', () => {
@@ -41,28 +41,28 @@ describe('Footer Component', () => {
   test('2- should renders contact section when valid props', () => {
     render(
       <Footer
-        email={mockData.Email}
-        address={mockData.Address}
-        phone={mockData.Phone}
-        googleMapsURLForAddress={mockData.GoogleMapsURLForAddress}
+        email={mockData.email}
+        address={mockData.address}
+        phone={mockData.phone}
+        googleMapsLinkForAddress={mockData.googleMapsLinkForAddress}
       />,
     );
 
     expect(screen.getByText(/Contact/i)).toBeDefined();
-    expect(screen.getByText(mockData.Email)).toBeDefined();
-    expect(screen.getByText(mockData.Address)).toBeDefined();
-    expect(screen.getByText(mockData.Phone)).toBeDefined();
+    expect(screen.getByText(mockData.email)).toBeDefined();
+    expect(screen.getByText(mockData.address)).toBeDefined();
+    expect(screen.getByText(mockData.phone)).toBeDefined();
   });
 
   test('3- should renders social links section when valid props', () => {
-    render(<Footer linkedinUrl={mockData.Linkedin} githubUrl={mockData.Github} />);
+    render(<Footer linkedinLink={mockData.linkedinLink} githubLink={mockData.githubLink} />);
 
     expect(screen.getByRole('link', { name: 'Linkedin' })).toBeDefined();
     expect(screen.getByRole('link', { name: 'Github' })).toBeDefined();
   });
 
   test('4- should renders fork-it when valid props', () => {
-    render(<Footer githubRepo={mockData.GithubRepo} />);
+    render(<Footer githubRepoLink={mockData.githubRepoLink} />);
 
     expect(screen.getByText(/Fork it/i)).toBeDefined();
   });
@@ -70,13 +70,13 @@ describe('Footer Component', () => {
   test('5- should redirect to valid urls when clicked', () => {
     render(
       <Footer
-        email={mockData.Email}
-        address={mockData.Address}
-        phone={mockData.Phone}
-        googleMapsURLForAddress={mockData.GoogleMapsURLForAddress}
-        linkedinUrl={mockData.Linkedin}
-        githubUrl={mockData.Github}
-        githubRepo={mockData.GithubRepo}
+        email={mockData.email}
+        address={mockData.address}
+        phone={mockData.phone}
+        googleMapsLinkForAddress={mockData.googleMapsLinkForAddress}
+        linkedinLink={mockData.linkedinLink}
+        githubLink={mockData.githubLink}
+        githubRepoLink={mockData.githubRepoLink}
       />,
     );
 
@@ -87,27 +87,29 @@ describe('Footer Component', () => {
      */
     // Test email link
     expect(
-      screen.getByRole('link', { name: `Send an email to ${mockData.Email}` }).getAttribute('href'),
-    ).toBe(`mailto:${mockData.Email}`);
+      screen.getByRole('link', { name: `Send an email to ${mockData.email}` }).getAttribute('href'),
+    ).toBe(`mailto:${mockData.email}`);
     // Test address link
     expect(
       screen.getByRole('link', { name: 'View address on Google Maps' }).getAttribute('href'),
-    ).toBe(mockData.GoogleMapsURLForAddress);
+    ).toBe(mockData.googleMapsLinkForAddress);
     // Test phone link
-    expect(screen.getByRole('link', { name: `Call ${mockData.Phone}` }).getAttribute('href')).toBe(
-      `tel:${mockData.Phone}`,
+    expect(screen.getByRole('link', { name: `Call ${mockData.phone}` }).getAttribute('href')).toBe(
+      `tel:${mockData.phone}`,
     );
 
     // Test linkedin link
     expect(screen.getByRole('link', { name: 'Linkedin' }).getAttribute('href')).toBe(
-      mockData.Linkedin,
+      mockData.linkedinLink,
     );
     // Test github link
-    expect(screen.getByRole('link', { name: 'Github' }).getAttribute('href')).toBe(mockData.Github);
+    expect(screen.getByRole('link', { name: 'Github' }).getAttribute('href')).toBe(
+      mockData.githubLink,
+    );
 
     // Test github repository link in "Fork it"
     expect(screen.getByRole('link', { name: 'Fork it' }).getAttribute('href')).toBe(
-      mockData.GithubRepo,
+      mockData.githubRepoLink,
     );
   });
 });
