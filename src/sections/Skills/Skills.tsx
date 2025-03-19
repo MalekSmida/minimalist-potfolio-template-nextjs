@@ -7,6 +7,8 @@ interface PropsSkills {
 }
 
 const Skills: React.FC<PropsSkills> = ({ blockList }) => {
+  if (!blockList.length) return;
+
   return (
     <section
       className="my-10 flex w-full max-w-4xl flex-col items-center justify-center rounded-md px-8"
@@ -16,7 +18,7 @@ const Skills: React.FC<PropsSkills> = ({ blockList }) => {
 
       <div className="flex w-full flex-col">
         {blockList.map((skillSection, index) => (
-          <SkillsBlock key={index} title={skillSection.title} skills={skillSection.skillList} />
+          <SkillsBlock key={index} title={skillSection.title} skillList={skillSection.skillList} />
         ))}
       </div>
     </section>

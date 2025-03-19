@@ -26,7 +26,7 @@ const mockExperienceList = [
   },
 ];
 
-describe('Career Component', () => {
+describe('Career Section', () => {
   /**
    * Important:
    * When having multiple test you should add cleanup as Vitest does not cleanup by default, leaving previously mounted components to be accessed by later tests
@@ -44,24 +44,24 @@ describe('Career Component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  test('2- should renders career description when provided', () => {
+  test('2- should renders heading correctly', () => {
+    render(<Experiences experienceList={mockExperienceList} />);
+    expect(screen.getByRole('heading', { level: 1, name: 'Career' })).toBeDefined();
+  });
+
+  test('3- should renders career description when provided', () => {
     render(<Experiences descriptionList={mockDescriptionList} experienceList={[]} />);
     mockDescriptionList.forEach((description) => {
       expect(screen.getByText(description)).toBeDefined();
     });
   });
 
-  test('3- should renders experiences when provided', () => {
+  test('4- should renders experiences when provided', () => {
     render(<Experiences experienceList={mockExperienceList} />);
     mockExperienceList.forEach((exp) => {
       expect(screen.getByText(exp.positions[0])).toBeDefined();
       expect(screen.getByText(`@${exp.company}`)).toBeDefined();
       expect(screen.getByText(exp.summary)).toBeDefined();
     });
-  });
-
-  test('4- should renders heading correctly', () => {
-    render(<Experiences experienceList={mockExperienceList} />);
-    expect(screen.getByRole('heading', { level: 1, name: 'Career' })).toBeDefined();
   });
 });

@@ -3,9 +3,9 @@ import Image from 'next/image';
 // local files
 import { ISkill } from './skills.types';
 
-interface PropsSkills {
+interface PropsSkillsBlock {
   title: string;
-  skills: Array<ISkill>;
+  skillList: Array<ISkill>;
 }
 
 const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
@@ -26,15 +26,19 @@ const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
   );
 };
 
-const SkillsBlock: React.FC<PropsSkills> = ({ title, skills }) => {
+const SkillsBlock: React.FC<PropsSkillsBlock> = ({ title, skillList }) => {
+  if (!skillList.length) return;
+
   return (
     <section className="flex w-full flex-col items-center">
-      <h2 className="mt-4 mb-2 text-center text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">
-        {title}
-      </h2>
+      {title && (
+        <h2 className="mt-4 mb-2 text-center text-lg font-medium text-gray-900 md:mt-8 dark:text-gray-200">
+          {title}
+        </h2>
+      )}
       <hr className="mb-4 h-0.5 w-full bg-gray-800 opacity-5" />
       <ul className="flex flex-wrap items-end justify-center gap-2 p-4 md:gap-4 lg:gap-6">
-        {skills?.map((skill, index) => (
+        {skillList?.map((skill, index) => (
           <li
             key={index} // using index is OK if the props are static
             className="group relative flex h-32 w-34 flex-col items-center justify-center rounded-lg bg-gray-50 p-4 text-center dark:bg-gray-800"
