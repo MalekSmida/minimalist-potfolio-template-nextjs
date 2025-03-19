@@ -34,6 +34,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
                 stroke="currentColor"
                 strokeWidth="1"
                 aria-hidden="true" // hide non-interactive content from the accessibility, voir docs : https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden
+                role="img"
               >
                 <path
                   strokeLinecap="round"
@@ -63,6 +64,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
                 stroke="currentColor"
                 strokeWidth="1"
                 aria-hidden="true"
+                role="img"
               >
                 <path
                   strokeLinecap="round"
@@ -95,6 +97,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
                 stroke="currentColor"
                 strokeWidth="1"
                 aria-hidden="true"
+                role="img"
               >
                 <path
                   strokeLinecap="round"
