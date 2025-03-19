@@ -2,14 +2,10 @@
 import { NavHeader } from '@/components';
 import { INavButton } from '@/components/NavButton';
 import {
-  backendSkills,
-  cloudDevOpsSkills,
-  databaseSkills,
-  experiences,
-  frontendSkills,
-  hyperlinks,
-  otherSkills,
-  profileInfo,
+  aboutSectionData,
+  careerSectionData,
+  presentationSectionData,
+  skillsSectionData,
 } from '@/data';
 import { About, Career, Presentation, Skills } from '@/sections';
 
@@ -25,25 +21,18 @@ export default function Home() {
     <>
       <NavHeader navButtonList={navButtonList} />
       <Presentation
-        name={profileInfo.Name}
-        jobTitle={profileInfo.JobTitle}
-        yearsOfExperience={profileInfo.YearsOfExperience}
-        description={profileInfo.PresentationDescription}
-        cvPdfLink={hyperlinks.CVPDF}
+        name={presentationSectionData.name}
+        jobTitle={presentationSectionData.jobTitle}
+        yearsOfExperience={presentationSectionData.yearsOfExperience}
+        description={presentationSectionData.description}
+        cvPdfLink={presentationSectionData.cvPdfLink}
       />
-      <Career careerDescriptionList={profileInfo.CareerDescriptionList} experiences={experiences} />
-      <About
-        functionalSkillsList={profileInfo.FunctionalSkillsList}
-        educationList={profileInfo.EducationList}
-        interestList={profileInfo.InterestList}
+      <Career
+        descriptionList={careerSectionData.descriptionList}
+        experienceList={careerSectionData.experienceList}
       />
-      <Skills
-        frontendSkills={frontendSkills}
-        backendSkills={backendSkills}
-        databaseSkills={databaseSkills}
-        cloudDevOpsSkills={cloudDevOpsSkills}
-        otherSkills={otherSkills}
-      />
+      <About blockList={aboutSectionData} />
+      <Skills blockList={skillsSectionData} />
     </>
   );
 }

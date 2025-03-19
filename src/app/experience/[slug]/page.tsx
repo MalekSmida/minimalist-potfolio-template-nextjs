@@ -4,7 +4,7 @@ import Image from 'next/image';
 // local files
 import { NavHeader } from '@/components';
 import { IExperience } from '@/components/ExperienceCard';
-import { experiences } from '@/data';
+import { careerSectionData } from '@/data';
 import { INavButton } from '@/components/NavButton';
 
 interface PropsPage {
@@ -21,7 +21,7 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
   const { slug } = await params;
 
   const findExperienceById = (experienceId: string): IExperience | undefined =>
-    experiences.find((item) => item._id === experienceId);
+    careerSectionData.experienceList.find((item) => item._id === experienceId);
 
   const currentExperience = findExperienceById(slug);
 

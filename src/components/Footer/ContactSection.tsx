@@ -2,14 +2,14 @@ interface PropsContactSection {
   email?: string;
   address?: string;
   phone?: string;
-  googleMapsURLForAddress?: string;
+  googleMapsLinkForAddress?: string;
 }
 
 const ContactSection: React.FC<PropsContactSection> = ({
   email,
   address,
   phone,
-  googleMapsURLForAddress,
+  googleMapsLinkForAddress,
 }) => {
   // break when empty props
   if (!email && !address && !phone) return;
@@ -46,10 +46,10 @@ const ContactSection: React.FC<PropsContactSection> = ({
           </li>
         )}
         {/* Address */}
-        {address && googleMapsURLForAddress && (
+        {address && googleMapsLinkForAddress && (
           <li role="listitem">
             <a
-              href={googleMapsURLForAddress || 'https://www.google.com/maps'}
+              href={googleMapsLinkForAddress || 'https://www.google.com/maps'}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2"

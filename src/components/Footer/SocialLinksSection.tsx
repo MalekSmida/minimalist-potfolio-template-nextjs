@@ -1,20 +1,20 @@
 interface PropsSocialLinksSection {
-  linkedinUrl?: string;
-  githubUrl?: string;
+  linkedinLink?: string;
+  githubLink?: string;
 }
 
-const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinUrl, githubUrl }) => {
+const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinLink, githubLink }) => {
   // break when empty props
-  if (!linkedinUrl && !githubUrl) return;
+  if (!linkedinLink && !githubLink) return;
 
   return (
     <section>
       <ul className="mt-6 mb-2 flex items-center gap-6 md:gap-8" role="list">
         {/* Linkedin */}
-        {linkedinUrl && (
+        {linkedinLink && (
           <li role="listitem">
             <a
-              href={linkedinUrl}
+              href={linkedinLink}
               rel="noopener noreferrer"
               target="_blank"
               className="transition hover:text-white/75"
@@ -28,10 +28,10 @@ const SocialLinksSection: React.FC<PropsSocialLinksSection> = ({ linkedinUrl, gi
           </li>
         )}
         {/* GitHub */}
-        {githubUrl && (
+        {githubLink && (
           <li role="listitem">
             <a
-              href={githubUrl}
+              href={githubLink}
               rel="noopener noreferrer"
               target="_blank"
               className="transition hover:text-white/75"

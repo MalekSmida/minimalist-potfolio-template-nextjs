@@ -2,9 +2,7 @@
 import { AnimatedGuitarPlayerImage } from '@/components';
 
 interface PropsAbout {
-  functionalSkillsList: string[];
-  educationList: string[];
-  interestList: string[];
+  blockList: Array<{ title: string; aboutList: string[] }>;
 }
 
 const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, itemList }) => {
@@ -19,7 +17,7 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
   );
 };
 
-const About: React.FC<PropsAbout> = ({ functionalSkillsList, educationList, interestList }) => {
+const About: React.FC<PropsAbout> = ({ blockList }) => {
   return (
     <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">
       {/* Image section*/}
@@ -32,9 +30,9 @@ const About: React.FC<PropsAbout> = ({ functionalSkillsList, educationList, inte
         <div className="xl:text-md p-8 text-sm md:px-16 md:py-8 lg:px-22 lg:py-16">
           <h2 className="mb-4 text-2xl font-bold sm:mb-10 sm:text-3xl">Hello again 👋</h2>
 
-          <AboutBlock title="What I Bring to the Table" itemList={functionalSkillsList} />
-          <AboutBlock title="Education & Continuous Learning" itemList={educationList} />
-          <AboutBlock title="Personal Interests" itemList={interestList} />
+          {blockList.map((block) => (
+            <AboutBlock key={block.title} title={block.title} itemList={block.aboutList} />
+          ))}
         </div>
       </div>
     </section>

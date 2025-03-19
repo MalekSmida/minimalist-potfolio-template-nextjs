@@ -1,16 +1,16 @@
 interface PropsCopyrightSection {
-  githubRepo?: string;
+  githubRepoLink?: string;
 }
 
-const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepo }) => {
+const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepoLink }) => {
   return (
     <section>
       <p className="text-center text-sm text-gray-400">
         &copy; 2025 Malek Smida
-        {githubRepo && (
+        {githubRepoLink && (
           <>
             <a
-              href={githubRepo}
+              href={githubRepoLink}
               target="_blank"
               rel="noopener noreferrer"
               title="Github repository for this open source portfolio"

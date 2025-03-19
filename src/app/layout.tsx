@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 // local files
 import '../styles/globals.css';
 import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
-import { contactInfo, hyperlinks } from '@/data';
+import { contactSectionData } from '@/data';
 
 export const metadata: Metadata = {
   title: 'Malek Smida | Senior Full-stack Engineer',
@@ -24,13 +24,13 @@ export default function RootLayout({
           {children}
         </main>
         <Footer
-          email={contactInfo.Email}
-          address={contactInfo.Address}
-          phone={contactInfo.Phone}
-          googleMapsURLForAddress={hyperlinks.GoogleMapsURLForAddress}
-          linkedinUrl={hyperlinks.Linkedin}
-          githubUrl={hyperlinks.Github}
-          githubRepo={hyperlinks.GithubRepo}
+          email={contactSectionData.email}
+          address={contactSectionData.address}
+          phone={contactSectionData.phone}
+          googleMapsLinkForAddress={contactSectionData.googleMapsLinkForAddress}
+          linkedinLink={contactSectionData.linkedinLink}
+          githubLink={contactSectionData.githubLink}
+          githubRepoLink={contactSectionData.githubRepoLink}
         />
         <BackToTopButton />
       </body>

@@ -1,5 +1,5 @@
-export { default as contactInfo } from './contactInfo';
-export { default as hyperlinks } from './hyperlinks';
-export { default as profileInfo } from './profileInfo';
-export { default as experiences } from './experiences';
-export * from './skills';
+export { default as presentationSectionData } from './presentationSectionData';
+export { default as careerSectionData } from './careerSectionData';
+export { default as aboutSectionData } from './aboutSectionData';
+export { default as skillsSectionData } from './skillsSectionData';
+export { default as contactSectionData } from './contactSectionData';
