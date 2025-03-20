@@ -1,26 +1,174 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #3329ff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  /*
+  Font fallback chain's config explained :
+  Segoe UI            => Primary font on Windows
+  -apple-system       => Native font for macOS and iOS 
+  BlinkMacSystemFont  => Chrome’s Apple-specific font
+  Roboto              => Default font on Android and used in Google products
+  Oxygen              => Default font for the KDE desktop environment on Linux
+  Ubuntu              => Default font for Ubuntu Linux
+  Cantarell           => Default font for GNOME desktop environments on Linux
+  Fira Sans           => Developed for Mozilla Firefox OS
+  Droid Sans          => Older default font for Android
+  Helvetica Neue      => Default on older versions of macOS (before Yosemite)
+  sans-serif          => Universal fallback
+  */
+  font-family:
+    Segoe UI,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+
+  /* TODO: transition's animation of dark mode */
+  /* @apply transition-colors duration-300 ease-in-out; */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+*::selection {
+  background: var(--primary); /* WebKit/Blink Browsers */
+  color: white;
+}
+*::-moz-selection {
+  background: var(--primary); /* Gecko Browsers */
+  color: white;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+}
+
+/* 
+Toggling dark mode manually
+Docs: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* SVG animation of the Presentation section */
+@keyframes spin-dynamic {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  40% {
+    transform: rotate(70deg);
+  } /* Slight reversal */
+  60% {
+    transform: rotate(200deg);
+  }
+  80% {
+    transform: rotate(170deg);
+  } /* Another subtle inversion */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animated-spin-dynamic {
+  animation: spin-dynamic 60s ease-in-out infinite;
+}
+
+/* SVG animation of the About section */
+@keyframes bounce-to-bottom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+  55% {
+    transform: translateY(6px);
+  }
+  70% {
+    transform: translateY(-8px);
+  }
+  85% {
+    transform: translateY(3px);
+  }
+}
+.animated-bounce-to-bottom {
+  animation: bounce-to-bottom 4.7s ease-in-out infinite;
+}
+
+@keyframes bounce-light {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  45% {
+    transform: translateY(3px);
+  }
+  70% {
+    transform: translateY(-3px);
+  }
+  85% {
+    transform: translateY(1px);
+  }
+}
+.animated-bounce-light {
+  animation: bounce-light 6.2s ease-in-out infinite;
+}
+
+@keyframes bounce-to-top {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(18px);
+  }
+  55% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}
+.animated-bounce-to-top {
+  animation: bounce-to-top 5.4s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+}
+.animated-wiggle {
+  animation: wiggle 6.5s ease-in-out infinite;
 }

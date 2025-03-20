@@ -9,6 +9,8 @@ Following:
 - CDD (Component driven development) => Develop component first then assemble UI
 - TDD (test driven development) => Write test until fails the write code until test pass
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## Getting Started
 
 First, run the development server:

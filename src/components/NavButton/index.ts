@@ -1,2 +1,2 @@
-export { default as NavButton } from './NavButton';
+export { default } from './NavButton';
 export * from './navButton.types';

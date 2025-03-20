@@ -6,9 +6,9 @@ import NavHeader from './NavHeader';
 import { INavButton } from '../NavButton';
 
 // Constants
-const dummyNavButtonList: INavButton[] = [
-  { title: 'dummy title 1', anchorLink: 'dummy anchor link 1' },
-  { title: 'dummy title 2', anchorLink: 'dummy anchor link 2' },
+const mockNavButtonList: INavButton[] = [
+  { title: 'Test title 1', link: { type: 'href', id: 'https://test.com/1' } },
+  { title: 'Test title 2', link: { type: 'href', id: 'https://test.com/2' } },
 ];
 
 describe('NavHeader Component', () => {
@@ -21,16 +21,16 @@ describe('NavHeader Component', () => {
     cleanup();
   });
 
-  test('should renders the navigation header component without errors', () => {
+  test('1- should renders the navigation header component without errors', () => {
     render(<NavHeader navButtonList={[]} />);
-    expect(screen.getByRole('navigation')).toBeDefined();
+    expect(screen.getByRole('banner')).toBeDefined();
   });
 
-  test('should renders the navigation buttons correctly', () => {
-    render(<NavHeader navButtonList={dummyNavButtonList} />);
+  test('2- should renders the navigation buttons correctly', () => {
+    render(<NavHeader navButtonList={mockNavButtonList} />);
     expect(screen.getByRole('navigation')).toBeDefined();
 
-    expect(screen.getByText(dummyNavButtonList[0].title)).toBeDefined();
-    expect(screen.getByText(dummyNavButtonList[1].title)).toBeDefined();
+    expect(screen.getByText(mockNavButtonList[0].title)).toBeDefined();
+    expect(screen.getByText(mockNavButtonList[1].title)).toBeDefined();
   });
 });

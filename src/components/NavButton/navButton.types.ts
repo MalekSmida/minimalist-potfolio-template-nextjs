@@ -1,4 +1,4 @@
 export interface INavButton {
   title: string;
-  anchorLink: string;
+  link: { id: string; type: 'href' | 'anchorLink' };
 }
