@@ -29,7 +29,7 @@ const Career: React.FC<PropsCareer> = ({ descriptionList, experienceList }) => {
               key={experience._id}
               _id={experience._id}
               contractType={experience.contractType}
-              positions={experience.positions}
+              position={experience.position}
               company={experience.company}
               summary={experience.summary}
             />

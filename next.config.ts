@@ -38,7 +38,7 @@ const securityHeaders = [
   },
   {
     key: 'Access-Control-Allow-Origin',
-    value: 'https://maleksmida.com',
+    value: '*',
   },
   // Additional Cross-Origin headers
   {

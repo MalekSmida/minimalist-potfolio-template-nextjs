@@ -9,7 +9,7 @@ import { IExperienceCard } from './experienceCard.types';
 const ExperienceCard: React.FC<IExperienceCard> = ({
   _id,
   contractType,
-  positions,
+  position,
   company,
   summary,
 }) => {
@@ -20,15 +20,9 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         aria-labelledby={`experience-title-${_id}`}
       >
         <span className="to-primary absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r from-blue-300"></span>
-        {positions.map((position, index) => (
-          <p
-            key={index}
-            id={`experience-title-${_id}`}
-            className="mt-0.5 line-clamp-1 text-lg font-medium"
-          >
-            {position}
-          </p>
-        ))}
+        <h2 id={`experience-title-${_id}`} className="mt-0.5 line-clamp-2 text-lg font-medium">
+          {position}
+        </h2>
 
         {/* It will check if your experience is within a company else it will renders contract type */}
         <p className="text-primary mt-4 line-clamp-2 font-medium dark:text-blue-300">
