@@ -9,10 +9,12 @@ import { useMesureVerticalScroll } from '@/hooks';
 /**
  * Progress bar animation shown in top of page when scrolling
  */
-const ScrollProgressIndicatorBar: React.FC = () => {
+const ScrollProgressIndicatorBar: React.FC<{ nonce: string }> = ({ nonce }) => {
   const { scrollProgress } = useMesureVerticalScroll();
+
   return (
     <span
+      nonce={nonce}
       aria-hidden="true"
       className="bg-primary fixed top-0 left-0 z-40 h-1 rounded-r duration-300 ease-in-out"
       style={{

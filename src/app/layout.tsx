@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 
 // local files
 import '../styles/globals.css';
@@ -11,16 +12,20 @@ export const metadata: Metadata = {
     'Malek Smida, a passionate, agile-minded Software Engineer who is scrupulous about the details. Manage full software development life-cycle of Mobile and Web apps',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout: React.FC<
+  Readonly<{
+    children: React.ReactNode;
+  }>
+> = async ({ children }) => {
+  // Get the nonce from the headers
+  const nextHeaders = await headers();
+  const nonce = nextHeaders.get('x-nonce') || '';
+
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
         <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6">
-          <ScrollProgressIndicatorBar />
+          <ScrollProgressIndicatorBar nonce={nonce} />
           {children}
         </main>
         <Footer
@@ -36,4 +41,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

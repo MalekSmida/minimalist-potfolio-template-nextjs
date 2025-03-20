@@ -87,7 +87,7 @@ Docs: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
   }
 }
 .animated-spin-dynamic {
-  animation: spin-dynamic 60s ease-in-out infinite;
+  animation: spin-dynamic 30s ease-in-out infinite;
 }
 
 /* SVG animation of the About section */

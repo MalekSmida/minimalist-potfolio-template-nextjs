@@ -1,23 +1,12 @@
 import type { NextConfig } from 'next';
 
-const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-`;
-
 const securityHeaders = [
+  // Improve performance
   {
     key: 'X-DNS-Prefetch-Control',
     value: 'on',
   },
+  // Strict-Transport-Security (HSTS)
   {
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload',
@@ -28,7 +17,7 @@ const securityHeaders = [
   },
   {
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN',
+    value: 'DENY',
   },
   {
     key: 'X-Content-Type-Options',
@@ -36,12 +25,13 @@ const securityHeaders = [
   },
   {
     key: 'Referrer-Policy',
-    value: 'no-referrer',
+    value: 'strict-origin-when-cross-origin',
   },
   {
-    key: 'Content-Security-Policy',
-    value: cspHeader.replace(/\n/g, ''),
+    key: 'X-Permitted-Cross-Domain-Policies',
+    value: 'none',
   },
+  // Permissions-Policy modern replacement for Feature-Policy
   {
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
@@ -49,6 +39,19 @@ const securityHeaders = [
   {
     key: 'Access-Control-Allow-Origin',
     value: 'https://maleksmida.com',
+  },
+  // Additional Cross-Origin headers
+  {
+    key: 'Cross-Origin-Embedder-Policy',
+    value: 'require-corp',
+  },
+  {
+    key: 'Cross-Origin-Opener-Policy',
+    value: 'same-origin',
+  },
+  {
+    key: 'Cross-Origin-Resource-Policy',
+    value: 'same-origin',
   },
 ];
 
