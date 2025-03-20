@@ -9,6 +9,7 @@ import {
 } from '@/data';
 import { About, Career, Presentation, Skills } from '@/sections';
 
+// Constants
 const navButtonList: INavButton[] = [
   { title: 'Career', link: { id: 'career', type: 'anchorLink' } },
   { title: 'About', link: { id: 'about', type: 'anchorLink' } },
@@ -16,7 +17,7 @@ const navButtonList: INavButton[] = [
   { title: 'Contact', link: { id: 'contact', type: 'anchorLink' } },
 ];
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <>
       <NavHeader navButtonList={navButtonList} />
@@ -35,4 +36,6 @@ export default function Home() {
       <Skills blockList={skillsSectionData} />
     </>
   );
-}
+};
+
+export default Home;

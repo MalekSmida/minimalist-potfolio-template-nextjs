@@ -7,7 +7,7 @@ import { IExperience } from '@/components/ExperienceCard';
 import { careerSectionData } from '@/data';
 import { INavButton } from '@/components/NavButton';
 
-interface PropsPage {
+interface PropsExperience {
   params: Promise<{ slug: string }>;
 }
 
@@ -15,7 +15,7 @@ const navButtonList: INavButton[] = [
   { title: 'Back to main page', link: { id: '/', type: 'href' } },
 ];
 
-const Page: React.FC<PropsPage> = async ({ params }) => {
+const Experience: React.FC<PropsExperience> = async ({ params }) => {
   // In Nextjs 15 dynamic route segment is passed as Promise in the props when using App router
   // Docs: https://nextjs.org/docs/messages/sync-dynamic-apis
   const { slug } = await params;
@@ -83,4 +83,4 @@ const Page: React.FC<PropsPage> = async ({ params }) => {
   );
 };
 
-export default Page;
+export default Experience;
