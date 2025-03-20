@@ -105,7 +105,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         </svg>
 
         <Image
-          src="/static/images/presentation.png"
+          src="/static/images/presentation.webp"
           alt={`${displayName}'s presentation picture`}
           className="relative"
           priority={true}
@@ -115,7 +115,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         />
 
         <Image
-          src="/static/images/recommendation.png"
+          src="/static/images/recommendation.webp"
           alt={`${displayName}'s recommendation picture`}
           width={450}
           height={200}

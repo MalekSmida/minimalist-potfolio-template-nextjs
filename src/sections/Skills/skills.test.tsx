@@ -15,7 +15,7 @@ const mockBlockList: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: '',
     skillList: [
       {
-        localPath: '/skill.png',
+        localPath: '/skill.webp',
         label: 'Second block first skill',
         level: 'Beginner',
       },
@@ -25,12 +25,12 @@ const mockBlockList: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Third block',
     skillList: [
       {
-        localPath: '/skill.png',
+        localPath: '/skill.webp',
         label: 'Third block first skill',
         level: 'Intermediate',
       },
       {
-        localPath: '/skill.png',
+        localPath: '/skill.webp',
         label: 'Third block second skill',
         level: 'Advanced',
       },

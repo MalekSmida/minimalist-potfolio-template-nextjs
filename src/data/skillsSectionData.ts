@@ -5,12 +5,12 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Frontend – Building Engaging User Interfaces',
     skillList: [
       {
-        localPath: '/static/icons/nextjs.png',
+        localPath: '/static/icons/nextjs.webp',
         label: 'Next.js',
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/react.png',
+        localPath: '/static/icons/react.webp',
         label: 'React.js / React Native',
         level: 'Advanced',
       },
@@ -20,12 +20,12 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/ts.png',
+        localPath: '/static/icons/ts.webp',
         label: 'Javascript / Typescript',
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/react-testing-library.png',
+        localPath: '/static/icons/react-testing-library.webp',
         label: 'React Testing Library',
         level: 'Advanced',
       },
@@ -35,7 +35,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/angular.png',
+        localPath: '/static/icons/angular.webp',
         label: 'Angular',
         level: 'Beginner',
       },
@@ -45,12 +45,12 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Backend – Crafting Robust APIs',
     skillList: [
       {
-        localPath: '/static/icons/nodejs.png',
+        localPath: '/static/icons/nodejs.webp',
         label: 'Node.js / Express.js',
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/jest.png',
+        localPath: '/static/icons/jest.webp',
         label: 'Jest',
         level: 'Advanced',
       },
@@ -60,7 +60,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Beginner',
       },
       {
-        localPath: '/static/icons/spring-boot.png',
+        localPath: '/static/icons/spring-boot.webp',
         label: 'Spring Boot',
         level: 'Beginner',
       },
@@ -70,7 +70,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Data Management – Database Design and Query Optimization',
     skillList: [
       {
-        localPath: '/static/icons/mongodb.png',
+        localPath: '/static/icons/mongodb.webp',
         label: 'MongoDB',
         level: 'Advanced',
       },
@@ -90,7 +90,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Cloud & DevOps – Scaling, Automating, and Deploying',
     skillList: [
       {
-        localPath: '/static/icons/ci-cd.png',
+        localPath: '/static/icons/ci-cd.webp',
         label: 'CI/CD',
         level: 'Advanced',
       },
@@ -100,12 +100,12 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/azure.png',
+        localPath: '/static/icons/azure.webp',
         label: 'Microsoft Azure',
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/terraform.png',
+        localPath: '/static/icons/terraform.webp',
         label: 'Terraform',
         level: 'Intermediate',
       },
@@ -115,12 +115,12 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/amazon-web-services-s3.png',
+        localPath: '/static/icons/amazon-web-services-s3.webp',
         label: 'AWS S3',
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/cloudflare.png',
+        localPath: '/static/icons/cloudflare.webp',
         label: 'Cloudflare',
         level: 'Beginner',
       },
@@ -135,17 +135,17 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
     title: 'Additional Skills – Design, Payment Integration, and More',
     skillList: [
       {
-        localPath: '/static/icons/agile.png',
+        localPath: '/static/icons/agile.webp',
         label: 'Agile',
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/figma.png',
+        localPath: '/static/icons/figma.webp',
         label: 'Figma',
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/ps.png',
+        localPath: '/static/icons/ps.webp',
         label: 'Photoshop',
         level: 'Intermediate',
       },
@@ -155,7 +155,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/electronjs.png',
+        localPath: '/static/icons/electronjs.webp',
         label: 'Electron.js',
         level: 'Beginner',
       },

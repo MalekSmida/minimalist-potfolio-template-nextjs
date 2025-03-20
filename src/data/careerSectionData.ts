@@ -90,7 +90,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       contractType: 'Freelance',
       dates: 'Nov 2020 - Jan 2022',
       positions: ['Full-stack Engineer', 'UX Designer'],
-      iconPath: '/static/icons/fallback.png',
+      iconPath: '/static/icons/fallback.webp',
       iconWidth: 90,
       iconHeight: 90,
       summary:
@@ -118,7 +118,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'Xperiencia',
       dates: 'Feb 2020 - Aug 2020',
       positions: ['MERN Stack Developer'],
-      iconPath: '/static/icons/fallback.png',
+      iconPath: '/static/icons/fallback.webp',
       iconWidth: 90,
       iconHeight: 90,
       summary:
@@ -139,7 +139,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'Fabskill',
       dates: 'July 2019 - Oct 2019',
       positions: ['Full Stack Developer'],
-      iconPath: '/static/icons/fabskill.png',
+      iconPath: '/static/icons/fabskill.webp',
       iconWidth: 90,
       iconHeight: 90,
       summary:
