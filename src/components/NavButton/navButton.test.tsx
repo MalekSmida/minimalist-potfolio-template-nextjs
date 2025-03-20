@@ -1,4 +1,4 @@
-import { expect, test, describe, afterEach, vi } from 'vitest';
+import { expect, test, describe, afterEach } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
