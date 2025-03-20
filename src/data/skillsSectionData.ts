@@ -75,7 +75,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Advanced',
       },
       {
-        localPath: '/static/icons/postgresql.jpg',
+        localPath: '/static/icons/postgresql.webp',
         label: 'PostgreSQL',
         level: 'Intermediate',
       },
@@ -150,7 +150,7 @@ const skillsSectionData: Array<{ title: string; skillList: Array<ISkill> }> = [
         level: 'Intermediate',
       },
       {
-        localPath: '/static/icons/stripe.jpg',
+        localPath: '/static/icons/stripe.webp',
         label: 'Stripe Payment',
         level: 'Intermediate',
       },

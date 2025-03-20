@@ -11,7 +11,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'SOPRA STERIA',
       dates: 'April 2023 - Dec 2024',
       positions: ['Tech Lead', 'Senior Full-stack Engineer'],
-      iconPath: '/static/icons/sopra-steria.jpeg',
+      iconPath: '/static/icons/sopra-steria.webp',
       iconWidth: 100,
       iconHeight: 100,
       summary:
@@ -45,7 +45,7 @@ const careerSectionData: { descriptionList: string[]; experienceList: Array<IExp
       company: 'CleverTech France',
       dates: 'March 2022 - March 2023',
       positions: ['Head of Frontend', 'Senior Full-stack JS'],
-      iconPath: '/static/icons/clevertech-france.jpg',
+      iconPath: '/static/icons/clevertech-france.webp',
       iconWidth: 80,
       iconHeight: 80,
       summary:
