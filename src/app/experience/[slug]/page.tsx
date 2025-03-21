@@ -30,16 +30,8 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
     notFound();
   }
 
-  const {
-    company,
-    contractType,
-    iconPath,
-    iconHeight,
-    iconWidth,
-    positions,
-    dates,
-    contributions,
-  } = currentExperience;
+  const { company, contractType, iconPath, iconHeight, iconWidth, position, dates, contributions } =
+    currentExperience;
   const iconTitle = company || contractType;
 
   return (
@@ -60,9 +52,7 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
         />
 
         <article className="mx-auto max-w-3xl p-5">
-          <h1 className="mb-4 text-3xl font-semibold">
-            {Array.isArray(positions) ? positions.join(', ') : positions}
-          </h1>
+          <h1 className="mb-4 text-3xl font-semibold">{position}</h1>
           {company && (
             <strong className="text-primary dark:bg-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-normal dark:border-none dark:text-white">
               @ {company}

@@ -19,7 +19,7 @@ const Presentation: React.FC<PropsPresentation> = ({
 
   return (
     <section
-      className="my-10 grid w-full grid-cols-1 lg:grid-cols-2"
+      className="mt-22 mb-10 grid w-full grid-cols-1 lg:grid-cols-2"
       aria-labelledby="profile-heading"
       id="presentation"
     >

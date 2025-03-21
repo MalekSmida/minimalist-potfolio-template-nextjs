@@ -17,6 +17,7 @@ const RootLayout: React.FC<
   }>
 > = async ({ children }) => {
   // Get the nonce from the headers
+  // Docs: https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy#reading-the-nonce
   const nextHeaders = await headers();
   const nonce = nextHeaders.get('x-nonce') || '';
 
