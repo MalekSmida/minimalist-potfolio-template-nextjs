@@ -21,7 +21,7 @@ function useShowNavHeader() {
     }
 
     setLastScrollY(currentScrollY);
-  }, []);
+  }, [lastScrollY, setLastScrollY, setShowNavHeader]);
 
   useEffect(() => {
     // set event listener for scroll position
