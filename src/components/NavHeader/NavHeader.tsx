@@ -2,7 +2,7 @@
 // This approach is called "islands architecture" in Next.js - where most of the page is static/server-rendered, with interactive "islands" that are client-rendered.
 'use client';
 
-import useShowNavHeader from '@/hooks/useShowNavHeader';
+import { useShowNavHeader } from '@/hooks';
 import DarkModeToggleButton from '../DarkModeToggleButton';
 import NavButton, { INavButton } from '../NavButton';
 

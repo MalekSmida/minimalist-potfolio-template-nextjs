@@ -4,13 +4,17 @@
 'use client';
 
 // local files
-import { useMesureVerticalScroll } from '@/hooks';
+import { useIsMobileScreen, useMesureVerticalScroll } from '@/hooks';
 
 /**
  * Progress bar animation shown in top of page when scrolling
  */
 const ScrollProgressIndicatorBar: React.FC<{ nonce: string }> = ({ nonce }) => {
   const { scrollProgress } = useMesureVerticalScroll();
+  const { isMobile } = useIsMobileScreen();
+
+  // Component is hidden on mobile screens
+  if (isMobile) return;
 
   return (
     <span
