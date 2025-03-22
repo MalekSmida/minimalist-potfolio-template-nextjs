@@ -48,7 +48,7 @@ describe('Career Component', () => {
     cleanup();
   });
 
-  test('1- should renders nothing when no data is provided', () => {
+  test('should renders nothing when no data is provided', () => {
     const { container } = render(<Skills blockList={[]} />);
     // In React, when a component returns null, React does not remove the parent container.
     // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
@@ -56,19 +56,19 @@ describe('Career Component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  test('2- should renders heading correctly', () => {
+  test('should renders heading correctly', () => {
     render(<Skills blockList={mockBlockList} />);
 
     expect(screen.getByRole('heading', { level: 1, name: 'Technical Expertise' })).toBeDefined();
   });
 
-  test('3- should not render block when skillList is empty', () => {
+  test('should not render block when skillList is empty', () => {
     render(<Skills blockList={mockBlockList} />);
 
     expect(screen.queryByText(mockBlockList[0].title)).toBeNull();
   });
 
-  test('4- should render block of skillList even when title is empty', () => {
+  test('should render block of skillList even when title is empty', () => {
     render(<Skills blockList={mockBlockList} />);
 
     mockBlockList[1].skillList.forEach((skill) => {
@@ -76,7 +76,7 @@ describe('Career Component', () => {
     });
   });
 
-  test('5- should renders skills block when provided', () => {
+  test('should renders skills block when provided', () => {
     render(<Skills blockList={mockBlockList} />);
 
     expect(screen.getByText(mockBlockList[2].title)).toBeDefined();

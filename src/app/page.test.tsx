@@ -14,7 +14,7 @@ describe('Home Page', () => {
     cleanup();
   });
 
-  test('1- should renders without errors', () => {
+  test('should renders without errors', () => {
     render(<Home />);
 
     // should renders navigation menu

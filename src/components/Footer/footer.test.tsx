@@ -19,7 +19,7 @@ describe('Footer Component', () => {
     cleanup();
   });
 
-  test('1- should renders the footer component without errors', () => {
+  test('should renders the footer component without errors', () => {
     render(<Footer />);
 
     // Check official docs to detect the title of the role of the component : https://www.w3.org/TR/html-aria/#docconformance
@@ -32,19 +32,19 @@ describe('Footer Component', () => {
   });
 
   describe('Contact Section', () => {
-    test('2- should not render when empty props', () => {
+    test('should not render when empty props', () => {
       render(<Footer />);
 
       // Should not render contact section when props are not passed
       expect(screen.queryByText(/Contact/i)).toBeNull();
     });
 
-    test('3- should render contact section with email when email is valid', () => {
+    test('should render contact section with email when email is valid', () => {
       render(<Footer email={mockData.email} />);
 
       expect(screen.getByText(mockData.email)).toBeDefined();
     });
-    test('4- should render contact section with address when both address and googleMapsLinkForAddress are valid', () => {
+    test('should render contact section with address when both address and googleMapsLinkForAddress are valid', () => {
       render(
         <Footer
           address={mockData.address}
@@ -54,12 +54,12 @@ describe('Footer Component', () => {
 
       expect(screen.getByText(mockData.address)).toBeDefined();
     });
-    test('5- should render contact section with phone when phone is valid', () => {
+    test('should render contact section with phone when phone is valid', () => {
       render(<Footer phone={mockData.phone} />);
 
       expect(screen.getByText(mockData.phone)).toBeDefined();
     });
-    test('6- should render contact section with all data when valid props', () => {
+    test('should render contact section with all data when valid props', () => {
       render(
         <Footer
           email={mockData.email}
@@ -75,7 +75,7 @@ describe('Footer Component', () => {
       expect(screen.getByText(mockData.phone)).toBeDefined();
     });
 
-    test('7- should redirect to valid urls when clicked', () => {
+    test('should redirect to valid urls when clicked', () => {
       render(
         <Footer
           email={mockData.email}
@@ -108,7 +108,7 @@ describe('Footer Component', () => {
   });
 
   describe('Social Links Section', () => {
-    test('8- should not render when empty props', () => {
+    test('should not render when empty props', () => {
       render(<Footer />);
 
       // should not render social links section when props are not passed
@@ -116,7 +116,7 @@ describe('Footer Component', () => {
       expect(screen.queryByText(/Github/i)).toBeNull();
     });
 
-    test('9- should renders linkedin link when valid props', () => {
+    test('should renders linkedin link when valid props', () => {
       render(<Footer linkedinLink={mockData.linkedinLink} />);
 
       expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
@@ -124,7 +124,7 @@ describe('Footer Component', () => {
       expect(screen.queryByText(/Github/i)).toBeNull();
     });
 
-    test('10- should renders github link when valid props', () => {
+    test('should renders github link when valid props', () => {
       render(<Footer githubLink={mockData.githubLink} />);
 
       expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
@@ -132,14 +132,14 @@ describe('Footer Component', () => {
       expect(screen.queryByText(/Linkedin/i)).toBeNull();
     });
 
-    test('11- should renders social links section when valid props', () => {
+    test('should renders social links section when valid props', () => {
       render(<Footer linkedinLink={mockData.linkedinLink} githubLink={mockData.githubLink} />);
 
       expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
       expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
     });
 
-    test('12- should redirect to valid urls when clicked', () => {
+    test('should redirect to valid urls when clicked', () => {
       render(<Footer linkedinLink={mockData.linkedinLink} githubLink={mockData.githubLink} />);
 
       // Test linkedin link
@@ -154,13 +154,13 @@ describe('Footer Component', () => {
   });
 
   describe('Copyright Section', () => {
-    test('13- should renders fork-it when valid props', () => {
+    test('should renders fork-it when valid props', () => {
       render(<Footer githubRepoLink={mockData.githubRepoLink} />);
 
       expect(screen.getByText(/Fork it/i)).toBeDefined();
     });
 
-    test('14- should redirect to valid urls when clicked', () => {
+    test('should redirect to valid urls when clicked', () => {
       render(<Footer githubRepoLink={mockData.githubRepoLink} />);
 
       // Test github repository link in "Fork it"

@@ -21,12 +21,12 @@ describe('NavHeader Component', () => {
     cleanup();
   });
 
-  test('1- should renders the navigation header component without errors', () => {
+  test('should renders the navigation header component without errors', () => {
     render(<NavHeader navButtonList={[]} />);
     expect(screen.getByRole('banner')).toBeDefined();
   });
 
-  test('2- should renders the navigation buttons correctly', () => {
+  test('should renders the navigation buttons correctly', () => {
     render(<NavHeader navButtonList={mockNavButtonList} />);
     expect(screen.getByRole('navigation')).toBeDefined();
 

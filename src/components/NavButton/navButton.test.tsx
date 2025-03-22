@@ -21,7 +21,7 @@ describe('NavButton Component', () => {
   });
 
   describe('NavButtonHref Component', () => {
-    test('1- should renders the href link component without errors', () => {
+    test('should renders the href link component without errors', () => {
       render(<NavButton title={mockTitle} link={mockLink} />);
 
       // Test on aria-label for accessibility
@@ -38,7 +38,7 @@ describe('NavButton Component', () => {
   });
 
   describe('NavButtonAnchor Component', () => {
-    test('2- should renders the anchor link button component without errors', () => {
+    test('should renders the anchor link button component without errors', () => {
       render(<NavButton title={mockTitle} link={mockAnchorLink} />);
 
       expect(

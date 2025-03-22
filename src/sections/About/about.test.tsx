@@ -30,7 +30,7 @@ describe('About Section', () => {
     cleanup();
   });
 
-  test('1- should renders nothing when no data is provided', () => {
+  test('should renders nothing when no data is provided', () => {
     const { container } = render(<About blockList={[]} />);
     // In React, when a component returns null, React does not remove the parent container.
     // Instead, it renders an empty container (<div></div> by default when using render() from @testing-library/react).
@@ -38,19 +38,19 @@ describe('About Section', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  test('2- should renders heading correctly', () => {
+  test('should renders heading correctly', () => {
     render(<About blockList={mockBlockList} />);
 
     expect(screen.getByRole('heading', { level: 1, name: 'Hello again 👋' })).toBeDefined();
   });
 
-  test('3- should not render block when aboutList is empty', () => {
+  test('should not render block when aboutList is empty', () => {
     render(<About blockList={mockBlockList} />);
 
     expect(screen.queryByText(mockBlockList[0].title)).toBeNull();
   });
 
-  test('4- should render block of aboutList even when title is empty', () => {
+  test('should render block of aboutList even when title is empty', () => {
     render(<About blockList={mockBlockList} />);
 
     mockBlockList[1].aboutList.forEach((description) => {
@@ -58,7 +58,7 @@ describe('About Section', () => {
     });
   });
 
-  test('5- should renders experiences when provided', () => {
+  test('should renders experiences when provided', () => {
     render(<About blockList={mockBlockList} />);
 
     mockBlockList[2].aboutList.forEach((description) => {
