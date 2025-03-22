@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { IExperienceCard } from './experienceCard.types';
 
 /**
- * Experience card shown in home under Career section
+ * Experience card shown in home page under Career section
  */
 const ExperienceCard: React.FC<IExperienceCard> = ({
   _id,

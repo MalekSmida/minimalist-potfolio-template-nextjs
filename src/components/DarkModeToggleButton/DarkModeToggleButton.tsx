@@ -5,7 +5,11 @@
 // Local files
 import { useDarkMode } from '@/hooks';
 
+/**
+ * Button component, which switch between light and dark theme when clicked
+ */
 const DarkModeToggleButton: React.FC = () => {
+  // Hooks
   const { isDark, toggleDarkMode } = useDarkMode();
 
   return (

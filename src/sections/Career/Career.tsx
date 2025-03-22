@@ -12,7 +12,7 @@ const Career: React.FC<PropsCareer> = ({ descriptionList, experienceList }) => {
 
   return (
     <section className="relative my-10 w-full px-8" aria-labelledby="career-heading" id="career">
-      <h1 id="career-heading" className="my-4 text-3xl font-bold sm:text-4xl">
+      <h1 id="career-heading" className="my-4 text-2xl font-bold sm:text-3xl">
         Career
       </h1>
 

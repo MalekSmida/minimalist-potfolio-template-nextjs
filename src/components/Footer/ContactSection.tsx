@@ -5,13 +5,35 @@ interface PropsContactSection {
   googleMapsLinkForAddress?: string;
 }
 
+/**
+ * ContactSection component renders a section with contact information including email, physical address,
+ * and phone number.
+ *
+ * @example
+ * // With all contact methods
+ * <ContactSection
+ *   email="contact@example.com"
+ *   address="123 Main Street, City, Country"
+ *   phone="+1 (555) 123-4567"
+ *   googleMapsLinkForAddress="https://goo.gl/maps/example"
+ * />
+ *
+ * @example
+ * // With only email
+ * <ContactSection email="contact@example.com" />
+ *
+ * @accessibility
+ * - Each contact method has appropriate aria-label attributes for screen readers
+ * - SVG icons include aria-hidden="true" to prevent them from being announced by screen readers
+ * - The list structure uses semantic HTML with role="list" and role="listitem" attributes
+ */
 const ContactSection: React.FC<PropsContactSection> = ({
   email,
   address,
   phone,
   googleMapsLinkForAddress,
 }) => {
-  // break when empty props
+  // Break when empty props
   if (!email && !address && !phone) return;
 
   return (
