@@ -26,7 +26,7 @@ The project leverages the island architecture through Next.js's hybrid rendering
 
 Out of curiosity, I experimented with several technologies in this project:
 
-- [pnpm](https://pnpm.io/) as a package manager
+- [Pnpm](https://pnpm.io/) as a package manager
 - [Vitest](https://vitest.dev/) for unit tests and coverage
 - [Playwright](https://playwright.dev/) for end-to-end testing
 
@@ -53,6 +53,23 @@ Out of curiosity, I experimented with several technologies in this project:
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Environment Variables
+
+The project relies on the following environment variables:
+
+```plaintext
+NEXT_PUBLIC_EMAIL='your.email@example.com'
+NEXT_PUBLIC_ADDRESS='12345, Your City, Country'
+NEXT_PUBLIC_PHONE='+1234567890'
+NEXT_PUBLIC_GOOGLE_MAPS_LINK='https://www.google.com/maps/place/Your+Address'
+NEXT_PUBLIC_LINKEDIN_PROFILE='https://www.linkedin.com/in/yourprofile/'
+NEXT_PUBLIC_GITHUB_PROFILE='https://github.com/yourgithub'
+NEXT_PUBLIC_GITHUB_REPOSITORY='https://github.com/yourgithub/your-repo'
+NEXT_PUBLIC_CV_PDF_LINK='https://drive.google.com/your-cv-pdf-link'
+```
+
+Copy the content of `.env.example` into your `.env.local` file (create it) and replace the placeholder values with your actual information.
 
 ## Available Scripts
 
