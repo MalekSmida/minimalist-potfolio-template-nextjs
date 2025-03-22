@@ -3,11 +3,12 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
 // Local files
 import BackToTopButton from './BackToTopButton';
-import { useShowBackToTop } from '@/hooks';
+import { useIsMobileScreen, useShowBackToTop } from '@/hooks';
 
 // Mock the hook
 vi.mock('@/hooks', () => ({
   useShowBackToTop: vi.fn(),
+  useIsMobileScreen: vi.fn(),
 }));
 // Mock window.scrollTo
 const scrollToMock = vi.fn();
@@ -25,8 +26,21 @@ describe('BackToTopButton Component', () => {
     vi.restoreAllMocks();
   });
 
-  test('1- should not render when showArrowButton is false', () => {
-    // Mock the hook to return false
+  test('1- should not render when isMobile is false and showArrowButton is true', () => {
+    // Mock the hook
+    vi.mocked(useIsMobileScreen).mockReturnValue({ isMobile: true });
+    vi.mocked(useShowBackToTop).mockReturnValue({ showArrowButton: true });
+
+    render(<BackToTopButton />);
+
+    // The button should not be in the document
+    const button = screen.queryByRole('button', { name: /scroll to top/i });
+    expect(button).toBeNull();
+  });
+
+  test('2- should not render when showArrowButton is false', () => {
+    // Mock the hook
+    vi.mocked(useIsMobileScreen).mockReturnValue({ isMobile: false });
     vi.mocked(useShowBackToTop).mockReturnValue({ showArrowButton: false });
 
     render(<BackToTopButton />);
@@ -36,8 +50,9 @@ describe('BackToTopButton Component', () => {
     expect(button).toBeNull();
   });
 
-  test('2- should render when showArrowButton is true', () => {
+  test('3- should render when showArrowButton is true', () => {
     // Mock the hook to return true
+    vi.mocked(useIsMobileScreen).mockReturnValue({ isMobile: false });
     vi.mocked(useShowBackToTop).mockReturnValue({ showArrowButton: true });
 
     render(<BackToTopButton />);
@@ -47,8 +62,9 @@ describe('BackToTopButton Component', () => {
     expect(button).toBeDefined();
   });
 
-  test('3- should call window.scrollTo when clicked', () => {
+  test('4- should call window.scrollTo when clicked', () => {
     // Mock the hook to return true
+    vi.mocked(useIsMobileScreen).mockReturnValue({ isMobile: false });
     vi.mocked(useShowBackToTop).mockReturnValue({ showArrowButton: true });
 
     render(<BackToTopButton />);

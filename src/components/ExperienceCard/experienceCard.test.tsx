@@ -9,7 +9,7 @@ import { IExperienceCard } from './experienceCard.types';
 const mockProps: IExperienceCard = {
   _id: '12345',
   contractType: 'Full-time',
-  positions: ['Frontend Developer', 'Team Lead'],
+  position: 'Frontend Developer',
   company: 'Tech Corp',
   summary: 'Developed multiple high-impact web applications.',
 };
@@ -30,7 +30,7 @@ describe('ExperienceCard Component', () => {
     // The link and article should be in the document
     const link = screen.getByRole('link');
     expect(link).toBeDefined();
-    const article = screen.getByRole('article', { name: mockProps.positions[0] });
+    const article = screen.getByRole('article', { name: mockProps.position });
     expect(article).toBeDefined();
   });
 
@@ -43,9 +43,7 @@ describe('ExperienceCard Component', () => {
 
   test('3- should displays positions correctly', () => {
     render(<ExperienceCard {...mockProps} />);
-    mockProps.positions.forEach((position) => {
-      expect(screen.getByText(position)).toBeDefined();
-    });
+    expect(screen.getByText(mockProps.position)).toBeDefined();
   });
 
   test('4- should displays company name with @ symbol', () => {

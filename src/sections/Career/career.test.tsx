@@ -13,14 +13,14 @@ const mockExperienceList = [
   {
     _id: '1',
     contractType: 'Full-Time',
-    positions: ['Senior Developer'],
+    position: 'Senior Developer',
     company: 'Tech Corp',
     summary: 'Worked on developing enterprise-level applications.',
   },
   {
     _id: '2',
     contractType: 'Freelance',
-    positions: ['Frontend Engineer'],
+    position: 'Frontend Engineer',
     company: 'Creative Solutions',
     summary: 'Designed and implemented UI components.',
   },
@@ -59,7 +59,7 @@ describe('Career Section', () => {
   test('4- should renders experiences when provided', () => {
     render(<Experiences experienceList={mockExperienceList} />);
     mockExperienceList.forEach((exp) => {
-      expect(screen.getByText(exp.positions[0])).toBeDefined();
+      expect(screen.getByText(exp.position)).toBeDefined();
       expect(screen.getByText(`@${exp.company}`)).toBeDefined();
       expect(screen.getByText(exp.summary)).toBeDefined();
     });
