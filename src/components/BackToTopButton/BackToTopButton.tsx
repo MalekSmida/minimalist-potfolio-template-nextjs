@@ -4,7 +4,7 @@
 'use client';
 
 // Local files
-import { useShowBackToTop } from '@/hooks';
+import { useIsMobileScreen, useShowBackToTop } from '@/hooks';
 
 /**
  * Button handle scroll back to position y=0.
@@ -13,19 +13,23 @@ import { useShowBackToTop } from '@/hooks';
 const BackToTopButton: React.FC = () => {
   // Hooks
   const { showArrowButton } = useShowBackToTop();
+  const { isMobile } = useIsMobileScreen();
+
+  // Component is hidden on mobile screens
+  if (isMobile) return;
+
+  // Should not render the button when y position is less than 300
+  if (!showArrowButton) return;
 
   // Events
   const onScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Should not render the button when y position is less than 300
-  if (!showArrowButton) return;
-
   return (
     <button
       onClick={onScrollToTop}
-      className="border-primary text-primary hover:bg-primary active:bg-primary fixed right-10 bottom-10 inline-block cursor-pointer rounded-full border p-3 hover:text-white focus:ring focus:outline-none"
+      className="border-primary text-primary hover:bg-primary active:bg-primary fixed right-10 bottom-10 z-50 cursor-pointer rounded-full border p-3 hover:text-white"
       title="Scroll to top"
       aria-label="Scroll to top"
       aria-live="polite" // Announces the button action for screen readers

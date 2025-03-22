@@ -1,7 +1,23 @@
 interface PropsCopyrightSection {
+  /**
+   * Optional URL to the GitHub repository for this project.
+   * When provided, displays a "Fork it" link that opens the repository in a new tab.
+   */
   githubRepoLink?: string;
 }
 
+/**
+ * CopyrightSection Component displays copyright information and optionally a link to the GitHub repository.
+ *
+ * @example
+ * // Basic usage with only copyright text
+ * <CopyrightSection />
+ *
+ * @example
+ * // With GitHub repository link
+ * <CopyrightSection githubRepoLink="https://github.com/user/portfolio" />
+ *
+ */
 const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepoLink }) => {
   return (
     <section>

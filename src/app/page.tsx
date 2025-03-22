@@ -20,7 +20,10 @@ const navButtonList: INavButton[] = [
 const Home: React.FC = () => {
   return (
     <>
+      {/* 1- Navigation bar/header */}
       <NavHeader navButtonList={navButtonList} />
+
+      {/* Presentation section */}
       <Presentation
         name={presentationSectionData.name}
         jobTitle={presentationSectionData.jobTitle}
@@ -28,11 +31,17 @@ const Home: React.FC = () => {
         description={presentationSectionData.description}
         cvPdfLink={presentationSectionData.cvPdfLink}
       />
+
+      {/* Career/experiences section */}
       <Career
         descriptionList={careerSectionData.descriptionList}
         experienceList={careerSectionData.experienceList}
       />
+
+      {/* About me section which includes function skills too */}
       <About blockList={aboutSectionData} />
+
+      {/* Technical skills section */}
       <Skills blockList={skillsSectionData} />
     </>
   );

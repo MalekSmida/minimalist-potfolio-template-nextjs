@@ -30,23 +30,19 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
     notFound();
   }
 
-  const {
-    company,
-    contractType,
-    iconPath,
-    iconHeight,
-    iconWidth,
-    positions,
-    dates,
-    contributions,
-  } = currentExperience;
+  // Extract data
+  const { company, contractType, iconPath, iconHeight, iconWidth, position, dates, contributions } =
+    currentExperience;
+
+  // setting iconTitle
   const iconTitle = company || contractType;
 
   return (
     <>
       <NavHeader navButtonList={navButtonList} />
-      <span className="relative h-48 w-screen bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
+      <span className="from-primary relative h-48 w-screen bg-gradient-to-r via-indigo-500 to-blue-300"></span>
       <section className="relative container mx-auto max-w-3xl py-20">
+        {/* Company logo */}
         <Image
           src={iconPath}
           alt={iconTitle}
@@ -60,18 +56,23 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
         />
 
         <article className="mx-auto max-w-3xl p-5">
-          <h1 className="mb-4 text-3xl font-semibold">
-            {Array.isArray(positions) ? positions.join(', ') : positions}
-          </h1>
+          {/* Position */}
+          <h1 className="mb-4 text-3xl font-semibold">{position}</h1>
+
+          {/* Company name */}
           {company && (
             <strong className="text-primary dark:bg-primary rounded border border-gray-200 bg-indigo-50 px-3 py-1.5 text-sm font-normal dark:border-none dark:text-white">
               @ {company}
             </strong>
           )}
+
+          {/* Contract type and date */}
           <div className="mt-8 flex flex-col border-l-2 border-gray-500 px-4 py-1 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-xl">{contractType}</h2>
             <p className="text-xs text-gray-600 dark:text-gray-400">{dates}</p>
           </div>
+
+          {/* Company contributions */}
           <ul className="my-10 list-disc space-y-5 text-gray-700 dark:text-gray-200">
             {contributions.map((contribution, index) => (
               <li key={index}>{contribution}</li>

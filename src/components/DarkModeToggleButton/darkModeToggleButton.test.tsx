@@ -24,7 +24,7 @@ describe('DarkModeToggleButton Component', () => {
     vi.restoreAllMocks();
   });
 
-  test('1- should render moon button when isDark is false', () => {
+  test('should render moon button when isDark is false', () => {
     // Mock the hook return
     vi.mocked(useDarkMode).mockReturnValue({ isDark: false, toggleDarkMode });
 
@@ -39,7 +39,7 @@ describe('DarkModeToggleButton Component', () => {
     expect(sunButton).toBeNull();
   });
 
-  test('2- should render sun button when isDark is true', () => {
+  test('should render sun button when isDark is true', () => {
     // Mock the hook return
     vi.mocked(useDarkMode).mockReturnValue({ isDark: true, toggleDarkMode });
 
@@ -54,7 +54,7 @@ describe('DarkModeToggleButton Component', () => {
     expect(sunButton).toBeDefined();
   });
 
-  test('3- should call toggleDarkMode when moon button is clicked', () => {
+  test('should call toggleDarkMode when moon button is clicked', () => {
     // Mock the hook return
     vi.mocked(useDarkMode).mockReturnValue({ isDark: false, toggleDarkMode });
 
@@ -68,7 +68,7 @@ describe('DarkModeToggleButton Component', () => {
     expect(toggleDarkMode).toHaveBeenCalledTimes(1);
   });
 
-  test('4- should call toggleDarkMode when sun button is clicked', () => {
+  test('should call toggleDarkMode when sun button is clicked', () => {
     // Mock the hook return
     vi.mocked(useDarkMode).mockReturnValue({ isDark: true, toggleDarkMode });
 

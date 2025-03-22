@@ -1,80 +1,100 @@
 # Portfolio
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-In this project we did configure Vitest for unit test, and Playwright for e2e to try them.
-
-Following:
-
-- CDD (Component driven development) => Develop component first then assemble UI
-- TDD (test driven development) => Write test until fails the write code until test pass
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## About the Project
+
+This is a light, simple and minimalist online portfolio template built with modern web technologies:
+
+- [Next.js 15](https://nextjs.org) (App Router)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+The template was bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and focuses on:
+
+- ✅ Accessibility
+- 🔍 SEO optimization
+- 🛡️ Security (security headers including CSP with none)
+- ⚡ Performance
+- 🧩 Best practices (ESLint and Prettier included)
+
+The project leverages the island architecture through Next.js's hybrid rendering approach (server and client side), using 'use client' directives in some components. This provides:
+
+- Server-side rendering for better SEO and initial load performance
+- Client-side interactivity only where needed
+- Smaller JavaScript bundles for improved page speed
+
+Out of curiosity, I experimented with several technologies in this project:
+
+- [Pnpm](https://pnpm.io/) as a package manager
+- [Vitest](https://vitest.dev/) for unit tests and coverage
+- [Playwright](https://playwright.dev/) for end-to-end testing
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js version >= 22.x ([installation guide](https://nodejs.org/en/download))
+- pnpm >= 9.x ([installation guide using Corepack](https://pnpm.io/installation#using-corepack))
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   pnpm i
+   ```
+
+3. Start the development server:
+
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Environment Variables
+
+The project relies on the following environment variables:
+
+```plaintext
+NEXT_PUBLIC_EMAIL='your.email@example.com'
+NEXT_PUBLIC_ADDRESS='12345, Your City, Country'
+NEXT_PUBLIC_PHONE='+1234567890'
+NEXT_PUBLIC_GOOGLE_MAPS_LINK='https://www.google.com/maps/place/Your+Address'
+NEXT_PUBLIC_LINKEDIN_PROFILE='https://www.linkedin.com/in/yourprofile/'
+NEXT_PUBLIC_GITHUB_PROFILE='https://github.com/yourgithub'
+NEXT_PUBLIC_GITHUB_REPOSITORY='https://github.com/yourgithub/your-repo'
+NEXT_PUBLIC_CV_PDF_LINK='https://drive.google.com/your-cv-pdf-link'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy the content of `.env.example` into your `.env.local` file (create it) and replace the placeholder values with your actual information.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command                    | Description                             |
+| -------------------------- | --------------------------------------- |
+| `pnpm dev`                 | Start development server with Turbopack |
+| `pnpm build`               | Build the application for production    |
+| `pnpm start`               | Start the production server             |
+| `pnpm lint`                | Run ESLint on the codebase              |
+| `pnpm format`              | Format code with Prettier               |
+| `pnpm test`                | Run Vitest tests                        |
+| `pnpm test:coverage`       | Run tests with coverage report          |
+| `pnpm test:e2e`            | Run Playwright end-to-end tests         |
+| `pnpm test:e2e:ui`         | Run Playwright tests with UI            |
+| `pnpm test:e2e:chrome`     | Run Playwright tests in Chrome only     |
+| `pnpm test:e2e:debug`      | Run Playwright tests in debug mode      |
+| `pnpm test:e2e:codegen`    | Generate Playwright test code           |
+| `pnpm test:e2e:showReport` | Show Playwright test report             |
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+You can customize the portfolio by editing the files under `/src/data`. All text content has been exported into these data files, and the sections and components are conditionally rendered based on the provided configuration. This allows for easy customization with minimal effort.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The easiest way to deploy your portfolio is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## History
-
-in this project we are using pnpm
-to activate it please run as admin
-
-```bash
-corepack enable
-```
-
-then run
-
-```bash
-pnpm -v
-```
-
-And download it when corepack asks
-
-this project is created with
-
-```bash
-npx create-next-app@latest --use-pnpm
-```
-
-with all default recommendation (like typescript and eslint …)
-
-after creating the project, I run
-
-```bash
-pnpm approve-builds
-```
-
-as it was mentioned in the console
+For more deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).

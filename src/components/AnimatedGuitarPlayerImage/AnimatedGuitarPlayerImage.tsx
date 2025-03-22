@@ -1,3 +1,7 @@
+/**
+ * SVG component for a guitar player.
+ * Used in About section
+ */
 const AnimatedGuitarPlayerImage: React.FC = () => {
   return (
     <svg

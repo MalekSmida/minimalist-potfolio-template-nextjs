@@ -1,7 +1,7 @@
 export interface IExperienceCard {
   _id: string;
   contractType: string;
-  positions: string[];
+  position: string;
   company?: string;
   summary: string;
 }

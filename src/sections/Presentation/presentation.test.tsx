@@ -22,34 +22,34 @@ describe('Presentation Section', () => {
     cleanup();
   });
 
-  test('1- should renders the Presentation component without errors', () => {
+  test('should renders the Presentation component without errors', () => {
     render(<Presentation name="" />);
 
     // Should show fallback name
     expect(screen.getByText('Hi, I am No body')).toBeDefined();
   });
 
-  test('2- should renders the name correctly', () => {
+  test('should renders the name correctly', () => {
     render(<Presentation name={mockData.Name} />);
     expect(screen.getByRole('heading', { name: 'Hi, I am John Doe' })).toBeDefined();
   });
 
-  test('3- should renders job titles correctly', () => {
+  test('should renders job titles correctly', () => {
     render(<Presentation name="" jobTitle={mockData.JobTitle} />);
     expect(screen.getByText(mockData.JobTitle)).toBeDefined();
   });
 
-  test('4- should renders years of experience correctly', () => {
+  test('should renders years of experience correctly', () => {
     render(<Presentation name="" yearsOfExperience={mockData.yearsOfExperience} />);
     expect(screen.getByText(mockData.yearsOfExperience)).toBeDefined();
   });
 
-  test('5- should renders description correctly', () => {
+  test('should renders description correctly', () => {
     render(<Presentation name="" description={mockData.description} />);
     expect(screen.getByText(mockData.description)).toBeDefined();
   });
 
-  test('6- should renders download button correctly', () => {
+  test('should renders download button correctly', () => {
     render(
       <Presentation
         name={mockData.Name}
