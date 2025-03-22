@@ -21,7 +21,7 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
         showNavHeader ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="w-9"></div>
+      <div className="w-5"></div>
       <nav aria-labelledby="header-navigation" className="flex flex-1 items-center justify-center">
         <h2 className="sr-only" id="header-navigation">
           Navigation Header
@@ -36,7 +36,7 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
           ))}
         </ul>
       </nav>
-      <div className="w-9">
+      <div className="mx-2">
         <DarkModeToggleButton />
       </div>
     </header>
