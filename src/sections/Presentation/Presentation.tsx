@@ -76,11 +76,10 @@ const Presentation: React.FC<PropsPresentation> = ({
       </div>
 
       {/* Images Section */}
-      <div className="group relative mt-6 p-4 lg:mt-0 lg:p-0">
+      <div className="group relative mx-auto mt-6 max-w-xl p-4 lg:mt-0 lg:w-full lg:p-0">
         <svg
-          className="animated-spin-dynamic absolute right-0 bottom-6"
-          height="100%"
-          viewBox="0 0 1010 1005"
+          className="animated-spin-dynamic absolute top-6 left-1/2 w-2/3 -translate-x-1/2 rotate-30 lg:w-4/5"
+          viewBox="0 0 829 829"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-label="Presentation's animation icon"
@@ -93,15 +92,7 @@ const Presentation: React.FC<PropsPresentation> = ({
               <stop offset="100%" stopColor="#93c5fd" /> {/* blue-300 */}
             </linearGradient>
           </defs>
-          <rect
-            x="-74"
-            y="641.438"
-            width="834.091"
-            height="849.994"
-            rx="200"
-            transform="rotate(-59.0645 -74 641.438)"
-            fill="url(#primary-to-blue)"
-          />
+          <rect width="829" height="829" rx="200" fill="url(#primary-to-blue)" />
         </svg>
 
         <Image
@@ -120,7 +111,7 @@ const Presentation: React.FC<PropsPresentation> = ({
           width={450}
           height={200}
           loading="lazy"
-          className="absolute right-0 bottom-0 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-80 xl:bottom-32"
+          className="absolute right-0 bottom-0 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-70 xl:bottom-32"
         />
       </div>
     </section>

@@ -35,7 +35,7 @@ const SkillsBlock: React.FC<PropsSkillsBlock> = ({ title, skillList }) => {
         <h2 className="mt-4 mb-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{title}</h2>
       )}
       <hr className="mb-4 h-0.5 w-full bg-gray-800 opacity-5" />
-      <ul className="flex flex-wrap items-end gap-2 p-4 md:gap-4 lg:gap-6">
+      <ul className="flex flex-wrap items-end gap-2 md:gap-4">
         {skillList?.map((skill, index) => (
           <li
             key={index} // using index is OK if the props are static
