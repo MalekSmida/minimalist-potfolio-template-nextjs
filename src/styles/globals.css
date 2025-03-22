@@ -33,9 +33,6 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-
-  /* TODO: transition's animation of dark mode */
-  /* @apply transition-colors duration-300 ease-in-out; */
 }
 
 * {

@@ -40,7 +40,7 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
   return (
     <>
       <NavHeader navButtonList={navButtonList} />
-      <span className="relative h-48 w-screen bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"></span>
+      <span className="from-primary relative h-48 w-screen bg-gradient-to-r via-indigo-500 to-blue-300"></span>
       <section className="relative container mx-auto max-w-3xl py-20">
         {/* Company logo */}
         <Image
