@@ -3,7 +3,7 @@ interface PropsCopyrightSection {
    * Optional URL to the GitHub repository for this project.
    * When provided, displays a "Fork it" link that opens the repository in a new tab.
    */
-  githubRepoLink?: string;
+  githubRepository?: string;
 }
 
 /**
@@ -15,18 +15,18 @@ interface PropsCopyrightSection {
  *
  * @example
  * // With GitHub repository link
- * <CopyrightSection githubRepoLink="https://github.com/user/portfolio" />
+ * <CopyrightSection githubRepository="https://github.com/user/portfolio" />
  *
  */
-const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepoLink }) => {
+const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepository }) => {
   return (
     <section>
       <p className="text-center text-sm text-gray-400">
         &copy; 2025 Malek Smida
-        {githubRepoLink && (
+        {githubRepository && (
           <>
             <a
-              href={githubRepoLink}
+              href={githubRepository}
               target="_blank"
               rel="noopener noreferrer"
               title="Github repository for this open source portfolio"

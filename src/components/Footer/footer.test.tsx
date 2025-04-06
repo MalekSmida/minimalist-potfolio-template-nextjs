@@ -8,10 +8,10 @@ const mockData = {
   email: 'test@mail.com',
   address: '123 Test Street',
   phone: '+123456789',
-  googleMapsLinkForAddress: 'https://maps.google.com/?q=123+Test+Street',
-  linkedinLink: 'https://www.linkedin.com/in/testuser/',
-  githubLink: 'https://github.com/testuser',
-  githubRepoLink: 'https://github.com/testuser/testrepo',
+  googleMapsLink: 'https://maps.google.com/?q=123+Test+Street',
+  linkedinProfile: 'https://www.linkedin.com/in/testuser/',
+  githubProfile: 'https://github.com/testuser',
+  githubRepository: 'https://github.com/testuser/testrepo',
 };
 
 describe('Footer Component', () => {
@@ -44,13 +44,8 @@ describe('Footer Component', () => {
 
       expect(screen.getByText(mockData.email)).toBeDefined();
     });
-    test('should render contact section with address when both address and googleMapsLinkForAddress are valid', () => {
-      render(
-        <Footer
-          address={mockData.address}
-          googleMapsLinkForAddress={mockData.googleMapsLinkForAddress}
-        />,
-      );
+    test('should render contact section with address when both address and googleMapsLink are valid', () => {
+      render(<Footer address={mockData.address} googleMapsLink={mockData.googleMapsLink} />);
 
       expect(screen.getByText(mockData.address)).toBeDefined();
     });
@@ -65,7 +60,7 @@ describe('Footer Component', () => {
           email={mockData.email}
           address={mockData.address}
           phone={mockData.phone}
-          googleMapsLinkForAddress={mockData.googleMapsLinkForAddress}
+          googleMapsLink={mockData.googleMapsLink}
         />,
       );
 
@@ -81,7 +76,7 @@ describe('Footer Component', () => {
           email={mockData.email}
           address={mockData.address}
           phone={mockData.phone}
-          googleMapsLinkForAddress={mockData.googleMapsLinkForAddress}
+          googleMapsLink={mockData.googleMapsLink}
         />,
       );
 
@@ -99,7 +94,7 @@ describe('Footer Component', () => {
       // Test address link
       expect(
         screen.getByRole('link', { name: 'View address on Google Maps' }).getAttribute('href'),
-      ).toBe(mockData.googleMapsLinkForAddress);
+      ).toBe(mockData.googleMapsLink);
       // Test phone link
       expect(
         screen.getByRole('link', { name: `Call ${mockData.phone}` }).getAttribute('href'),
@@ -117,7 +112,7 @@ describe('Footer Component', () => {
     });
 
     test('should renders linkedin link when valid props', () => {
-      render(<Footer linkedinLink={mockData.linkedinLink} />);
+      render(<Footer linkedinProfile={mockData.linkedinProfile} />);
 
       expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
       // Should not render github link
@@ -125,7 +120,7 @@ describe('Footer Component', () => {
     });
 
     test('should renders github link when valid props', () => {
-      render(<Footer githubLink={mockData.githubLink} />);
+      render(<Footer githubProfile={mockData.githubProfile} />);
 
       expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
       // Should not render linkedin link
@@ -133,39 +128,49 @@ describe('Footer Component', () => {
     });
 
     test('should renders social links section when valid props', () => {
-      render(<Footer linkedinLink={mockData.linkedinLink} githubLink={mockData.githubLink} />);
+      render(
+        <Footer
+          linkedinProfile={mockData.linkedinProfile}
+          githubProfile={mockData.githubProfile}
+        />,
+      );
 
       expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
       expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
     });
 
     test('should redirect to valid urls when clicked', () => {
-      render(<Footer linkedinLink={mockData.linkedinLink} githubLink={mockData.githubLink} />);
+      render(
+        <Footer
+          linkedinProfile={mockData.linkedinProfile}
+          githubProfile={mockData.githubProfile}
+        />,
+      );
 
       // Test linkedin link
       expect(screen.getByRole('link', { name: 'Open Linkedin Profile' }).getAttribute('href')).toBe(
-        mockData.linkedinLink,
+        mockData.linkedinProfile,
       );
       // Test github link
       expect(screen.getByRole('link', { name: 'Open Github Profile' }).getAttribute('href')).toBe(
-        mockData.githubLink,
+        mockData.githubProfile,
       );
     });
   });
 
   describe('Copyright Section', () => {
     test('should renders fork-it when valid props', () => {
-      render(<Footer githubRepoLink={mockData.githubRepoLink} />);
+      render(<Footer githubRepository={mockData.githubRepository} />);
 
       expect(screen.getByText(/Fork it/i)).toBeDefined();
     });
 
     test('should redirect to valid urls when clicked', () => {
-      render(<Footer githubRepoLink={mockData.githubRepoLink} />);
+      render(<Footer githubRepository={mockData.githubRepository} />);
 
       // Test github repository link in "Fork it"
       expect(screen.getByRole('link', { name: 'Fork it' }).getAttribute('href')).toBe(
-        mockData.githubRepoLink,
+        mockData.githubRepository,
       );
     });
   });

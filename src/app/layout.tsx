@@ -79,10 +79,10 @@ const RootLayout: React.FC<
           email={contactSectionData.email}
           address={contactSectionData.address}
           phone={contactSectionData.phone}
-          googleMapsLinkForAddress={contactSectionData.googleMapsLinkForAddress}
-          linkedinLink={contactSectionData.linkedinLink}
-          githubLink={contactSectionData.githubLink}
-          githubRepoLink={contactSectionData.githubRepoLink}
+          googleMapsLink={contactSectionData.googleMapsLink}
+          linkedinProfile={contactSectionData.linkedinProfile}
+          githubProfile={contactSectionData.githubProfile}
+          githubRepository={contactSectionData.githubRepository}
         />
 
         <BackToTopButton />

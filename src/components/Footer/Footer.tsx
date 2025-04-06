@@ -7,20 +7,20 @@ interface PropsFooter {
   email?: string;
   address?: string;
   phone?: string;
-  googleMapsLinkForAddress?: string;
-  linkedinLink?: string;
-  githubLink?: string;
-  githubRepoLink?: string;
+  googleMapsLink?: string;
+  linkedinProfile?: string;
+  githubProfile?: string;
+  githubRepository?: string;
 }
 
 const Footer: React.FC<PropsFooter> = ({
   email,
   address,
   phone,
-  googleMapsLinkForAddress,
-  linkedinLink,
-  githubLink,
-  githubRepoLink,
+  googleMapsLink,
+  linkedinProfile,
+  githubProfile,
+  githubRepository,
 }) => {
   return (
     <footer className="flex w-full flex-col items-center bg-gray-900 p-4 text-white sm:p-6 lg:p-8 dark:bg-gray-950">
@@ -28,14 +28,14 @@ const Footer: React.FC<PropsFooter> = ({
         email={email}
         address={address}
         phone={phone}
-        googleMapsLinkForAddress={googleMapsLinkForAddress}
+        googleMapsLink={googleMapsLink}
       />
 
-      <SocialLinksSection linkedinLink={linkedinLink} githubLink={githubLink} />
+      <SocialLinksSection linkedinProfile={linkedinProfile} githubProfile={githubProfile} />
 
       <hr className="my-4 h-0.5 w-full bg-gray-800 opacity-5"></hr>
 
-      <CopyrightSection githubRepoLink={githubRepoLink} />
+      <CopyrightSection githubRepository={githubRepository} />
     </footer>
   );
 };
