@@ -17,10 +17,15 @@ interface PropsCopyrightSection {
  * // With GitHub repository link
  * <CopyrightSection githubRepository="https://github.com/user/portfolio" />
  *
+ * @accessibility
+ * - Copyright information is properly structured with semantic HTML
+ * - Links have descriptive text and proper focus states
+ * - Hidden attribution text is provided for screen readers
+ * - Interactive elements are keyboard accessible
  */
 const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepository }) => {
   return (
-    <section>
+    <section aria-label="Copyright information">
       <p className="text-center text-sm text-gray-400">
         &copy; 2025 Malek Smida
         {githubRepository && (
@@ -29,8 +34,8 @@ const CopyrightSection: React.FC<PropsCopyrightSection> = ({ githubRepository })
               href={githubRepository}
               target="_blank"
               rel="noopener noreferrer"
-              title="Github repository for this open source portfolio"
-              className="mr-1 ml-2 cursor-pointer text-white underline"
+              className="mr-1 ml-2 cursor-pointer text-white underline focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+              aria-label="Fork this portfolio template on GitHub (opens in new tab)"
             >
               Fork it
             </a>

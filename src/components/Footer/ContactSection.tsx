@@ -26,6 +26,9 @@ interface PropsContactSection {
  * - Each contact method has appropriate aria-label attributes for screen readers
  * - SVG icons include aria-hidden="true" to prevent them from being announced by screen readers
  * - The list structure uses semantic HTML with role="list" and role="listitem" attributes
+ * - Contact information is properly labeled with a heading
+ * - Links have descriptive text and proper focus states
+ * - Interactive elements are keyboard accessible
  */
 const ContactSection: React.FC<PropsContactSection> = ({
   email,
@@ -37,16 +40,22 @@ const ContactSection: React.FC<PropsContactSection> = ({
   if (!email && !address && !phone) return;
 
   return (
-    <section className="flex flex-col items-center" id="contact">
-      <h3 className="my-2 font-medium">Contact</h3>
-      <ul className="my-2 flex flex-col items-center font-light" role="list">
+    <section className="flex flex-col items-center" id="contact" aria-labelledby="contact-heading">
+      <h3 id="contact-heading" className="my-2 font-medium">
+        Contact
+      </h3>
+      <ul
+        className="my-2 flex flex-col items-center font-light"
+        role="list"
+        aria-label="Contact information"
+      >
         {/* Email */}
         {email && (
           <li role="listitem">
             <a
               href={`mailto:${email}`}
               aria-label={`Send an email to ${email}`}
-              className="group flex items-center gap-2"
+              className="group flex items-center gap-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +64,7 @@ const ContactSection: React.FC<PropsContactSection> = ({
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth="1"
-                aria-hidden="true" // hide non-interactive content from the accessibility, voir docs : https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -74,8 +83,8 @@ const ContactSection: React.FC<PropsContactSection> = ({
               href={googleMapsLink || 'https://www.google.com/maps'}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2"
-              aria-label="View address on Google Maps"
+              className="group flex items-center gap-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+              aria-label={`View address on Google Maps: ${address}`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +115,8 @@ const ContactSection: React.FC<PropsContactSection> = ({
           <li role="listitem">
             <a
               href={`tel:${phone}`}
-              className="group flex items-center gap-2"
-              aria-label={`Call ${phone}`}
+              className="group flex items-center gap-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+              aria-label={`Call phone number: ${phone}`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

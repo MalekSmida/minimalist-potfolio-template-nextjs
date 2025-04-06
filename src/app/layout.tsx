@@ -30,6 +30,7 @@ export const metadata: Metadata = {
  * - Metadata and viewport settings
  * - Global UI elements (footer, scroll indicator, back-to-top button)
  * - Security features (CSP nonce handling)
+ * - Accessibility features
  *
  * Features:
  * - Server Component: Runs on the server for improved performance
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
  * - Content Security Policy: Uses nonce for secure inline scripts
  * - Responsive Layout: Mobile-first with appropriate viewport settings
  * - SEO Optimization: Proper metadata and robot directives
+ * - Accessibility: ARIA landmarks, semantic HTML, and keyboard navigation
  *
  * @param {Object} props - Component props
  * @param {React.ReactNode} props.children - The page content to be rendered
@@ -60,7 +62,17 @@ const RootLayout: React.FC<
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
-        <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+        >
+          Skip to main content
+        </a>
+        <main 
+          id="main-content" 
+          className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
+          role="main"
+        >
           {/* Top scroll bar animation  */}
           <ScrollProgressIndicatorBar />
           {/* content of page */}
