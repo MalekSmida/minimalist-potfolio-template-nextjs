@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
 import Head from 'next/head';
 
 // local files
@@ -47,14 +46,7 @@ const RootLayout: React.FC<
   Readonly<{
     children: React.ReactNode;
   }>
-> = async ({ children }) => {
-  // Get the nonce from the headers.
-  // The nonce is a unique, random string. Used with CSP to selectively allow certain inline scripts or styles to execute, bypassing strict CSP directives.
-  // If not using nonce we would added 'unsafe-eval' and 'unsafe-inline' in script-src of CSP Header.
-  // Docs: https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy#nonces
-  const nextHeaders = await headers();
-  const nonce = nextHeaders.get('x-nonce') || ''; // set default value to "".
-
+> = ({ children }) => {
   return (
     <html lang="en">
       <Head>
@@ -70,7 +62,7 @@ const RootLayout: React.FC<
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
         <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6">
           {/* Top scroll bar animation  */}
-          <ScrollProgressIndicatorBar nonce={nonce} />
+          <ScrollProgressIndicatorBar />
           {/* content of page */}
           {children}
         </main>
