@@ -36,7 +36,7 @@ const ScrollProgressIndicatorBar: React.FC = () => {
       aria-valuenow={scrollProgress}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="bg-primary fixed top-0 left-0 z-40 h-1 rounded-r duration-300 ease-in-out"
+      className="bg-primary fixed top-0 left-0 z-40 h-1 rounded-r duration-300 ease-in-out dark:bg-blue-300"
       style={{
         width: `${scrollProgress}%`,
       }}

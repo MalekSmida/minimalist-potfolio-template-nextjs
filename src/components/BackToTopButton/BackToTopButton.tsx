@@ -25,7 +25,7 @@ const BackToTopButton: React.FC = () => {
   return (
     <button
       onClick={onScrollToTop}
-      className="border-primary text-primary hover:bg-primary active:bg-primary fixed right-10 bottom-10 z-50 cursor-pointer rounded-full border p-3 hover:text-white"
+      className="border-primary text-primary hover:bg-primary active:bg-primary fixed right-10 bottom-10 z-50 cursor-pointer rounded-full border p-3 hover:text-white dark:border-blue-300 dark:text-blue-300 dark:hover:bg-blue-300 dark:hover:text-gray-900"
       title="Scroll to top"
       aria-label="Scroll to top"
       aria-live="polite" // Announces the button action for screen readers
