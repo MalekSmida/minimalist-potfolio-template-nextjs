@@ -19,7 +19,7 @@ const aboutSectionData = [
     title: 'Personal Interests',
     aboutList: [
       '🎸 Guitar — Passionate about exploring diverse musical styles.',
-      '📚 Reading — Curious mind, drawn to stories, ideas, and knowledge.',
+      '📚 Reading — Drawn to stories, ideas, and knowledge.',
       '🏃 Workout — Enjoy running and calisthenics for strength and agility.',
       '🏕️ Camping — Love immersing in nature, having fun, and dancing under the stars.',
     ],
