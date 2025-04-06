@@ -53,6 +53,26 @@ const securityHeaders = [
     key: 'Cross-Origin-Resource-Policy',
     value: 'same-origin',
   },
+  // Content Security Policy
+  {
+    key: 'Content-Security-Policy',
+    value: `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' blob: data:;
+      font-src 'self' data:;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+      block-all-mixed-content;
+      upgrade-insecure-requests;
+      connect-src 'self';
+    `
+      .replace(/\s{2,}/g, ' ')
+      .trim(),
+  },
 ];
 
 const nextConfig: NextConfig = {
