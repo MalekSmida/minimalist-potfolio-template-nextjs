@@ -6,10 +6,40 @@ import { useShowNavHeader } from '@/hooks';
 import DarkModeToggleButton from '../DarkModeToggleButton';
 import NavButton, { INavButton } from '../NavButton';
 
+/**
+ * Props for the NavHeader component
+ * @property {INavButton[]} navButtonList - Array of navigation button objects that define navigation links
+ */
 interface PropsNavHeader {
   navButtonList: INavButton[];
 }
 
+/**
+ * Navigation Header Component
+ *
+ * Renders a fixed header with navigation links and a dark mode toggle.
+ * The header will hide/show based on scroll direction (managed by useShowNavHeader hook).
+ *
+ * Features:
+ * - Fixed positioning at the top of the viewport
+ * - Auto-hide on scroll down, show on scroll up
+ * - Responsive design with proper spacing
+ * - Dark mode support
+ * - Accessibility compliant with proper ARIA attributes
+ *
+ * @param {PropsNavHeader} props - Component props
+ * @returns {JSX.Element} Rendered NavHeader component
+ *
+ * @example
+ * import { NavHeader } from '@/components';
+ *
+ * const navButtons = [
+ *   { title: 'Home', link: '#home' },
+ *   { title: 'About', link: '#about' }
+ * ];
+ *
+ * <NavHeader navButtonList={navButtons} />
+ */
 const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
   const { showNavHeader } = useShowNavHeader();
 
@@ -21,7 +51,7 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
         showNavHeader ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="w-5"></div>
+      <div className="mx-2 min-w-9"></div>
       <nav aria-labelledby="header-navigation" className="flex flex-1 items-center justify-center">
         <h2 className="sr-only" id="header-navigation">
           Navigation Header

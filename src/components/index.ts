@@ -1,3 +1,20 @@
+/**
+ * Components Index
+ *
+ * This file exports all reusable UI components from the components directory.
+ * Import components from this file using the pattern:
+ *
+ * ```
+ * import { ComponentName } from '@/components';
+ * ```
+ *
+ * Components are organized by functionality:
+ * - Layout components (Footer, NavHeader)
+ * - Navigation components (NavButton, BackToTopButton)
+ * - UI/UX components (ScrollProgressIndicatorBar, DarkModeToggleButton)
+ * - Content components (ExperienceCard, AnimatedGuitarPlayerImage)
+ */
+
 export { default as Footer } from './Footer';
 export { default as NavButton } from './NavButton';
 export { default as NavHeader } from './NavHeader';
