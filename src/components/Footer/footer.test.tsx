@@ -93,11 +93,15 @@ describe('Footer Component', () => {
       ).toBe(`mailto:${mockData.email}`);
       // Test address link
       expect(
-        screen.getByRole('link', { name: 'View address on Google Maps' }).getAttribute('href'),
+        screen
+          .getByRole('link', { name: `View address on Google Maps: ${mockData.address}` })
+          .getAttribute('href'),
       ).toBe(mockData.googleMapsLink);
       // Test phone link
       expect(
-        screen.getByRole('link', { name: `Call ${mockData.phone}` }).getAttribute('href'),
+        screen
+          .getByRole('link', { name: `Call phone number: ${mockData.phone}` })
+          .getAttribute('href'),
       ).toBe(`tel:${mockData.phone}`);
     });
   });
@@ -114,7 +118,9 @@ describe('Footer Component', () => {
     test('should renders linkedin link when valid props', () => {
       render(<Footer linkedinProfile={mockData.linkedinProfile} />);
 
-      expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
+      expect(
+        screen.getByRole('link', { name: 'Visit LinkedIn profile (opens in new tab)' }),
+      ).toBeDefined();
       // Should not render github link
       expect(screen.queryByText(/Github/i)).toBeNull();
     });
@@ -122,7 +128,9 @@ describe('Footer Component', () => {
     test('should renders github link when valid props', () => {
       render(<Footer githubProfile={mockData.githubProfile} />);
 
-      expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
+      expect(
+        screen.getByRole('link', { name: 'Visit GitHub profile (opens in new tab)' }),
+      ).toBeDefined();
       // Should not render linkedin link
       expect(screen.queryByText(/Linkedin/i)).toBeNull();
     });
@@ -135,8 +143,12 @@ describe('Footer Component', () => {
         />,
       );
 
-      expect(screen.getByRole('link', { name: 'Open Linkedin Profile' })).toBeDefined();
-      expect(screen.getByRole('link', { name: 'Open Github Profile' })).toBeDefined();
+      expect(
+        screen.getByRole('link', { name: 'Visit LinkedIn profile (opens in new tab)' }),
+      ).toBeDefined();
+      expect(
+        screen.getByRole('link', { name: 'Visit GitHub profile (opens in new tab)' }),
+      ).toBeDefined();
     });
 
     test('should redirect to valid urls when clicked', () => {
@@ -148,13 +160,17 @@ describe('Footer Component', () => {
       );
 
       // Test linkedin link
-      expect(screen.getByRole('link', { name: 'Open Linkedin Profile' }).getAttribute('href')).toBe(
-        mockData.linkedinProfile,
-      );
+      expect(
+        screen
+          .getByRole('link', { name: 'Visit LinkedIn profile (opens in new tab)' })
+          .getAttribute('href'),
+      ).toBe(mockData.linkedinProfile);
       // Test github link
-      expect(screen.getByRole('link', { name: 'Open Github Profile' }).getAttribute('href')).toBe(
-        mockData.githubProfile,
-      );
+      expect(
+        screen
+          .getByRole('link', { name: 'Visit GitHub profile (opens in new tab)' })
+          .getAttribute('href'),
+      ).toBe(mockData.githubProfile);
     });
   });
 
@@ -169,9 +185,11 @@ describe('Footer Component', () => {
       render(<Footer githubRepository={mockData.githubRepository} />);
 
       // Test github repository link in "Fork it"
-      expect(screen.getByRole('link', { name: 'Fork it' }).getAttribute('href')).toBe(
-        mockData.githubRepository,
-      );
+      expect(
+        screen
+          .getByRole('link', { name: 'Fork this portfolio template on GitHub (opens in new tab)' })
+          .getAttribute('href'),
+      ).toBe(mockData.githubRepository);
     });
   });
 });
