@@ -14,7 +14,7 @@ The template was bootstrapped with [`create-next-app`](https://nextjs.org/docs/a
 
 - ✅ Accessibility
 - 🔍 SEO optimization
-- 🛡️ Security (security headers including CSP with none)
+- 🛡️ Security (security headers including CSP)
 - ⚡ Performance
 - 🧩 Best practices (ESLint and Prettier included)
 
@@ -29,6 +29,30 @@ Out of curiosity, I experimented with several technologies in this project:
 - [Pnpm](https://pnpm.io/) as a package manager
 - [Vitest](https://vitest.dev/) for unit tests and coverage
 - [Playwright](https://playwright.dev/) for end-to-end testing
+
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js app router pages and layouts
+├── components/           # Reusable UI components
+├── data/                 # Data files for portfolio content
+├── hooks/                # Custom React hooks
+├── sections/             # Page sections (about, contact, etc.)
+├── styles/               # Global styles and Tailwind configuration
+└── utils/                # Utility functions and helpers
+```
+
+### Key Features
+
+- **Island Architecture**: Only interactive components use client-side JavaScript
+- **Dark Mode**: Toggle between light and dark themes
+- **Responsive Design**: Mobile-first approach that works on all devices
+- **Content Security Policy**: Strict CSP implementation
+- **Type Safety**: Full TypeScript integration
+- **Comprehensive Testing**: Unit and E2E tests
+- **Accessibility**: ARIA attributes and semantic HTML
+- **SEO Optimization**: Metadata, structured data, and optimized rendering
 
 ## Getting Started
 
@@ -93,8 +117,55 @@ Copy the content of `.env.example` into your `.env.local` file (create it) and r
 
 You can customize the portfolio by editing the files under `/src/data`. All text content has been exported into these data files, and the sections and components are conditionally rendered based on the provided configuration. This allows for easy customization with minimal effort.
 
+### Changing the Content
+
+1. Edit the files in `/src/data/` to update:
+
+   - Personal information
+   - Experience and education
+   - Projects and skills
+   - Contact details
+
+2. The components will automatically render based on the data you provide.
+
+### Styling
+
+The project uses Tailwind CSS for styling. To customize the look and feel:
+
+1. Edit the Tailwind configuration in `tailwind.config.js`
+2. Use Tailwind classes directly in the components
+3. Add custom styles in `/src/styles/globals.css`
+
+## Security Features
+
+This template implements several security best practices:
+
+- Strict Content Security Policy (CSP)
+- HTTPS-only cookies
+- XSS protection headers
+- Prevents clickjacking with X-Frame-Options
+- Proper CORS configuration
+
+## Testing
+
+The project includes comprehensive testing:
+
+- **Unit Tests**: Using Vitest for components, hooks, and utilities
+- **End-to-End Tests**: Using Playwright to test the full application
+
+Run tests with:
+
+```bash
+pnpm test          # Unit tests
+pnpm test:e2e      # E2E tests
+```
+
 ## Deployment
 
 The easiest way to deploy your portfolio is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 For more deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -7,10 +7,42 @@ import '../styles/globals.css';
 import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
 import { contactSectionData, metaDataData } from '@/data';
 
+/**
+ * Application metadata
+ *
+ * This metadata is applied to all pages in the application
+ * and includes SEO-related information such as:
+ * - Title and description
+ * - OpenGraph and Twitter card data
+ * - Favicon and other icons
+ *
+ * Imported from the metaDataData object in @/data
+ */
 export const metadata: Metadata = {
   ...metaDataData,
 };
 
+/**
+ * Root Layout Component
+ *
+ * This is the main layout component for the entire application.
+ * It wraps all pages and provides common elements such as:
+ * - HTML document structure
+ * - Metadata and viewport settings
+ * - Global UI elements (footer, scroll indicator, back-to-top button)
+ * - Security features (CSP nonce handling)
+ *
+ * Features:
+ * - Server Component: Runs on the server for improved performance
+ * - Dark Mode Support: Theme classes applied to HTML element
+ * - Content Security Policy: Uses nonce for secure inline scripts
+ * - Responsive Layout: Mobile-first with appropriate viewport settings
+ * - SEO Optimization: Proper metadata and robot directives
+ *
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - The page content to be rendered
+ * @returns {JSX.Element} The complete HTML document structure
+ */
 const RootLayout: React.FC<
   Readonly<{
     children: React.ReactNode;

@@ -1,8 +1,34 @@
 import { useState, useEffect, useCallback } from 'react';
 
 /**
- * Custom hook that detect when y scroll is > 300
- * Using event listener on window scroll
+ * Custom hook that detects when vertical scroll position exceeds a threshold
+ *
+ * This hook tracks the window's scroll position and provides a boolean state
+ * that indicates whether the user has scrolled beyond a certain point (300px).
+ * It's commonly used to control the visibility of "back to top" buttons or
+ * similar UI elements that should only appear after scrolling down.
+ *
+ * Features:
+ * - Automatically attaches and cleans up scroll event listeners
+ * - Uses useCallback to prevent unnecessary re-renders
+ * - Only updates state when crossing the threshold to minimize renders
+ *
+ * @returns {Object} Object containing:
+ *   - showArrowButton: boolean - Whether the scroll position is greater than 300px
+ *
+ * @example
+ * // In a component:
+ * const { showArrowButton } = useShowBackToTop();
+ *
+ * return (
+ *   <div>
+ *     {showArrowButton && (
+ *       <button onClick={scrollToTop}>
+ *         Back to Top
+ *       </button>
+ *     )}
+ *   </div>
+ * );
  */
 function useShowBackToTop() {
   // state

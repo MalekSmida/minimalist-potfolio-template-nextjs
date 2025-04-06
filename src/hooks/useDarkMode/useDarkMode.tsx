@@ -1,5 +1,29 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Custom hook for managing dark mode functionality
+ *
+ * This hook handles:
+ * - Detecting and applying the user's theme preference from localStorage
+ * - Toggling between light and dark themes
+ * - Persisting the user's theme preference in localStorage
+ * - Applying the appropriate CSS classes to the document
+ *
+ * @returns {Object} Object containing:
+ *   - isDark: boolean - Current theme state (true for dark mode, false for light mode)
+ *   - toggleDarkMode: function - Function to toggle between light and dark themes
+ *
+ * @example
+ * // In a component:
+ * const { isDark, toggleDarkMode } = useDarkMode();
+ *
+ * // Use isDark to conditionally render UI elements:
+ * return (
+ *   <button onClick={toggleDarkMode}>
+ *     {isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+ *   </button>
+ * );
+ */
 const useDarkMode = () => {
   // Initialize with 'light' as default
   const [isDark, setIsDark] = useState(false);
@@ -16,7 +40,12 @@ const useDarkMode = () => {
     }
   }, []);
 
-  // Toggle function
+  /**
+   * Toggles between light and dark mode
+   * - Updates the theme in localStorage
+   * - Updates the component state
+   * - Applies/removes the 'dark' class on the document element
+   */
   const toggleDarkMode = () => {
     const newTheme = isDark ? 'light' : 'dark';
     localStorage.setItem('theme', newTheme);
