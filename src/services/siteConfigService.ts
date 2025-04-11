@@ -4,18 +4,6 @@ import { SiteConfigData, MetaData, Manifest, Robots, SitemapItem } from './types
 // Default minimal values for when data can't be fetched
 // Only includes the essential information to keep the app running and maintain basic SEO
 const defaultSiteConfig: SiteConfigData = {
-  siteInfo: {
-    title: 'Portfolio',
-    name: 'Minimalist Portfolio',
-    shortName: 'Portfolio',
-    description: 'A professional portfolio website',
-    baseUrl: '/',
-    author: 'Portfolio Owner',
-    authorUrl: '/',
-    twitterHandle: '',
-    locale: 'en_US',
-  },
-  routes: [{ path: '', priority: 1 }],
   metaDataData: {
     title: 'Minimalist Portfolio',
     description: 'A professional portfolio website showcasing skills and experience',
@@ -72,9 +60,14 @@ const defaultSiteConfig: SiteConfigData = {
     theme_color: '#000000',
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: '64x64',
-        type: 'image/x-icon',
+        src: '/web-app-manifest-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: '/web-app-manifest-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
       },
     ],
   },

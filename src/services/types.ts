@@ -3,23 +3,6 @@
  */
 
 // Site Configuration Types
-export interface SiteInfo {
-  title: string;
-  name: string;
-  shortName: string;
-  description: string;
-  baseUrl: string;
-  author: string;
-  authorUrl: string;
-  twitterHandle: string;
-  locale: string;
-}
-
-export interface Route {
-  path: string;
-  priority: number;
-}
-
 export interface Author {
   name: string;
   url: string;
@@ -109,8 +92,6 @@ export interface SitemapItem {
 }
 
 export interface SiteConfigData {
-  siteInfo: SiteInfo;
-  routes: Route[];
   metaDataData: MetaData;
   manifestData: Manifest;
   robotsData: Robots;
