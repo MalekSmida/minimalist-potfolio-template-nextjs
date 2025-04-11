@@ -1,25 +1,26 @@
 import { fetchFromGist } from './gistService';
 import { SiteConfigData, MetaData, Manifest, Robots, SitemapItem } from './types';
 
-// Default values for when data can't be fetched
+// Default minimal values for when data can't be fetched
+// Only includes the essential information to keep the app running and maintain basic SEO
 const defaultSiteConfig: SiteConfigData = {
   siteInfo: {
     title: 'Portfolio',
     name: 'Minimalist Portfolio',
     shortName: 'Portfolio',
-    description: 'A minimalist portfolio template',
-    baseUrl: 'https://example.com',
+    description: 'A professional portfolio website',
+    baseUrl: '/',
     author: 'Portfolio Owner',
-    authorUrl: 'https://example.com',
-    twitterHandle: '@portfolio',
+    authorUrl: '/',
+    twitterHandle: '',
     locale: 'en_US',
   },
   routes: [{ path: '', priority: 1 }],
   metaDataData: {
-    title: 'Portfolio',
-    description: 'A minimalist portfolio template',
-    keywords: ['portfolio', 'minimalist'],
-    authors: [{ name: 'Portfolio Owner', url: 'https://example.com' }],
+    title: 'Minimalist Portfolio',
+    description: 'A professional portfolio website showcasing skills and experience',
+    keywords: ['portfolio', 'professional'],
+    authors: [{ name: 'Portfolio Owner', url: '/' }],
     robots: {
       index: true,
       follow: true,
@@ -29,15 +30,15 @@ const defaultSiteConfig: SiteConfigData = {
       },
     },
     openGraph: {
-      url: 'https://example.com',
+      url: '/',
       type: 'website',
-      title: 'Portfolio',
-      description: 'A minimalist portfolio template',
+      title: 'Minimalist Portfolio',
+      description: 'A professional portfolio website',
       siteName: 'Portfolio',
       locale: 'en_US',
       images: [
         {
-          url: 'https://example.com/og-image.jpg',
+          url: '/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'Portfolio',
@@ -47,12 +48,12 @@ const defaultSiteConfig: SiteConfigData = {
     twitter: {
       card: 'summary_large_image',
       title: 'Portfolio',
-      description: 'A minimalist portfolio template',
-      creator: '@portfolio',
-      images: ['https://example.com/twitter-image.jpg'],
+      description: 'A professional portfolio website',
+      creator: '',
+      images: ['/twitter-image.jpg'],
     },
     alternates: {
-      canonical: 'https://example.com',
+      canonical: '/',
     },
     verification: {
       google: '',
@@ -64,16 +65,16 @@ const defaultSiteConfig: SiteConfigData = {
   manifestData: {
     name: 'Portfolio',
     short_name: 'Portfolio',
-    description: 'A minimalist portfolio template',
+    description: 'A professional portfolio website',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#000000',
     icons: [
       {
-        src: '/icons/icon-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
+        src: '/favicon.ico',
+        sizes: '64x64',
+        type: 'image/x-icon',
       },
     ],
   },
@@ -82,13 +83,13 @@ const defaultSiteConfig: SiteConfigData = {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://example.com/sitemap.xml',
+    sitemap: '/sitemap.xml',
   },
   sitemapData: [
     {
-      url: 'https://example.com',
+      url: '/',
       lastModified: new Date().toISOString(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 1,
     },
   ],

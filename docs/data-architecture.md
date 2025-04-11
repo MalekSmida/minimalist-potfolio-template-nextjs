@@ -165,6 +165,97 @@ export default function ClientPresentationSection() {
 4. After creating the gist, update your `.env.local` file with the new gist URL
 5. Restart your development server for the changes to take effect
 
+### Forking Existing Gists
+
+The easiest way to get started is by forking the example gists:
+
+1. Visit each of the example gists listed in the README
+2. Click the "Fork" button in the top-right corner of the gist page
+3. Modify the content with your information
+4. Use your forked gist URLs in your environment variables
+
+This approach lets you quickly set up your portfolio with the correct data structure.
+
+### Error Handling and Fallbacks
+
+The portfolio is designed to be resilient to data-fetching failures. Each service includes:
+
+1. Proper error handling for missing environment variables
+2. Graceful handling of network errors during fetching
+3. Default fallback data to ensure the site remains functional even when data can't be fetched
+4. Type checking to ensure data integrity
+
+This approach means your portfolio site will never be completely broken, even if some data is unavailable. Components will display fallback content rather than crashing.
+
+```typescript
+// Example of error handling in a service
+export async function getAboutData(): Promise<AboutData> {
+  try {
+    const url = process.env.NEXT_PUBLIC_GIST_ABOUT_URL;
+
+    if (!url) {
+      console.error('Missing environment variable for About section');
+      return {
+        title: 'About Me',
+        paragraphs: ['No about data available. Please check your configuration.'],
+        focusList: [],
+      };
+    }
+
+    const data = await fetchFromGist<Partial<AboutData>>(url);
+
+    // Ensure we have proper data structure even if the API response is incomplete
+    return {
+      title: data.title || 'About Me',
+      paragraphs: Array.isArray(data.paragraphs)
+        ? data.paragraphs
+        : ['About information not available.'],
+      focusList: Array.isArray(data.focusList) ? data.focusList : [],
+    };
+  } catch (error) {
+    console.error('Error fetching about data:', error);
+    // Return fallback data instead of throwing to prevent page from crashing
+    return {
+      title: 'About Me',
+      paragraphs: ['Unable to load about data. Please try again later.'],
+      focusList: [],
+    };
+  }
+}
+```
+
+Components are also designed to handle missing or empty data gracefully:
+
+```tsx
+// Example: About component handling missing data
+const About: React.FC<PropsAbout> = ({ blockList }) => {
+  // Always render the component, even with empty blockList
+  return (
+    <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">
+      {/* Image section*/}
+      <div className="flex w-full items-center justify-center px-8">
+        <AnimatedGuitarPlayerImage />
+      </div>
+
+      {/* About me */}
+      <article className="xl:text-md lg:px-22 bg-gray-50 p-8 text-sm md:px-16 md:py-8 lg:py-16 dark:bg-gray-800">
+        <h1 className="mb-4 text-2xl font-bold sm:mb-10 sm:text-3xl">Hello again 👋</h1>
+
+        {blockList.length > 0 ? (
+          blockList.map((block, index) => (
+            <AboutBlock key={index} title={block.title} itemList={block.aboutList} />
+          ))
+        ) : (
+          <p className="text-gray-600 dark:text-gray-200">
+            No about information available. Please check your data source.
+          </p>
+        )}
+      </article>
+    </section>
+  );
+};
+```
+
 ## Example Gist JSON Structures
 
 ### Site Configuration

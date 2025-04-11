@@ -129,7 +129,17 @@ This portfolio template fetches all content data from GitHub Gists, which provid
 
 #### How to Use GitHub Gists for Content
 
-1. Create a GitHub Gist for each section of your portfolio:
+1. Fork the example Gists from below to your own GitHub account (the easiest way to start):
+
+   - Click on each Gist link below
+   - Click the "Fork" button in the top right corner
+   - Update the content with your own information
+   - Save the fork
+   - Use your new Gist URLs in your environment variables
+
+   OR
+
+2. Create new GitHub Gists from scratch for each section of your portfolio:
 
    - Site configuration (SEO, manifest, robots, etc.)
    - Presentation section (your name, title, description)
@@ -138,7 +148,7 @@ This portfolio template fetches all content data from GitHub Gists, which provid
    - About section (about you)
    - Contact section (your contact information)
 
-2. Configure your GitHub Gists by setting environment variables in your `.env.local` file:
+3. Configure your GitHub Gists by setting environment variables in your `.env.local` file:
 
    ```plaintext
    # GitHub Gist URLs for Portfolio Data
@@ -152,7 +162,7 @@ This portfolio template fetches all content data from GitHub Gists, which provid
 
    Note: The URLs are structured to exclude commit hashes, allowing you to update your Gists without having to update your environment variables.
 
-3. Each Gist should contain a JSON file with the appropriate structure for that section. See the example Gists for reference:
+4. Each Gist should contain a JSON file with the appropriate structure for that section. See the example Gists for reference:
    - [Site Config Example](https://gist.githubusercontent.com/MalekSmida/5bdb952bc527ec98baf9bccd46e051e8/raw)
    - [Skills Section Example](https://gist.githubusercontent.com/MalekSmida/323e68e4793b5cd9648a0e6249deb049/raw)
    - [Presentation Section Example](https://gist.githubusercontent.com/MalekSmida/1cf28fc583cb0e04c2762dd4012f5904/raw)
