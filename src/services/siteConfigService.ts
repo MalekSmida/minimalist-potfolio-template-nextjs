@@ -51,7 +51,7 @@ const defaultSiteConfig: SiteConfigData = {
     },
   },
   manifestData: {
-    name: 'Portfolio',
+    name: 'Minimalist Portfolio',
     short_name: 'Portfolio',
     description: 'A professional portfolio website',
     start_url: '/',
@@ -59,6 +59,11 @@ const defaultSiteConfig: SiteConfigData = {
     background_color: '#ffffff',
     theme_color: '#000000',
     icons: [
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
       {
         src: '/web-app-manifest-192x192.png',
         sizes: '192x192',
