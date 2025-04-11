@@ -14,7 +14,7 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
   summary,
 }) => {
   return (
-    <Link href={`/experience/${_id}`}>
+    <Link href={`/experience/${_id}`} data-testid="experience-card" id={_id}>
       <article
         className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6 dark:bg-gray-900 dark:shadow-gray-600/25"
         aria-labelledby={`experience-title-${_id}`}

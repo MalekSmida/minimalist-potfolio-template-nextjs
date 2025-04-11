@@ -36,11 +36,13 @@ Out of curiosity, I experimented with several technologies in this project:
 src/
 ├── app/                  # Next.js app router pages and layouts
 ├── components/           # Reusable UI components
-├── data/                 # Data files for portfolio content
+├── services/             # Services for fetching data from GitHub Gists
+│   ├── types.ts          # TypeScript type definitions
+│   ├── gistService.ts    # Utility for fetching data from GitHub Gists
+│   └── *Service.ts       # Individual services for each data section
 ├── hooks/                # Custom React hooks
 ├── sections/             # Page sections (about, contact, etc.)
-├── styles/               # Global styles and Tailwind configuration
-└── utils/                # Utility functions and helpers
+└── styles/               # Global styles and Tailwind configuration
 ```
 
 ### Key Features
@@ -53,6 +55,7 @@ src/
 - **Comprehensive Testing**: Unit and E2E tests
 - **Accessibility**: ARIA attributes and semantic HTML
 - **SEO Optimization**: Metadata, structured data, and optimized rendering
+- **Centralized Configuration**: All site metadata, robots.txt, sitemap, and manifest configurations in one place
 
 ## Getting Started
 
@@ -83,14 +86,13 @@ src/
 The project relies on the following environment variables:
 
 ```plaintext
-NEXT_PUBLIC_EMAIL='your.email@example.com'
-NEXT_PUBLIC_ADDRESS='12345, Your City, Country'
-NEXT_PUBLIC_PHONE='+1234567890'
-NEXT_PUBLIC_GOOGLE_MAPS_LINK='https://www.google.com/maps/place/Your+Address'
-NEXT_PUBLIC_LINKEDIN_PROFILE='https://www.linkedin.com/in/yourprofile/'
-NEXT_PUBLIC_GITHUB_PROFILE='https://github.com/yourgithub'
-NEXT_PUBLIC_GITHUB_REPOSITORY='https://github.com/yourgithub/your-repo'
-NEXT_PUBLIC_CV_PDF_LINK='https://drive.google.com/your-cv-pdf-link'
+# GitHub Gist URLs for Portfolio Data
+NEXT_PUBLIC_GIST_SITE_CONFIG_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_SKILLS_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_PRESENTATION_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_CAREER_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_ABOUT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_CONTACT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
 ```
 
 Copy the content of `.env.example` into your `.env.local` file (create it) and replace the placeholder values with your actual information.
@@ -115,18 +117,79 @@ Copy the content of `.env.example` into your `.env.local` file (create it) and r
 
 ## Customization
 
-You can customize the portfolio by editing the files under `/src/data`. All text content has been exported into these data files, and the sections and components are conditionally rendered based on the provided configuration. This allows for easy customization with minimal effort.
+You can customize the portfolio by editing the contents of your GitHub Gists. All text content has been externalized into GitHub Gists, and the sections and components are conditionally rendered based on the provided configuration. This allows for easy customization with minimal effort.
+
+### Using GitHub Gists for Content Management
+
+This portfolio template fetches all content data from GitHub Gists, which provides several benefits:
+
+1. **Easier content updates**: You can update your portfolio content without modifying code
+2. **Version control**: Gists are version controlled, allowing you to track changes
+3. **External CMS-like experience**: Edit your content through GitHub's interface
+
+#### How to Use GitHub Gists for Content
+
+1. Fork the example Gists from below to your own GitHub account (the easiest way to start):
+
+   - Click on each Gist link below
+   - Click the "Fork" button in the top right corner
+   - Update the content with your own information
+   - Save the fork
+   - Use your new Gist URLs in your environment variables
+
+   OR
+
+2. Create new GitHub Gists from scratch for each section of your portfolio:
+
+   - Site configuration (SEO, manifest, robots, etc.)
+   - Presentation section (your name, title, description)
+   - Skills section (your technical skills)
+   - Career section (work experience)
+   - About section (about you)
+   - Contact section (your contact information)
+
+3. Configure your GitHub Gists by setting environment variables in your `.env.local` file:
+
+   ```plaintext
+   # GitHub Gist URLs for Portfolio Data
+   NEXT_PUBLIC_GIST_SITE_CONFIG_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_SKILLS_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_PRESENTATION_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_CAREER_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_ABOUT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_CONTACT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   ```
+
+   Note: The URLs are structured to exclude commit hashes, allowing you to update your Gists without having to update your environment variables.
+
+4. Each Gist should contain a JSON file with the appropriate structure for that section. See the example Gists for reference:
+   - [Site Config Example](https://gist.githubusercontent.com/MalekSmida/5bdb952bc527ec98baf9bccd46e051e8/raw)
+   - [Skills Section Example](https://gist.githubusercontent.com/MalekSmida/323e68e4793b5cd9648a0e6249deb049/raw)
+   - [Presentation Section Example](https://gist.githubusercontent.com/MalekSmida/1cf28fc583cb0e04c2762dd4012f5904/raw)
+   - [Career Section Example](https://gist.githubusercontent.com/MalekSmida/20e4fa74cb974429182dbd1dfc6bb98e/raw)
+   - [About Section Example](https://gist.githubusercontent.com/MalekSmida/1e03e9560c6c6d85a321e796fecb88d6/raw)
+   - [Contact Section Example](https://gist.githubusercontent.com/MalekSmida/f8027a67e0c6dcae34b7742f1c3c0266/raw)
 
 ### Changing the Content
 
-1. Edit the files in `/src/data/` to update:
+To update your portfolio content:
 
-   - Personal information
-   - Experience and education
-   - Projects and skills
-   - Contact details
+1. Edit your GitHub Gists with new information
+2. The changes will automatically be reflected in your portfolio on the next build or page refresh (depending on cache settings)
 
-2. The components will automatically render based on the data you provide.
+### Site Configuration
+
+The project uses a centralized configuration approach for all site-wide settings:
+
+1. Edit the Gist containing your site configuration to update:
+
+   - Site metadata (title, description, etc.)
+   - OpenGraph and Twitter card data
+   - Robots.txt configuration
+   - Sitemap settings
+   - Web App Manifest for PWA support
+
+2. This centralized approach makes it easy to maintain consistency across different aspects of the site and simplifies updates.
 
 ### Styling
 

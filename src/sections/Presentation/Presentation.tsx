@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 interface PropsPresentation {
-  name: string;
+  name?: string;
   jobTitle?: string;
   yearsOfExperience?: string;
   description?: string;
