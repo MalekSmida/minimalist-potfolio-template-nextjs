@@ -3,12 +3,7 @@ import { Suspense, lazy } from 'react';
 // local files
 import { NavHeader } from '@/components';
 import { INavButton } from '@/components/NavButton';
-import {
-  aboutSectionData,
-  careerSectionData,
-  presentationSectionData,
-  skillsSectionData,
-} from '@/data';
+import { getAboutData, getCareerData, getPresentationData, getSkillsData } from '@/services';
 
 // Dynamic imports with lazy loading
 const Presentation = lazy(() => import('@/sections/Presentation'));
@@ -40,7 +35,13 @@ const SectionSkeleton = () => (
  * Uses React.Suspense for code-splitting and progressive loading
  * Each section is lazy-loaded to improve initial page load time
  */
-const Home: React.FC = () => {
+const Home = async () => {
+  // Fetch data from Gists using services
+  const presentationData = await getPresentationData();
+  const careerData = await getCareerData();
+  const aboutData = await getAboutData();
+  const skillsData = await getSkillsData();
+
   return (
     <>
       {/* 1- Navigation bar/header */}
@@ -49,30 +50,30 @@ const Home: React.FC = () => {
       {/* Presentation section */}
       <Suspense fallback={<SectionSkeleton />}>
         <Presentation
-          name={presentationSectionData.name}
-          jobTitle={presentationSectionData.jobTitle}
-          yearsOfExperience={presentationSectionData.yearsOfExperience}
-          description={presentationSectionData.description}
-          cvPdfLink={presentationSectionData.cvPdfLink}
+          name={presentationData.name}
+          jobTitle={presentationData.jobTitle}
+          yearsOfExperience={presentationData.yearsOfExperience}
+          description={presentationData.description}
+          cvPdfLink={presentationData.cvPdfLink}
         />
       </Suspense>
 
       {/* Career/experiences section */}
       <Suspense fallback={<SectionSkeleton />}>
         <Career
-          descriptionList={careerSectionData.descriptionList}
-          experienceList={careerSectionData.experienceList}
+          descriptionList={careerData.descriptionList}
+          experienceList={careerData.experienceList}
         />
       </Suspense>
 
       {/* About me section which includes function skills too */}
       <Suspense fallback={<SectionSkeleton />}>
-        <About blockList={aboutSectionData} />
+        <About blockList={aboutData} />
       </Suspense>
 
       {/* Technical skills section */}
       <Suspense fallback={<SectionSkeleton />}>
-        <Skills blockList={skillsSectionData} />
+        <Skills blockList={skillsData} />
       </Suspense>
     </>
   );

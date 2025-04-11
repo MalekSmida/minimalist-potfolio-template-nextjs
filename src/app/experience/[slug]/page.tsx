@@ -4,7 +4,7 @@ import Image from 'next/image';
 // local files
 import { NavHeader } from '@/components';
 import { IExperience } from '@/components/ExperienceCard';
-import { careerSectionData } from '@/data';
+import { getCareerData } from '@/services';
 import { INavButton } from '@/components/NavButton';
 
 interface PropsExperience {
@@ -20,8 +20,11 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
   // Docs: https://nextjs.org/docs/messages/sync-dynamic-apis
   const { slug } = await params;
 
+  // Fetch career data
+  const careerData = await getCareerData();
+
   const findExperienceById = (experienceId: string): IExperience | undefined =>
-    careerSectionData.experienceList.find((item) => item._id === experienceId);
+    careerData.experienceList.find((item) => item._id === experienceId);
 
   const currentExperience = findExperienceById(slug);
 

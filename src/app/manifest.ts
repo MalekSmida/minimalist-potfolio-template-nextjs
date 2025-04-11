@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { manifestData } from '@/data/siteConfigData';
+import { getManifestData } from '@/services';
 
 /**
  * Web App Manifest
@@ -8,10 +8,10 @@ import { manifestData } from '@/data/siteConfigData';
  * The manifest is a JSON file that provides information about the app
  * to browsers and mobile devices, enabling installation as a PWA.
  *
- * Data is imported from the centralized siteConfigData for easy customization
+ * Data is fetched from the site configuration service for easy customization
  *
  * @returns {MetadataRoute.Manifest} Application manifest
  */
-export default function manifest(): MetadataRoute.Manifest {
-  return manifestData;
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  return await getManifestData();
 }

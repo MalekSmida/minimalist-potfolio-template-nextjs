@@ -1,14 +1,14 @@
 import { MetadataRoute } from 'next';
-import { sitemapData } from '@/data/siteConfigData';
+import { getSitemapData } from '@/services';
 
 /**
  * Generate sitemap for the website
  * This improves SEO by providing search engines with a map of all pages
  *
- * Data is imported from the centralized siteConfigData for easy customization
+ * Data is fetched from the site configuration service for easy customization
  *
  * @returns {MetadataRoute.Sitemap} A sitemap for the website
  */
-export default function sitemap(): MetadataRoute.Sitemap {
-  return sitemapData;
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  return await getSitemapData();
 }

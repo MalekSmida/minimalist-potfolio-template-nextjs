@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 // local files
 import '../styles/globals.css';
 import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
-import { contactSectionData, metaDataData } from '@/data';
+import { getContactData, getMetaData } from '@/services';
 
 /**
  * Application metadata
@@ -15,11 +15,12 @@ import { contactSectionData, metaDataData } from '@/data';
  * - Favicon and other icons
  * - Robots directives
  *
- * Imported from the centralized siteConfigData in @/data which provides
+ * Imported from the centralized site configuration service which provides
  * a single source of truth for all site configuration information.
  */
-export const metadata: Metadata = {
-  ...metaDataData,
+export const generateMetadata = async (): Promise<Metadata> => {
+  const metaData = await getMetaData();
+  return { ...metaData };
 };
 
 /**
@@ -56,11 +57,14 @@ export const viewport: Viewport = {
  * @param {React.ReactNode} props.children - The page content to be rendered
  * @returns {JSX.Element} The complete HTML document structure
  */
-const RootLayout: React.FC<
-  Readonly<{
-    children: React.ReactNode;
-  }>
-> = ({ children }) => {
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  // Fetch contact data from Gist
+  const contactData = await getContactData();
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
@@ -82,13 +86,13 @@ const RootLayout: React.FC<
         </main>
         {/* Footer which includes contact info */}
         <Footer
-          email={contactSectionData.email}
-          address={contactSectionData.address}
-          phone={contactSectionData.phone}
-          googleMapsLink={contactSectionData.googleMapsLink}
-          linkedinProfile={contactSectionData.linkedinProfile}
-          githubProfile={contactSectionData.githubProfile}
-          githubRepository={contactSectionData.githubRepository}
+          email={contactData.email}
+          address={contactData.address}
+          phone={contactData.phone}
+          googleMapsLink={contactData.googleMapsLink}
+          linkedinProfile={contactData.linkedinProfile}
+          githubProfile={contactData.githubProfile}
+          githubRepository={contactData.githubRepository}
         />
 
         <BackToTopButton />
