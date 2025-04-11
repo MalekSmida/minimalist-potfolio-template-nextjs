@@ -3,7 +3,7 @@ import { SiteConfigData, MetaData, Manifest, Robots, SitemapItem } from './types
 
 // Default minimal values for when data can't be fetched
 // Only includes the essential information to keep the app running and maintain basic SEO
-const defaultSiteConfig: SiteConfigData = {
+export const defaultSiteConfig: SiteConfigData = {
   metaDataData: {
     title: 'Minimalist Portfolio',
     description: 'A professional portfolio website showcasing skills and experience',

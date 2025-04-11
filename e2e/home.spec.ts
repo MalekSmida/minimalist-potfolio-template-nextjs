@@ -1,5 +1,7 @@
-import { metaDataData } from '@/data';
 import { test, expect } from '@playwright/test';
+
+// local imports
+import { defaultSiteConfig } from '@/services/siteConfigService';
 
 test.describe('Home Page', () => {
   test.beforeEach(async ({ page }) => {
@@ -7,12 +9,15 @@ test.describe('Home Page', () => {
   });
 
   test('should have correct title', async ({ page }) => {
-    await expect(page).toHaveTitle(metaDataData.title);
+    await expect(page).toHaveTitle(defaultSiteConfig.metaDataData.title);
   });
 
   test('should have proper meta description', async ({ page }) => {
     const metaDescription = page.locator('meta[name="description"]');
-    await expect(metaDescription).toHaveAttribute('content', metaDataData.description);
+    await expect(metaDescription).toHaveAttribute(
+      'content',
+      defaultSiteConfig.metaDataData.description,
+    );
   });
 
   test('should have skip to main content link', async ({ page }) => {
