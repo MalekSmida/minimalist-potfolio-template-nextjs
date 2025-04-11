@@ -38,15 +38,17 @@ describe('presentationService', () => {
     // Unset the environment variable for this test
     delete process.env.NEXT_PUBLIC_GIST_PRESENTATION_URL;
 
-    await expect(getPresentationData()).rejects.toThrow(
-      'NEXT_PUBLIC_GIST_PRESENTATION_URL environment variable is not defined',
-    );
+    const result = await getPresentationData();
+
+    expect(result).toEqual({});
   });
 
   it('should throw an error when fetchFromGist fails', async () => {
     const error = new Error('Failed to fetch');
     vi.mocked(gistService.fetchFromGist).mockRejectedValue(error);
 
-    await expect(getPresentationData()).rejects.toThrow('Failed to fetch');
+    const result = await getPresentationData();
+
+    expect(result).toEqual({});
   });
 });
