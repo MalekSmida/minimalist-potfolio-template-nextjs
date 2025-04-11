@@ -99,6 +99,7 @@ const securityHeaders = [
  * - Security headers applied to all routes
  * - CSP header with strict content source policies
  * - Support for TypeScript configuration
+ * - Compression and performance optimization
  *
  * For more information on Next.js configuration options, see:
  * https://nextjs.org/docs/app/api-reference/next-config-js
@@ -121,7 +122,40 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  /* config options here */
+
+  /**
+   * Performance Optimization
+   *
+   * Configure webpack, compiler options, and other performance settings.
+   */
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  /**
+   * Compression Configuration
+   *
+   * Enable Gzip compression for responses.
+   */
+  compress: true,
+
+  /**
+   * Configure redirects from old URLs to new ones
+   */
+  async redirects() {
+    return [
+      // Add redirects as needed
+    ];
+  },
+
+  /**
+   * Configure rewrites for proxying or URL normalization
+   */
+  async rewrites() {
+    return [
+      // Add rewrites as needed
+    ];
+  },
 };
 
 export default nextConfig;

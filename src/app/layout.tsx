@@ -1,5 +1,4 @@
-import type { Metadata } from 'next';
-import Head from 'next/head';
+import type { Metadata, Viewport } from 'next';
 
 // local files
 import '../styles/globals.css';
@@ -14,11 +13,24 @@ import { contactSectionData, metaDataData } from '@/data';
  * - Title and description
  * - OpenGraph and Twitter card data
  * - Favicon and other icons
+ * - Robots directives
  *
- * Imported from the metaDataData object in @/data
+ * Imported from the centralized siteConfigData in @/data which provides
+ * a single source of truth for all site configuration information.
  */
 export const metadata: Metadata = {
   ...metaDataData,
+};
+
+/**
+ * Viewport configuration
+ *
+ * Controls the viewport settings for all pages
+ */
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 /**
@@ -50,26 +62,16 @@ const RootLayout: React.FC<
   }>
 > = ({ children }) => {
   return (
-    <html lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* 
-        For robots:
-        - index: Tells search engines to index the page and include it in search results.
-        - follow: Instructs search engines to follow the links on the page.
-        */}
-        <meta name="robots" content="index, follow" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <html lang="en" className="scroll-smooth">
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
-        <a 
-          href="#main-content" 
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-black"
         >
           Skip to main content
         </a>
-        <main 
-          id="main-content" 
+        <main
+          id="main-content"
           className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
           role="main"
         >

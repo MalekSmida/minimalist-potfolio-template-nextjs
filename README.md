@@ -37,6 +37,7 @@ src/
 ├── app/                  # Next.js app router pages and layouts
 ├── components/           # Reusable UI components
 ├── data/                 # Data files for portfolio content
+│   └── siteConfigData.ts # Centralized site configuration (SEO, manifest, etc.)
 ├── hooks/                # Custom React hooks
 ├── sections/             # Page sections (about, contact, etc.)
 ├── styles/               # Global styles and Tailwind configuration
@@ -53,6 +54,7 @@ src/
 - **Comprehensive Testing**: Unit and E2E tests
 - **Accessibility**: ARIA attributes and semantic HTML
 - **SEO Optimization**: Metadata, structured data, and optimized rendering
+- **Centralized Configuration**: All site metadata, robots.txt, sitemap, and manifest configurations in one place
 
 ## Getting Started
 
@@ -127,6 +129,20 @@ You can customize the portfolio by editing the files under `/src/data`. All text
    - Contact details
 
 2. The components will automatically render based on the data you provide.
+
+### Site Configuration
+
+The project uses a centralized configuration approach for all site-wide settings:
+
+1. Edit the file `/src/data/siteConfigData.ts` to update:
+
+   - Site metadata (title, description, etc.)
+   - OpenGraph and Twitter card data
+   - Robots.txt configuration
+   - Sitemap settings
+   - Web App Manifest for PWA support
+
+2. This centralized approach makes it easy to maintain consistency across different aspects of the site and simplifies updates when forking the project.
 
 ### Styling
 

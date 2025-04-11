@@ -1,5 +1,40 @@
-import { expect, test, describe, afterEach } from 'vitest';
+import { expect, test, describe, afterEach, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
+
+// Mock the lazy-loaded components
+vi.mock('@/sections/Presentation', () => ({
+  default: ({ name }: { name: string }) => <div>Hi, I am {name}</div>,
+}));
+
+vi.mock('@/sections/Career', () => ({
+  default: () => <div>Career Section</div>,
+}));
+
+vi.mock('@/sections/About', () => ({
+  default: () => <div>About Section</div>,
+}));
+
+vi.mock('@/sections/Skills', () => ({
+  default: () => <div>Skills Section</div>,
+}));
+
+// Mock the presentation data
+vi.mock('@/data', () => ({
+  presentationSectionData: {
+    name: 'Malek',
+    jobTitle: 'Developer',
+    yearsOfExperience: 5,
+    description: 'Description',
+    cvPdfLink: '#',
+  },
+  careerSectionData: {
+    descriptionList: [],
+    experienceList: [],
+  },
+  aboutSectionData: [],
+  skillsSectionData: [],
+  contactSectionData: {},
+}));
 
 // Local files
 import Home from './page';
@@ -14,13 +49,14 @@ describe('Home Page', () => {
     cleanup();
   });
 
-  test('should renders without errors', () => {
+  test('should renders without errors', async () => {
     render(<Home />);
 
     // should renders navigation menu
     expect(screen.getByRole('navigation')).toBeDefined();
 
-    // should renders at least presentation section
-    expect(screen.getByText(/^Hi, I am/i)).toBeDefined();
+    // should renders presentation section (which is now lazy loaded)
+    // Using findByText instead of getByText because it's asynchronous and works with suspense
+    expect(await screen.findByText(/^Hi, I am/i)).toBeDefined();
   });
 });
