@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 
 // local files
 import '../styles/globals.css';
-import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
+import { BackToTopButton, Footer } from '@/components';
 import { getContactData, getMetaData } from '@/services';
 
 /**
@@ -33,6 +33,17 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
 };
+
+/**
+ * Force dynamic rendering
+ *
+ * This is used to force dynamic rendering for all pages
+ * and is required for the application to work correctly
+ * with the Content Security Policy (CSP)
+ *
+ * Docs: https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy#adding-a-nonce-with-middleware
+ */
+export const dynamic = 'force-dynamic';
 
 /**
  * Root Layout Component
@@ -79,8 +90,6 @@ const RootLayout = async ({
           className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
           role="main"
         >
-          {/* Top scroll bar animation  */}
-          <ScrollProgressIndicatorBar />
           {/* content of page */}
           {children}
         </main>

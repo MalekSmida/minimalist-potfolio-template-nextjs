@@ -7,8 +7,7 @@ vi.mock('../styles/globals.css', () => ({}));
 // Mock the components
 vi.mock('@/components', () => ({
   BackToTopButton: () => <div>Back to Top Button</div>,
-  ScrollProgressIndicatorBar: () => <div>Scroll Progress Indicator</div>,
-  Footer: ({ email }: { email: string }) => <footer>Footer with email: {email}</footer>,
+  Footer: () => <div>Footer</div>,
 }));
 
 // Mock the data services
