@@ -35,6 +35,17 @@ export const viewport: Viewport = {
 };
 
 /**
+ * Force dynamic rendering
+ *
+ * This is used to force dynamic rendering for all pages
+ * and is required for the application to work correctly
+ * with the Content Security Policy (CSP)
+ *
+ * Docs: https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy#adding-a-nonce-with-middleware
+ */
+export const dynamic = 'force-dynamic';
+
+/**
  * Root Layout Component
  *
  * This is the main layout component for the entire application.
