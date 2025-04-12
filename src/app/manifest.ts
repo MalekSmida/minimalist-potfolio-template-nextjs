@@ -10,6 +10,8 @@ import { getManifestData } from '@/services';
  *
  * Data is fetched from the site configuration service for easy customization
  *
+ * Docs: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest
+ *
  * @returns {MetadataRoute.Manifest} Application manifest
  */
 export default async function manifest(): Promise<MetadataRoute.Manifest> {

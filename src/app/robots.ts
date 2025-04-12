@@ -7,6 +7,8 @@ import { getRobotsData } from '@/services';
  *
  * Data is fetched from the site configuration service for easy customization
  *
+ * Docs: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+ *
  * @returns {MetadataRoute.Robots} A robots.txt file content
  */
 export default async function robots(): Promise<MetadataRoute.Robots> {
