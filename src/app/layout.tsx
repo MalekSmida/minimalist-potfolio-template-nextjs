@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 
 // local files
 import '../styles/globals.css';
-import { BackToTopButton, Footer, ScrollProgressIndicatorBar } from '@/components';
+import { BackToTopButton, Footer } from '@/components';
 import { getContactData, getMetaData } from '@/services';
 
 /**
@@ -79,8 +79,6 @@ const RootLayout = async ({
           className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
           role="main"
         >
-          {/* Top scroll bar animation  */}
-          <ScrollProgressIndicatorBar />
           {/* content of page */}
           {children}
         </main>

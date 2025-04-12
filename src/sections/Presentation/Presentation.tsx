@@ -109,8 +109,7 @@ const Presentation: React.FC<PropsPresentation> = ({
           src="/static/images/recommendation.webp"
           alt={`${displayName}'s recommendation picture`}
           width={450}
-          height={200}
-          loading="lazy"
+          height={150}
           className="absolute right-0 bottom-0 z-10 border border-black transition-transform duration-300 ease-in-out group-hover:scale-105 lg:right-40 lg:bottom-20 xl:right-70 xl:bottom-32"
         />
       </div>
