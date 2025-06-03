@@ -201,13 +201,7 @@ The project uses Tailwind CSS for styling. To customize the look and feel:
 
 ## Security Features
 
-This template implements several security best practices:
-
-- Strict Content Security Policy (CSP)
-- HTTPS-only cookies
-- XSS protection headers
-- Prevents clickjacking with X-Frame-Options
-- Proper CORS configuration
+This template implements security best practices, like: HTTP Security Headers, you can test it via [Security Headers by Snyk](https://securityheaders.com/)
 
 ## Testing
 
