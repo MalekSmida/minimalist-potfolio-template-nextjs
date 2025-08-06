@@ -98,15 +98,6 @@ export interface SiteConfigData {
   sitemapData: SitemapItem[];
 }
 
-// Presentation Section Types
-export interface PresentationData {
-  name?: string;
-  jobTitle?: string;
-  description?: string;
-  yearsOfExperience?: string;
-  cvPdfLink?: string;
-}
-
 // Skills Section Types
 export interface Skill {
   localPath: string;
@@ -155,4 +146,14 @@ export interface ContactData {
   linkedinProfile?: string;
   githubProfile?: string;
   githubRepository?: string;
+}
+
+export interface HomeData {
+  name?: string;
+  jobTitle?: string;
+  description?: string;
+  yearsOfExperience?: string;
+  cvPdfLink?: string;
+  about?: AboutData[];
+  skills?: SkillsData;
 }

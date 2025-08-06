@@ -79,11 +79,9 @@ const RootLayout = async ({
   const contactData = await getContactData();
 
   const navButtonList: INavButton[] = [
-    { title: 'Home', page: '/' },
+    { title: 'Who Am I', page: '/' },
     { title: 'Consulting', page: '/consulting' },
     { title: 'Career', page: '/career' },
-    { title: 'About', page: '/about' },
-    { title: 'Skills', page: '/skills' },
     { title: 'Contact', page: '/contact' },
   ];
 

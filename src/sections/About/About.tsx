@@ -1,6 +1,9 @@
 // local files
 import { AnimatedGuitarPlayerImage } from '@/components';
-import { getAboutData } from '@/services';
+
+interface PropsAbout {
+  blockList?: Array<{ title: string; aboutList: string[] }>;
+}
 
 /**
  * AboutBlock Component
@@ -26,7 +29,7 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
 };
 
 /**
- * About Page Component
+ * About Section Component
  *
  * Renders the "About Me" section of the portfolio with an animated image
  * and content blocks containing personal information.
@@ -36,12 +39,30 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
  * - Responsive design (stacks on mobile)
  * - Multiple content blocks with titles and bullet points
  * - Dark mode support
+ *
+ * Note: The component will not render if blockList is empty
+ *
+ * @param {PropsAbout} props - Component props
+ * @returns {JSX.Element|undefined} Rendered About section or undefined if no content
+ *
+ * @example
+ * import { About } from '@/sections';
+ *
+ * const aboutData = [
+ *   {
+ *     title: "Skills",
+ *     aboutList: ["JavaScript", "React", "Next.js"]
+ *   },
+ *   {
+ *     title: "Interests",
+ *     aboutList: ["Web Development", "UI/UX Design"]
+ *   }
+ * ];
+ *
+ * <About blockList={aboutData} />
  */
-const About: React.FC = async () => {
-  // Fetch data from Gists using services
-  const blockList = await getAboutData();
-
-  if (!blockList.length) return;
+const About: React.FC<PropsAbout> = ({ blockList }) => {
+  if (!blockList?.length) return;
 
   return (
     <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">

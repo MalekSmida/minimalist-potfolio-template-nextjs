@@ -1,13 +1,13 @@
 // local files
+import { ISkill } from './skills.types';
+import SkillsBlock from './SkillsBlock';
 
-import SkillsBlock from '@/components/SkillBlock';
-import { getSkillsData } from '@/services';
+interface PropsSkills {
+  blockList?: Array<{ title: string; skillList: Array<ISkill> }>;
+}
 
-const Skills: React.FC = async () => {
-  // Fetch data from Gists using services
-  const blockList = await getSkillsData();
-
-  if (!blockList.length) return;
+const Skills: React.FC<PropsSkills> = ({ blockList }) => {
+  if (!blockList?.length) return;
 
   return (
     <section className="my-10 flex w-full flex-col rounded-md px-8" id="skills">
