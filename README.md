@@ -126,6 +126,14 @@ Execute in the root folder
 corepack use pnpm@latest
 ```
 
+## Upgrade Next.js version to latest
+
+Execute in the root folder
+
+```Shell
+npx @next/codemod@latest upgrade latest
+```
+
 ## Customization
 
 You can customize the portfolio by editing the contents of your GitHub Gists. All text content has been externalized into GitHub Gists, and the sections and components are conditionally rendered based on the provided configuration. This allows for easy customization with minimal effort.
