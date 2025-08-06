@@ -88,8 +88,8 @@ const Presentation: React.FC<PropsPresentation> = ({
         >
           <defs>
             <linearGradient id="primary-to-blue" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#92400E" /> {/* primary color */}
-              <stop offset="100%" stopColor="#fcd34d" /> {/* secondary */}
+              <stop offset="0%" stopColor="#fcd34d" /> {/* secondary */}
+              <stop offset="100%" stopColor="#92400E" /> {/* primary color */}
             </linearGradient>
           </defs>
           <rect width="829" height="829" rx="200" fill="url(#primary-to-blue)" />
