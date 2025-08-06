@@ -7,11 +7,7 @@ import Link from 'next/link';
 // local imports
 import { useShowNavHeader } from '@/hooks';
 import DarkModeToggleButton from '../DarkModeToggleButton';
-
-export interface INavButton {
-  title: string;
-  page: string;
-}
+import { INavButton } from './navHeader.types';
 
 interface PropsNavHeader {
   navButtonList: INavButton[];

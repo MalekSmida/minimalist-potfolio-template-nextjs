@@ -99,7 +99,7 @@ const RootLayout = async ({
         <NavHeader navButtonList={navButtonList} />
         <main
           id="main-content"
-          className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
+          className="mx-auto flex w-full max-w-7xl flex-col items-center p-4 sm:p-6"
           role="main"
         >
           {/* content of page */}
@@ -107,9 +107,9 @@ const RootLayout = async ({
         </main>
         {/* Footer which includes contact info */}
         <Footer
-          email={contactData.email}
-          address={contactData.address}
-          phone={contactData.phone}
+          // email={contactData.email}
+          // address={contactData.address}
+          // phone={contactData.phone}
           googleMapsLink={contactData.googleMapsLink}
           linkedinProfile={contactData.linkedinProfile}
           githubProfile={contactData.githubProfile}

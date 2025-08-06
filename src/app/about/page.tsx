@@ -1,13 +1,6 @@
 // local files
 import { AnimatedGuitarPlayerImage } from '@/components';
-
-/**
- * Props for the About section component
- * @property {Array<{title: string, aboutList: string[]}>} blockList - Array of content blocks with titles and list items
- */
-interface PropsAbout {
-  blockList: Array<{ title: string; aboutList: string[] }>;
-}
+import { getAboutData } from '@/services';
 
 /**
  * AboutBlock Component
@@ -33,7 +26,7 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
 };
 
 /**
- * About Section Component
+ * About Page Component
  *
  * Renders the "About Me" section of the portfolio with an animated image
  * and content blocks containing personal information.
@@ -43,29 +36,11 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
  * - Responsive design (stacks on mobile)
  * - Multiple content blocks with titles and bullet points
  * - Dark mode support
- *
- * Note: The component will not render if blockList is empty
- *
- * @param {PropsAbout} props - Component props
- * @returns {JSX.Element|undefined} Rendered About section or undefined if no content
- *
- * @example
- * import { About } from '@/sections';
- *
- * const aboutData = [
- *   {
- *     title: "Skills",
- *     aboutList: ["JavaScript", "React", "Next.js"]
- *   },
- *   {
- *     title: "Interests",
- *     aboutList: ["Web Development", "UI/UX Design"]
- *   }
- * ];
- *
- * <About blockList={aboutData} />
  */
-const About: React.FC<PropsAbout> = ({ blockList }) => {
+const About: React.FC = async () => {
+  // Fetch data from Gists using services
+  const blockList = await getAboutData();
+
   if (!blockList.length) return;
 
   return (

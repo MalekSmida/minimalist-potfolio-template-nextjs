@@ -1,12 +1,11 @@
 // local files
-import ExperienceCard, { IExperienceCard } from '@/components/ExperienceCard';
+import ExperienceCard from '@/components/ExperienceCard';
+import { getCareerData } from '@/services';
 
-interface PropsCareer {
-  descriptionList?: string[];
-  experienceList?: Array<IExperienceCard>;
-}
+const Career: React.FC = async () => {
+  // Fetch data from Gists using services
+  const { descriptionList, experienceList } = await getCareerData();
 
-const Career: React.FC<PropsCareer> = ({ descriptionList, experienceList }) => {
   // break when empty props
   if (!descriptionList?.length && !experienceList?.length) return;
 
