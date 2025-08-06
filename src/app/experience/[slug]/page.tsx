@@ -36,7 +36,7 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
 
   return (
     <>
-      <span className="from-primary relative h-48 w-screen bg-gradient-to-r via-indigo-500 to-blue-300"></span>
+      <span className="from-primary to-secondary relative h-48 w-screen bg-gradient-to-r"></span>
       <section className="relative container mx-auto max-w-3xl py-20">
         {/* Company logo */}
         <Image

@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 :root {
-  --primary: #3329ff;
+  --primary: #92400e;
+  --secondary: #fcd34d;
 }
 
 body {
@@ -50,6 +51,7 @@ body {
 
 @theme inline {
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
 }
 
 /* 

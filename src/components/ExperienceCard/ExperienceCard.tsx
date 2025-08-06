@@ -19,13 +19,13 @@ const ExperienceCard: React.FC<IExperienceCard> = ({
         className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6 dark:bg-gray-900 dark:shadow-gray-600/25"
         aria-labelledby={`experience-title-${_id}`}
       >
-        <span className="to-primary absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r from-blue-300"></span>
+        <span className="to-primary from-secondary absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r"></span>
         <h2 id={`experience-title-${_id}`} className="mt-0.5 line-clamp-2 text-lg font-medium">
           {position}
         </h2>
 
         {/* It will check if your experience is within a company else it will renders contract type */}
-        <p className="text-primary mt-4 line-clamp-2 font-medium dark:text-blue-300">
+        <p className="text-primary dark:text-secondary mt-4 line-clamp-2 font-medium">
           {company ? `@${company}` : contractType}
         </p>
 

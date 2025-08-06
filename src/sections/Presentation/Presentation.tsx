@@ -32,7 +32,7 @@ const Presentation: React.FC<PropsPresentation> = ({
           <p className="my-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{jobTitle}</p>
         )}
         {yearsOfExperience && (
-          <p className="text-md text-primary my-2 font-medium dark:text-blue-300">
+          <p className="text-md text-primary dark:text-secondary my-2 font-medium">
             {yearsOfExperience}
           </p>
         )}
@@ -43,7 +43,7 @@ const Presentation: React.FC<PropsPresentation> = ({
         )}
         {cvPdfLink && (
           <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:border-blue-300 dark:bg-blue-300 dark:text-gray-900 dark:hover:text-blue-300 dark:active:text-blue-300"
+            className="group border-primary bg-primary hover:text-primary active:text-primary dark:border-secondary dark:bg-secondary dark:hover:text-secondary dark:active:text-secondary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:text-gray-900"
             href={cvPdfLink}
             rel="noopener noreferrer"
             target="_blank"
@@ -88,8 +88,8 @@ const Presentation: React.FC<PropsPresentation> = ({
         >
           <defs>
             <linearGradient id="primary-to-blue" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3329ff" /> {/* primary color */}
-              <stop offset="100%" stopColor="#93c5fd" /> {/* blue-300 */}
+              <stop offset="0%" stopColor="#92400E" /> {/* primary color */}
+              <stop offset="100%" stopColor="#fcd34d" /> {/* secondary */}
             </linearGradient>
           </defs>
           <rect width="829" height="829" rx="200" fill="url(#primary-to-blue)" />
