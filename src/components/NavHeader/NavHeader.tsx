@@ -2,17 +2,32 @@
 // This approach is called "islands architecture" in Next.js - where most of the page is static/server-rendered, with interactive "islands" that are client-rendered.
 'use client';
 
+import Link from 'next/link';
+
+// local imports
 import { useShowNavHeader } from '@/hooks';
 import DarkModeToggleButton from '../DarkModeToggleButton';
-import NavButton, { INavButton } from '../NavButton';
 
-/**
- * Props for the NavHeader component
- * @property {INavButton[]} navButtonList - Array of navigation button objects that define navigation links
- */
+export interface INavButton {
+  title: string;
+  page: string;
+}
+
 interface PropsNavHeader {
   navButtonList: INavButton[];
 }
+
+const NavButton = ({ title, page }: INavButton) => (
+  <li>
+    <Link
+      href={page}
+      aria-label={`Navigate to the page ${title}`}
+      className="before:bg-primary hover:text-primary relative cursor-pointer text-sm font-medium transition-colors duration-300 ease-in-out select-none before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:transition hover:before:scale-100 dark:before:bg-blue-300 dark:hover:text-blue-300"
+    >
+      {title}
+    </Link>
+  </li>
+);
 
 /**
  * Navigation Header Component
@@ -34,8 +49,8 @@ interface PropsNavHeader {
  * import { NavHeader } from '@/components';
  *
  * const navButtons = [
- *   { title: 'Home', link: '#home' },
- *   { title: 'About', link: '#about' }
+ *   { title: 'Home', page: '/' },
+ *   { title: 'About', page: '/about' }
  * ];
  *
  * <NavHeader navButtonList={navButtons} />
@@ -61,8 +76,8 @@ const NavHeader: React.FC<PropsNavHeader> = ({ navButtonList }) => {
           role="list"
           aria-label="Main navigation"
         >
-          {navButtonList?.map((item, index) => (
-            <NavButton key={index} title={item.title} link={item.link} />
+          {navButtonList?.map(({ title, page }) => (
+            <NavButton key={title} title={title} page={page} />
           ))}
         </ul>
       </nav>

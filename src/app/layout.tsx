@@ -4,6 +4,8 @@ import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
 import { BackToTopButton, Footer } from '@/components';
 import { getContactData, getMetaData } from '@/services';
+import { NavHeader } from '@/components';
+import { INavButton } from '@/components/NavHeader';
 
 /**
  * Application metadata
@@ -76,6 +78,15 @@ const RootLayout = async ({
   // Fetch contact data from Gist
   const contactData = await getContactData();
 
+  const navButtonList: INavButton[] = [
+    { title: 'Home', page: '/' },
+    { title: 'Consulting', page: '/consulting' },
+    { title: 'Career', page: '/career' },
+    { title: 'About', page: '/about' },
+    { title: 'Skills', page: '/skills' },
+    { title: 'Contact', page: '/contact' },
+  ];
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
@@ -85,6 +96,7 @@ const RootLayout = async ({
         >
           Skip to main content
         </a>
+        <NavHeader navButtonList={navButtonList} />
         <main
           id="main-content"
           className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"

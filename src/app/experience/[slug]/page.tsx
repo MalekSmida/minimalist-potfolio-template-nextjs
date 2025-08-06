@@ -2,18 +2,12 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
 // local files
-import { NavHeader } from '@/components';
 import { IExperience } from '@/components/ExperienceCard';
 import { getCareerData } from '@/services';
-import { INavButton } from '@/components/NavButton';
 
 interface PropsExperience {
   params: Promise<{ slug: string }>;
 }
-
-const navButtonList: INavButton[] = [
-  { title: 'Back to main page', link: { id: '/', type: 'href' } },
-];
 
 const Experience: React.FC<PropsExperience> = async ({ params }) => {
   // In Nextjs 15 dynamic route segment is passed as Promise in the props when using App router
@@ -42,7 +36,6 @@ const Experience: React.FC<PropsExperience> = async ({ params }) => {
 
   return (
     <>
-      <NavHeader navButtonList={navButtonList} />
       <span className="from-primary relative h-48 w-screen bg-gradient-to-r via-indigo-500 to-blue-300"></span>
       <section className="relative container mx-auto max-w-3xl py-20">
         {/* Company logo */}

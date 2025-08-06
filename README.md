@@ -118,6 +118,8 @@ Copy the content of `.env.example` into your `.env.local` file (create it) and r
 | `pnpm test:e2e:codegen`    | Generate Playwright test code           |
 | `pnpm test:e2e:showReport` | Show Playwright test report             |
 
+Before executing e2e tests make sure to install playright `pnpm exec playwright install`.
+
 ## Upgrade pnpm version
 
 Execute in the root folder

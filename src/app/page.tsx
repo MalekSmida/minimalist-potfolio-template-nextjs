@@ -1,8 +1,6 @@
 import { Suspense, lazy } from 'react';
 
 // local files
-import { NavHeader } from '@/components';
-import { INavButton } from '@/components/NavButton';
 import { getAboutData, getCareerData, getPresentationData, getSkillsData } from '@/services';
 
 // Dynamic imports with lazy loading
@@ -10,14 +8,6 @@ const Presentation = lazy(() => import('@/sections/Presentation'));
 const Career = lazy(() => import('@/sections/Career'));
 const About = lazy(() => import('@/sections/About'));
 const Skills = lazy(() => import('@/sections/Skills'));
-
-// Constants
-const navButtonList: INavButton[] = [
-  { title: 'Career', link: { id: 'career', type: 'anchorLink' } },
-  { title: 'About', link: { id: 'about', type: 'anchorLink' } },
-  { title: 'Skills', link: { id: 'skills', type: 'anchorLink' } },
-  { title: 'Contact', link: { id: 'contact', type: 'anchorLink' } },
-];
 
 // Loading fallback component
 const SectionSkeleton = () => (
@@ -44,9 +34,6 @@ const Home = async () => {
 
   return (
     <>
-      {/* 1- Navigation bar/header */}
-      <NavHeader navButtonList={navButtonList} />
-
       {/* Presentation section */}
       <Suspense fallback={<SectionSkeleton />}>
         <Presentation
