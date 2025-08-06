@@ -2,6 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+Live Preview :
+[<img width="1817" height="894" alt="image" src="https://github.com/user-attachments/assets/47167337-8a94-4c55-a501-5d06550d5a95" />](https://www.maleksmida.com/)
+
 ## About the Project
 
 This is a light, simple and minimalist online portfolio template built with modern web technologies:
