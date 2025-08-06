@@ -1,11 +1,5 @@
 // Export all services
-export {
-  getSiteConfigData,
-  getMetaData,
-  getManifestData,
-  getRobotsData,
-  getSitemapData,
-} from './siteConfigService';
+export { getMetaData, getManifestData, getRobotsData, getSitemapData } from './siteConfigService';
 export { getPresentationData } from './presentationService';
 export { getSkillsData } from './skillsService';
 export { getCareerData } from './careerService';
