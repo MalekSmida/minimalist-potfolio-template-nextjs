@@ -3,15 +3,20 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
 import ExperienceCard from './ExperienceCard';
-import { IExperienceCard } from './experienceCard.types';
+import { IExperience } from './experienceCard.types';
 
 // Sample props for testing
-const mockProps: IExperienceCard = {
+const mockProps: IExperience = {
   _id: '12345',
   contractType: 'Full-time',
   position: 'Frontend Developer',
   company: 'Tech Corp',
   summary: 'Developed multiple high-impact web applications.',
+  contributions: ['Implemented responsive design', 'Optimized performance'],
+  dates: 'Jan 2020 - Present',
+  iconPath: '/path/to/icon.png',
+  iconWidth: 32,
+  iconHeight: 32,
 };
 
 describe('ExperienceCard Component', () => {

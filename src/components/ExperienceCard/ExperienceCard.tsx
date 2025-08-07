@@ -28,24 +28,35 @@ const ExperienceCard: React.FC<IExperience> = ({
   };
 
   return (
-    <article
-      className="relative cursor-pointer rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6 dark:bg-gray-900 dark:shadow-gray-600/25"
+    <li
+      className="my-16 ms-4"
       aria-labelledby={`experience-title-${_id}`}
       data-testid="experience-card"
-      onClick={toggleExpand}
     >
-      <span className="to-primary from-secondary absolute inset-x-0 top-0 h-1.5 rounded-t-lg bg-linear-to-r"></span>
+      <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"></div>
+      <time className="text-sm leading-none font-normal text-gray-600 dark:text-gray-400">
+        {dates}
+      </time>
+      <div className="mt-2 flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          <h3
+            className="text-lg font-semibold text-gray-900 dark:text-white"
+            id={`experience-title-${_id}`}
+          >
+            {position}
+          </h3>
 
-      <div className="flex items-center justify-between">
-        <h2 id={`experience-title-${_id}`} className="mt-0.5 line-clamp-2 text-lg font-medium">
-          {position}
-        </h2>
+          {/* Contract type and date */}
+          <strong className="text-primary dark:bg-primary mx-2 rounded border border-gray-200 bg-yellow-50 px-1.5 py-0.5 text-xs font-normal dark:border-none dark:text-white">
+            {contractType}
+          </strong>
+        </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           {/* Company name */}
           {company && (
-            <div className="flex items-center gap-2">
-              <p className="text-xs">@ {company}</p>
+            <>
+              <p className="text-sm">@ {company}</p>
               {/* Company logo */}
               <Image
                 src={iconPath}
@@ -58,40 +69,37 @@ const ExperienceCard: React.FC<IExperience> = ({
                 aria-label={company}
                 // className="absolute top-5 right-12"
               />
-            </div>
+            </>
           )}
-
-          <span
-            className={`text-primary dark:text-secondary transform transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'rotate-0'}`}
-          >
-            &#8250; {/* Chevron icon */}
-          </span>
         </div>
       </div>
 
-      {/* Contract type and date */}
-      <div className="mt-4 flex items-center gap-4">
-        <p className="text-md text-gray-500 dark:text-gray-400">{dates}</p>
+      <p className="mt-4 text-base font-normal text-gray-600 dark:text-gray-200">{summary}</p>
 
-        <strong className="text-primary dark:bg-primary bg-secondary rounded border border-gray-200 px-1.5 py-0.5 text-xs font-normal dark:border-none dark:text-white">
-          {contractType}
-        </strong>
-      </div>
-
-      <p className="mt-4 line-clamp-5 text-sm text-gray-600 dark:text-gray-200">{summary}</p>
+      <button
+        className="mt-3 flex cursor-pointer items-center justify-between gap-2 rounded-lg bg-gray-100 px-3 py-1 text-left text-sm text-gray-700 shadow-sm hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+        aria-labelledby={`experience-title-${_id}`}
+        data-testid="experience-card"
+        onClick={toggleExpand}
+      >
+        {/* <span className="font-medium transition-colors group-hover:text-white"> Achievements </span> */}
+        Achievements
+        <span
+          className={`text-md transform transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'rotate-0'}`}
+        >
+          &#8250; {/* Chevron icon */}
+        </span>
+      </button>
 
       {/* Company contributions */}
       {isExpanded && (
-        <div className="mt-6 rounded-lg bg-gray-50 p-8 shadow-sm dark:bg-gray-800">
-          <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Achievements:</p>
-          <ul className="mt-4 list-disc space-y-5 text-sm text-gray-700 dark:text-gray-200">
-            {contributions.map((contribution, index) => (
-              <li key={index}>{contribution}</li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mt-3 list-disc space-y-5 rounded-lg bg-gray-50 p-8 text-sm text-gray-700 shadow-sm dark:bg-gray-800 dark:text-gray-200">
+          {contributions.map((contribution, index) => (
+            <li key={index}>{contribution}</li>
+          ))}
+        </ul>
       )}
-    </article>
+    </li>
   );
 };
 
