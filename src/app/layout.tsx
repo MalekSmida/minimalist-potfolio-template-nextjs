@@ -105,9 +105,9 @@ const RootLayout = async ({
         </main>
         {/* Footer which includes contact info */}
         <Footer
-          // email={contactData.email}
-          // address={contactData.address}
-          // phone={contactData.phone}
+          email={contactData.email}
+          address={contactData.address}
+          phone={contactData.phone}
           googleMapsLink={contactData.googleMapsLink}
           linkedinProfile={contactData.linkedinProfile}
           githubProfile={contactData.githubProfile}

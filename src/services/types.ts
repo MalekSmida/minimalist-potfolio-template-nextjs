@@ -157,3 +157,19 @@ export interface HomeData {
   about?: AboutData[];
   skills?: SkillsData;
 }
+
+export interface Service {
+  _id: string;
+  name: string;
+  price?: string;
+  tasks: string[];
+  achievements: Array<{
+    title: string;
+    achievementList: string[];
+  }>;
+}
+
+export interface ConsultingData {
+  descriptionList?: string[];
+  serviceList?: Service[];
+}
