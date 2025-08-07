@@ -22,7 +22,7 @@ const Career: React.FC = async () => {
       ))}
 
       {experienceList?.length && (
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
+        <div className="mt-6 flex flex-col gap-6 md:mt-12 md:gap-8">
           {experienceList.map((experience) => (
             <ExperienceCard
               key={experience._id}
@@ -31,6 +31,11 @@ const Career: React.FC = async () => {
               position={experience.position}
               company={experience.company}
               summary={experience.summary}
+              contributions={experience.contributions}
+              iconPath={experience.iconPath}
+              iconHeight={experience.iconHeight}
+              iconWidth={experience.iconWidth}
+              dates={experience.dates}
             />
           ))}
         </div>

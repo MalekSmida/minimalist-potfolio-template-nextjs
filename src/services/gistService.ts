@@ -5,7 +5,8 @@
  */
 export async function fetchFromGist<T>(url: string): Promise<T> {
   try {
-    const response = await fetch(url, { next: { revalidate: 3600 } }); // Cache for 1 hour
+    // const response = await fetch(url, { next: { revalidate: 3600 } }); // Cache for 1 hour TODO: FIXME:
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch data from Gist: ${response.statusText}`);

@@ -1,12 +1,9 @@
-export interface IExperienceCard {
+export interface IExperience {
   _id: string;
   contractType: string;
   position: string;
   company?: string;
   summary: string;
-}
-
-export interface IExperience extends IExperienceCard {
   dates: string;
   iconPath: string;
   iconWidth: number;
