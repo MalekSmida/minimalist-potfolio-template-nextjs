@@ -161,7 +161,7 @@ export interface HomeData {
 export interface Service {
   _id: string;
   name: string;
-  price?: string;
+  prices?: string[];
   tasks: string[];
   achievements: Array<{
     title: string;

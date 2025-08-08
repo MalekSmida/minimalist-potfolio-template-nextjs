@@ -10,8 +10,8 @@ const Career: React.FC = async () => {
   if (!descriptionList?.length && !experienceList?.length) return;
 
   return (
-    <section className="my-10 w-full px-8" aria-labelledby="career-heading" id="career">
-      <div className="from-primary to-secondary flex flex-col justify-center gap-4 bg-gradient-to-r p-12 text-white">
+    <section className="my-10 px-8" aria-labelledby="career-heading" id="career">
+      <div className="from-primary to-secondary flex flex-col justify-center gap-4 rounded-lg bg-gradient-to-r px-6 py-12 text-white sm:px-8 lg:px-12">
         <h1 id="career-heading" className="text-2xl font-bold sm:text-3xl">
           Career
         </h1>

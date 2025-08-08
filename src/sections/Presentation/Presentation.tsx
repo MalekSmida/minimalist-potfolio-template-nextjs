@@ -1,5 +1,8 @@
 import Image from 'next/image';
 
+// local imports
+import ButtonLink from '@/components/ButtonLink';
+
 interface PropsPresentation {
   name?: string;
   jobTitle?: string;
@@ -42,36 +45,12 @@ const Presentation: React.FC<PropsPresentation> = ({
           </p>
         )}
         {cvPdfLink && (
-          <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary dark:border-secondary dark:bg-secondary dark:hover:text-secondary dark:active:text-secondary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:text-gray-900"
-            href={cvPdfLink}
-            rel="noopener noreferrer"
-            target="_blank"
-            aria-label={`Download ${displayName}'s resume as PDF`}
-          >
-            <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
-              <svg
-                className="h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-label="Download icon"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-            <span className="text-sm font-medium transition-all group-hover:mr-4">
-              Download my CV
-            </span>
-          </a>
+          <ButtonLink
+            link={cvPdfLink}
+            label="Download my CV"
+            ariaLabel={`Download ${displayName}'s resume as PDF`}
+            isPrimary
+          />
         )}
       </div>
 

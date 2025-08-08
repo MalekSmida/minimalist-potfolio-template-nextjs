@@ -21,3 +21,4 @@ export { default as ExperienceCard } from './ExperienceCard';
 export { default as Footer } from './Footer';
 export { default as NavHeader } from './NavHeader';
 export { default as AnimatedGuitarPlayerImage } from './AnimatedGuitarPlayerImage';
+export { default as ButtonLink } from './ButtonLink';
