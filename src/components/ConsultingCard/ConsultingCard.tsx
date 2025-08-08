@@ -43,8 +43,10 @@ const ConsultingCard: React.FC<Service> = ({ _id, name, prices, tasks, achieveme
             >
               {name}
             </h2>
-            {prices?.map((price) => (
-              <p className="text-primary dark:text-secondary mt-2 text-sm font-semibold">{price}</p>
+            {prices?.map((price, idx) => (
+              <p key={idx} className="text-primary dark:text-secondary mt-2 text-sm font-semibold">
+                {price}
+              </p>
             ))}
           </div>
         </div>

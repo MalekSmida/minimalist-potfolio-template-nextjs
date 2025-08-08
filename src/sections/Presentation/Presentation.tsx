@@ -8,7 +8,6 @@ interface PropsPresentation {
   jobTitle?: string;
   yearsOfExperience?: string;
   description?: string;
-  cvPdfLink?: string;
 }
 
 const Presentation: React.FC<PropsPresentation> = ({
@@ -16,7 +15,6 @@ const Presentation: React.FC<PropsPresentation> = ({
   jobTitle,
   yearsOfExperience,
   description,
-  cvPdfLink,
 }) => {
   const displayName = name || 'No body';
 
@@ -44,14 +42,13 @@ const Presentation: React.FC<PropsPresentation> = ({
             {description}
           </p>
         )}
-        {cvPdfLink && (
-          <ButtonLink
-            link={cvPdfLink}
-            label="Download my CV"
-            ariaLabel={`Download ${displayName}'s resume as PDF`}
-            isPrimary
-          />
-        )}
+        <ButtonLink
+          link="/contact"
+          label="Lets discuss your needs"
+          ariaLabel="Link to contact page"
+          isNavigation
+          isPrimary
+        />
       </div>
 
       {/* Images Section */}

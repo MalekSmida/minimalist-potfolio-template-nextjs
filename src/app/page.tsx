@@ -4,8 +4,7 @@ import { Presentation, Skills, About } from '@/sections';
 
 const Home: React.FC = async () => {
   // Fetch data from Gists using services
-  const { name, jobTitle, yearsOfExperience, description, cvPdfLink, about, skills } =
-    await getHomeData();
+  const { name, jobTitle, yearsOfExperience, description, about, skills } = await getHomeData();
 
   return (
     <>
@@ -14,7 +13,6 @@ const Home: React.FC = async () => {
         jobTitle={jobTitle}
         yearsOfExperience={yearsOfExperience}
         description={description}
-        cvPdfLink={cvPdfLink}
       />
       <About blockList={about} />
       <Skills blockList={skills} />

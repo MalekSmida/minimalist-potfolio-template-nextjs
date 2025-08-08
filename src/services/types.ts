@@ -153,7 +153,6 @@ export interface HomeData {
   jobTitle?: string;
   description?: string;
   yearsOfExperience?: string;
-  cvPdfLink?: string;
   about?: AboutData[];
   skills?: SkillsData;
 }
