@@ -15,9 +15,7 @@ const Consulting: React.FC = async () => {
       {/* Hero Section */}
       <section className="rounded-lg bg-gradient-to-br from-amber-50 to-white px-6 py-12 sm:px-8 lg:px-12 dark:from-gray-800 dark:to-gray-900">
         <div className="mx-auto text-center">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl lg:my-4">
-            Consulting Services
-          </h1>
+          <h1 className="text-2xl font-bold sm:text-3xl lg:my-4">Consulting Services</h1>
           <div className="mx-auto mt-6 max-w-2xl">
             {descriptionList?.map((description, index) => (
               <p key={index} className="leading-relaxed text-gray-600 dark:text-gray-300">
@@ -70,7 +68,7 @@ const Consulting: React.FC = async () => {
       </section>
 
       {/* Bottom CTA Section */}
-      <section className="bg-gray-50 px-6 py-16 sm:px-8 lg:px-12 dark:bg-gray-800">
+      <section className="rounded-lg bg-gray-50 px-6 py-16 sm:px-8 lg:px-12 dark:bg-gray-800">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold sm:text-3xl lg:my-4">Ready to Get Started?</h2>
           <p className="mt-4 text-gray-600 dark:text-gray-300">

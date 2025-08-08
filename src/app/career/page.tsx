@@ -13,7 +13,7 @@ const Career: React.FC = async () => {
     <section className="my-10 w-full px-8" aria-labelledby="career-heading" id="career">
       <div className="from-primary to-secondary flex flex-col justify-center gap-4 rounded-lg bg-gradient-to-r px-6 py-12 text-white sm:px-8 lg:px-12">
         <h1 id="career-heading" className="text-2xl font-bold sm:text-3xl">
-          Career
+          My Career Journey
         </h1>
 
         {descriptionList?.map((description, index) => (

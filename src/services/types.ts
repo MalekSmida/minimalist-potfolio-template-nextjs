@@ -139,13 +139,19 @@ export interface AboutData {
 
 // Contact Section Types
 export interface ContactData {
-  email?: string;
-  address?: string;
-  phone?: string;
-  googleMapsLink?: string;
-  linkedinProfile?: string;
-  githubProfile?: string;
-  githubRepository?: string;
+  contact?: {
+    email?: string;
+    address?: string;
+    phone?: string;
+  };
+  links?: {
+    cvPdf?: string;
+    addressMaps?: string;
+    linkedin?: string;
+    github?: string;
+    stackoverflow?: string;
+    websiteRepo?: string;
+  };
 }
 
 export interface HomeData {

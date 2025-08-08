@@ -103,15 +103,12 @@ const RootLayout = async ({
           {/* content of page */}
           {children}
         </main>
-        {/* Footer which includes contact info */}
+        {/* Footer which includes social links */}
         <Footer
-          email={contactData.email}
-          address={contactData.address}
-          phone={contactData.phone}
-          googleMapsLink={contactData.googleMapsLink}
-          linkedinProfile={contactData.linkedinProfile}
-          githubProfile={contactData.githubProfile}
-          githubRepository={contactData.githubRepository}
+          linkedin={contactData.links?.linkedin}
+          github={contactData.links?.github}
+          stackoverflow={contactData.links?.stackoverflow}
+          websiteRepo={contactData.links?.websiteRepo}
         />
 
         <BackToTopButton />
