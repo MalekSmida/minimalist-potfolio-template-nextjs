@@ -1,3 +1,7 @@
+'use client';
+
+import { useAnalytics } from '@/hooks';
+
 interface ContactCardProps {
   href: string;
   title: string;
@@ -6,7 +10,12 @@ interface ContactCardProps {
 }
 
 const ContactCard: React.FC<ContactCardProps> = ({ href, title, icon, description }) => {
+  const { trackContactMethod } = useAnalytics();
   const isExternalLink = href.startsWith('http');
+
+  const handleClick = () => {
+    trackContactMethod(title.toLowerCase(), href);
+  };
 
   return (
     <a
@@ -15,6 +24,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ href, title, icon, descriptio
       rel={isExternalLink ? 'noopener noreferrer' : undefined}
       className="group contact-card block transform transition-all duration-300 hover:scale-102 hover:shadow-lg"
       aria-label={`${title}${description ? `: ${description}` : ''}${isExternalLink ? ' (opens in new tab)' : ''}`}
+      onClick={handleClick}
     >
       <div className="dark:hover:bg-gray-750 flex items-center space-x-3 rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-gray-300 hover:bg-gray-50 sm:space-x-4 sm:p-6 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:bg-gray-700">
         <div className="group-hover:bg-primary dark:group-hover:bg-secondary flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-colors duration-300 group-hover:text-white dark:bg-gray-700 dark:text-gray-300 dark:group-hover:text-gray-900">

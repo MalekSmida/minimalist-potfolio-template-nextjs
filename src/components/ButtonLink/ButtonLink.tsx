@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks';
 
 interface ButtonLinkProps {
   link: string;
@@ -9,12 +12,29 @@ interface ButtonLinkProps {
 }
 
 function ButtonLink({ link, label, isNavigation, ariaLabel, isPrimary }: ButtonLinkProps) {
+  const { trackCVDownload, trackNavigationClick } = useAnalytics();
+
+  const handleClick = () => {
+    // Track CV downloads specifically
+    if (label.toLowerCase().includes('cv') || label.toLowerCase().includes('resume')) {
+      trackCVDownload();
+    }
+    // Track navigation clicks
+    if (isNavigation) {
+      trackNavigationClick(link, 'button_link');
+    }
+  };
   const linkStyle = `group border-primary dark:border-secondary relative z-20 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 focus:ring ${isPrimary ? 'bg-primary hover:text-primary active:text-primary dark:bg-secondary dark:hover:text-secondary dark:active:text-secondary text-white hover:bg-transparent dark:text-gray-900' : 'text-primary dark:text-secondary'}`;
 
   // If the link is for navigation, we use Link component for client-side navigation
   if (isNavigation) {
     return (
-      <Link className={linkStyle} href={link} aria-label={ariaLabel || `Link to ${label} page`}>
+      <Link 
+        className={linkStyle} 
+        href={link} 
+        aria-label={ariaLabel || `Link to ${label} page`}
+        onClick={handleClick}
+      >
         <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
           <svg
             className="h-5 w-5"
@@ -46,6 +66,7 @@ function ButtonLink({ link, label, isNavigation, ariaLabel, isPrimary }: ButtonL
       rel="noopener noreferrer"
       target="_blank"
       aria-label={ariaLabel}
+      onClick={handleClick}
     >
       <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
         <svg

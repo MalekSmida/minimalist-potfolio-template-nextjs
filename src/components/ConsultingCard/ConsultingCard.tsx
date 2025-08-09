@@ -5,6 +5,7 @@ import { useState } from 'react';
 // local files
 import { Service } from '@/services';
 import ButtonLink from '../ButtonLink';
+import { useAnalytics } from '@/hooks';
 
 /**
  * Consulting card component for displaying service offerings
@@ -18,10 +19,19 @@ import ButtonLink from '../ButtonLink';
  */
 const ConsultingCard: React.FC<Service> = ({ _id, name, prices, tasks, achievements }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const { trackServiceCardInteraction } = useAnalytics();
 
   const toggleExpand = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsExpanded(!isExpanded);
+    const newExpandedState = !isExpanded;
+    setIsExpanded(newExpandedState);
+    
+    // Track expansion/collapse events
+    trackServiceCardInteraction(name, newExpandedState ? 'expand_achievements' : 'collapse_achievements');
+  };
+
+  const handleGetStartedClick = () => {
+    trackServiceCardInteraction(name, 'get_started_clicked');
   };
 
   return (
@@ -78,13 +88,15 @@ const ConsultingCard: React.FC<Service> = ({ _id, name, prices, tasks, achieveme
 
         {/* CTA and Expand Button */}
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <ButtonLink
-            link="/contact"
-            label="Get Started"
-            ariaLabel="Link to contact page"
-            isNavigation
-            isPrimary
-          />
+          <div onClick={handleGetStartedClick}>
+            <ButtonLink
+              link="/contact"
+              label="Get Started"
+              ariaLabel="Link to contact page"
+              isNavigation
+              isPrimary
+            />
+          </div>
 
           <button
             onClick={toggleExpand}

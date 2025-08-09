@@ -5,6 +5,7 @@ import { useState } from 'react';
 // local files
 import { IExperience } from './experienceCard.types';
 import Image from 'next/image';
+import { useAnalytics } from '@/hooks';
 
 /**
  * Experience card shown in home page under Career section
@@ -22,9 +23,24 @@ const ExperienceCard: React.FC<IExperience> = ({
   iconHeight,
 }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const { trackExperienceExpanded, trackExperienceCollapsed, trackCompanyLogoClick } = useAnalytics();
 
   const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
+    const newExpandedState = !isExpanded;
+    setIsExpanded(newExpandedState);
+    
+    // Track expansion/collapse events
+    if (newExpandedState) {
+      trackExperienceExpanded(company || 'Unknown', position);
+    } else {
+      trackExperienceCollapsed(company || 'Unknown', position);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (company) {
+      trackCompanyLogoClick(company);
+    }
   };
 
   return (
@@ -61,6 +77,8 @@ const ExperienceCard: React.FC<IExperience> = ({
               loading="lazy"
               role="img"
               aria-label={company}
+              className="cursor-pointer transition-transform hover:scale-110"
+              onClick={handleLogoClick}
             />
           )}
         </div>
