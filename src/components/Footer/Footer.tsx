@@ -3,6 +3,8 @@ import SocialLinksSection from './SocialLinksSection';
 import CopyrightSection from './CopyrightSection';
 
 interface PropsFooter {
+  email?: string;
+  phone?: string;
   linkedin?: string;
   github?: string;
   stackoverflow?: string;
@@ -30,6 +32,8 @@ interface PropsFooter {
  * />
  */
 const Footer: React.FC<PropsFooter> = ({
+  email,
+  phone,
   linkedin,
   github,
   stackoverflow,
@@ -42,9 +46,11 @@ const Footer: React.FC<PropsFooter> = ({
       aria-label="Site footer"
     >
       <SocialLinksSection
-        linkedinProfile={linkedin}
-        githubProfile={github}
-        stackoverflowProfile={stackoverflow}
+        email={email}
+        phone={phone}
+        linkedin={linkedin}
+        github={github}
+        stackoverflow={stackoverflow}
       />
 
       <hr className="my-4 h-0.5 w-full bg-gray-800 opacity-5" aria-hidden="true" />

@@ -16,6 +16,7 @@
  */
 
 export { default as BackToTopButton } from './BackToTopButton';
+export { default as ContactCard } from './ContactCard';
 export { default as DarkModeToggleButton } from './DarkModeToggleButton';
 export { default as ExperienceCard } from './ExperienceCard';
 export { default as Footer } from './Footer';

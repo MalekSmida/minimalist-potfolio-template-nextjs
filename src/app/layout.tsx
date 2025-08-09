@@ -105,6 +105,8 @@ const RootLayout = async ({
         </main>
         {/* Footer which includes social links */}
         <Footer
+          email={contactData.contact?.email}
+          phone={contactData.contact?.phone}
           linkedin={contactData.links?.linkedin}
           github={contactData.links?.github}
           stackoverflow={contactData.links?.stackoverflow}
