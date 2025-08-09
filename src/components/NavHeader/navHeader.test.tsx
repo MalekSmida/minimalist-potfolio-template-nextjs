@@ -1,14 +1,24 @@
-import { expect, test, describe, afterEach } from 'vitest';
+import { expect, test, describe, afterEach, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
 import NavHeader from './NavHeader';
-import { INavButton } from '../NavButton';
+import { INavButton } from './navHeader.types';
+
+// Mock the hooks
+vi.mock('@/hooks', () => ({
+  useShowNavHeader: vi.fn().mockReturnValue({ showNavHeader: true }),
+}));
+
+// Mock DarkModeToggleButton
+vi.mock('../DarkModeToggleButton', () => ({
+  default: () => <div>Dark Mode Toggle</div>,
+}));
 
 // Constants
 const mockNavButtonList: INavButton[] = [
-  { title: 'Test title 1', link: { type: 'href', id: 'https://test.com/1' } },
-  { title: 'Test title 2', link: { type: 'href', id: 'https://test.com/2' } },
+  { title: 'Test title 1', page: '/test1' },
+  { title: 'Test title 2', page: '/test2' },
 ];
 
 describe('NavHeader Component', () => {
@@ -32,5 +42,11 @@ describe('NavHeader Component', () => {
 
     expect(screen.getByText(mockNavButtonList[0].title)).toBeDefined();
     expect(screen.getByText(mockNavButtonList[1].title)).toBeDefined();
+
+    // Check if links have correct href attributes
+    const link1 = screen.getByRole('link', { name: `Navigate to the page ${mockNavButtonList[0].title}` });
+    const link2 = screen.getByRole('link', { name: `Navigate to the page ${mockNavButtonList[1].title}` });
+    expect(link1.getAttribute('href')).toBe(mockNavButtonList[0].page);
+    expect(link2.getAttribute('href')).toBe(mockNavButtonList[1].page);
   });
 });

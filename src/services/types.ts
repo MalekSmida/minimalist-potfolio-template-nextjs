@@ -98,15 +98,6 @@ export interface SiteConfigData {
   sitemapData: SitemapItem[];
 }
 
-// Presentation Section Types
-export interface PresentationData {
-  name?: string;
-  jobTitle?: string;
-  description?: string;
-  yearsOfExperience?: string;
-  cvPdfLink?: string;
-}
-
 // Skills Section Types
 export interface Skill {
   localPath: string;
@@ -148,11 +139,42 @@ export interface AboutData {
 
 // Contact Section Types
 export interface ContactData {
-  email?: string;
-  address?: string;
-  phone?: string;
-  googleMapsLink?: string;
-  linkedinProfile?: string;
-  githubProfile?: string;
-  githubRepository?: string;
+  contact?: {
+    email?: string;
+    address?: string;
+    phone?: string;
+  };
+  links?: {
+    cvPdf?: string;
+    addressMaps?: string;
+    linkedin?: string;
+    github?: string;
+    stackoverflow?: string;
+    websiteRepo?: string;
+  };
+}
+
+export interface HomeData {
+  name?: string;
+  jobTitle?: string;
+  description?: string;
+  yearsOfExperience?: string;
+  about?: AboutData[];
+  skills?: SkillsData;
+}
+
+export interface Service {
+  _id: string;
+  name: string;
+  prices?: string[];
+  tasks: string[];
+  achievements: Array<{
+    title: string;
+    achievementList: string[];
+  }>;
+}
+
+export interface ConsultingData {
+  descriptionList?: string[];
+  serviceList?: Service[];
 }

@@ -96,7 +96,7 @@ export const defaultSiteConfig: SiteConfigData = {
 /**
  * Fetches the site configuration data from GitHub Gist
  */
-export async function getSiteConfigData(): Promise<SiteConfigData> {
+async function getSiteConfigData(): Promise<SiteConfigData> {
   try {
     const url = process.env.NEXT_PUBLIC_GIST_SITE_CONFIG_URL;
 

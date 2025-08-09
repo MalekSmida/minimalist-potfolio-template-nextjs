@@ -1,11 +1,13 @@
 import Image from 'next/image';
 
+// local imports
+import ButtonLink from '@/components/ButtonLink';
+
 interface PropsPresentation {
   name?: string;
   jobTitle?: string;
   yearsOfExperience?: string;
   description?: string;
-  cvPdfLink?: string;
 }
 
 const Presentation: React.FC<PropsPresentation> = ({
@@ -13,7 +15,6 @@ const Presentation: React.FC<PropsPresentation> = ({
   jobTitle,
   yearsOfExperience,
   description,
-  cvPdfLink,
 }) => {
   const displayName = name || 'No body';
 
@@ -32,7 +33,7 @@ const Presentation: React.FC<PropsPresentation> = ({
           <p className="my-2 text-lg text-gray-600 sm:text-xl dark:text-gray-200">{jobTitle}</p>
         )}
         {yearsOfExperience && (
-          <p className="text-md text-primary my-2 font-medium dark:text-blue-300">
+          <p className="text-md text-primary dark:text-secondary my-2 font-medium">
             {yearsOfExperience}
           </p>
         )}
@@ -41,38 +42,13 @@ const Presentation: React.FC<PropsPresentation> = ({
             {description}
           </p>
         )}
-        {cvPdfLink && (
-          <a
-            className="group border-primary bg-primary hover:text-primary active:text-primary relative z-20 my-4 inline-flex cursor-pointer items-center overflow-hidden rounded border px-8 py-3 text-white hover:bg-transparent focus:ring dark:border-blue-300 dark:bg-blue-300 dark:text-gray-900 dark:hover:text-blue-300 dark:active:text-blue-300"
-            href={cvPdfLink}
-            rel="noopener noreferrer"
-            target="_blank"
-            aria-label={`Download ${displayName}'s resume as PDF`}
-          >
-            <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
-              <svg
-                className="h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-label="Download icon"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-            <span className="text-sm font-medium transition-all group-hover:mr-4">
-              Download my CV
-            </span>
-          </a>
-        )}
+        <ButtonLink
+          link="/contact"
+          label="Lets discuss your needs"
+          ariaLabel="Link to contact page"
+          isNavigation
+          isPrimary
+        />
       </div>
 
       {/* Images Section */}
@@ -88,8 +64,8 @@ const Presentation: React.FC<PropsPresentation> = ({
         >
           <defs>
             <linearGradient id="primary-to-blue" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3329ff" /> {/* primary color */}
-              <stop offset="100%" stopColor="#93c5fd" /> {/* blue-300 */}
+              <stop offset="0%" stopColor="#fcd34d" /> {/* secondary */}
+              <stop offset="100%" stopColor="#92400E" /> {/* primary color */}
             </linearGradient>
           </defs>
           <rect width="829" height="829" rx="200" fill="url(#primary-to-blue)" />

@@ -16,6 +16,8 @@
  *   - useShowNavHeader: Controls visibility of navigation header based on scroll
  * - Theme-related hooks:
  *   - useDarkMode: Manages dark/light theme settings
+ * - Analytics-related hooks:
+ *   - useAnalytics: PostHog analytics tracking utilities
  */
 
 export { default as useMesureVerticalScroll } from './useMesureVerticalScroll';
@@ -23,3 +25,4 @@ export { default as useShowBackToTop } from './useShowBackToTop';
 export { default as useScrollToSection } from './useScrollToSection';
 export { default as useDarkMode } from './useDarkMode';
 export { default as useShowNavHeader } from './useShowNavHeader';
+export { useAnalytics } from './usePostHog';

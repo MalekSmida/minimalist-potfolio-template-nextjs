@@ -4,6 +4,8 @@ import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
 import { BackToTopButton, Footer } from '@/components';
 import { getContactData, getMetaData } from '@/services';
+import { NavHeader } from '@/components';
+import { INavButton } from '@/components/NavHeader';
 
 /**
  * Application metadata
@@ -76,6 +78,13 @@ const RootLayout = async ({
   // Fetch contact data from Gist
   const contactData = await getContactData();
 
+  const navButtonList: INavButton[] = [
+    { title: 'About', page: '/' },
+    { title: 'Consulting', page: '/consulting' },
+    { title: 'Career', page: '/career' },
+    { title: 'Contact', page: '/contact' },
+  ];
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="flex min-h-screen flex-col items-center justify-between dark:bg-gray-900 dark:text-white">
@@ -85,23 +94,23 @@ const RootLayout = async ({
         >
           Skip to main content
         </a>
+        <NavHeader navButtonList={navButtonList} />
         <main
           id="main-content"
-          className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 sm:px-6"
+          className="mx-auto flex w-full max-w-7xl flex-col items-center p-4 sm:p-6"
           role="main"
         >
           {/* content of page */}
           {children}
         </main>
-        {/* Footer which includes contact info */}
+        {/* Footer which includes social links */}
         <Footer
-          email={contactData.email}
-          address={contactData.address}
-          phone={contactData.phone}
-          googleMapsLink={contactData.googleMapsLink}
-          linkedinProfile={contactData.linkedinProfile}
-          githubProfile={contactData.githubProfile}
-          githubRepository={contactData.githubRepository}
+          email={contactData.contact?.email}
+          phone={contactData.contact?.phone}
+          linkedin={contactData.links?.linkedin}
+          github={contactData.links?.github}
+          stackoverflow={contactData.links?.stackoverflow}
+          websiteRepo={contactData.links?.websiteRepo}
         />
 
         <BackToTopButton />

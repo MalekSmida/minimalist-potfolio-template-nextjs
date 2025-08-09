@@ -31,6 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # only ignore .env local files
+.env
 .env.local
 .env.*.local
 
@@ -47,3 +48,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# AI tools
+CLAUDE.md
+repomix-output.xml

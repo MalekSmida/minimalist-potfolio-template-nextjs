@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 
 // local files
 import { ISkill } from './skills.types';
+import { useAnalytics } from '@/hooks';
 
 interface PropsSkillsBlock {
   title: string;
@@ -27,7 +30,13 @@ const LevelTag: React.FC<{ level: ISkill['level'] }> = ({ level }) => {
 };
 
 const SkillsBlock: React.FC<PropsSkillsBlock> = ({ title, skillList }) => {
+  const { trackSkillCategoryInteraction } = useAnalytics();
+  
   if (!skillList.length) return;
+
+  const handleSkillClick = (skillLabel: string, skillLevel: string) => {
+    trackSkillCategoryInteraction(`${title} - ${skillLabel} (${skillLevel})`);
+  };
 
   return (
     <section className="mt-4 flex w-full flex-col">
@@ -39,7 +48,8 @@ const SkillsBlock: React.FC<PropsSkillsBlock> = ({ title, skillList }) => {
         {skillList?.map((skill, index) => (
           <li
             key={index} // using index is OK if the props are static
-            className="group relative flex h-32 w-34 flex-col items-center justify-center rounded-lg bg-gray-50 p-4 text-center dark:bg-gray-800"
+            className="group relative flex h-32 w-34 flex-col items-center justify-center rounded-lg bg-gray-50 p-4 text-center cursor-pointer transition-transform hover:scale-105 dark:bg-gray-800"
+            onClick={() => handleSkillClick(skill.label, skill.level)}
           >
             <Image
               src={skill.localPath}

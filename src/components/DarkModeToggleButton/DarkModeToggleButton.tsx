@@ -3,7 +3,7 @@
 'use client';
 
 // Local files
-import { useDarkMode } from '@/hooks';
+import { useDarkMode, useAnalytics } from '@/hooks';
 
 /**
  * Button component, which switch between light and dark theme when clicked
@@ -11,10 +11,17 @@ import { useDarkMode } from '@/hooks';
 const DarkModeToggleButton: React.FC = () => {
   // Hooks
   const { isDark, toggleDarkMode } = useDarkMode();
+  const { trackDarkModeToggle } = useAnalytics();
+
+  const handleToggle = () => {
+    const newDarkMode = !isDark;
+    trackDarkModeToggle(newDarkMode);
+    toggleDarkMode();
+  };
 
   return (
     <button
-      onClick={toggleDarkMode}
+      onClick={handleToggle}
       className="cursor-pointer rounded-md bg-gray-100 p-2 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       aria-pressed={isDark} // Indicates the current state (pressed or not)

@@ -16,9 +16,10 @@
  */
 
 export { default as BackToTopButton } from './BackToTopButton';
+export { default as ContactCard } from './ContactCard';
 export { default as DarkModeToggleButton } from './DarkModeToggleButton';
 export { default as ExperienceCard } from './ExperienceCard';
 export { default as Footer } from './Footer';
-export { default as NavButton } from './NavButton';
 export { default as NavHeader } from './NavHeader';
 export { default as AnimatedGuitarPlayerImage } from './AnimatedGuitarPlayerImage';
+export { default as ButtonLink } from './ButtonLink';

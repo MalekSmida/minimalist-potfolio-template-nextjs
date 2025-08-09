@@ -1,37 +1,117 @@
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
 
 // local files
-import { IExperienceCard } from './experienceCard.types';
+import { IExperience } from './experienceCard.types';
+import Image from 'next/image';
+import { useAnalytics } from '@/hooks';
 
 /**
  * Experience card shown in home page under Career section
  */
-const ExperienceCard: React.FC<IExperienceCard> = ({
+const ExperienceCard: React.FC<IExperience> = ({
   _id,
   contractType,
   position,
   company,
   summary,
+  contributions,
+  dates,
+  iconPath,
+  iconWidth,
+  iconHeight,
 }) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const { trackExperienceExpanded, trackExperienceCollapsed, trackCompanyLogoClick } = useAnalytics();
+
+  const toggleExpand = () => {
+    const newExpandedState = !isExpanded;
+    setIsExpanded(newExpandedState);
+    
+    // Track expansion/collapse events
+    if (newExpandedState) {
+      trackExperienceExpanded(company || 'Unknown', position);
+    } else {
+      trackExperienceCollapsed(company || 'Unknown', position);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (company) {
+      trackCompanyLogoClick(company);
+    }
+  };
+
   return (
-    <Link href={`/experience/${_id}`} data-testid="experience-card" id={_id}>
-      <article
-        className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-xs transition hover:shadow-lg sm:p-6 dark:bg-gray-900 dark:shadow-gray-600/25"
-        aria-labelledby={`experience-title-${_id}`}
-      >
-        <span className="to-primary absolute inset-x-0 top-0 h-2 rounded-t-lg bg-linear-to-r from-blue-300"></span>
-        <h2 id={`experience-title-${_id}`} className="mt-0.5 line-clamp-2 text-lg font-medium">
+    <li
+      className="my-16 ms-4"
+      aria-labelledby={`experience-title-${_id}`}
+      data-testid="experience-card"
+    >
+      <div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"></div>
+      <time className="text-sm leading-none font-normal text-gray-600 dark:text-gray-400">
+        {dates}
+      </time>
+      <div className="mt-2 flex items-center justify-between">
+        <h3
+          className="text-lg font-semibold text-gray-900 dark:text-white"
+          id={`experience-title-${_id}`}
+        >
           {position}
-        </h2>
+        </h3>
 
-        {/* It will check if your experience is within a company else it will renders contract type */}
-        <p className="text-primary mt-4 line-clamp-2 font-medium dark:text-blue-300">
-          {company ? `@${company}` : contractType}
-        </p>
+        <div className="flex items-center justify-between gap-4">
+          {/* Contract type and date */}
+          <strong className="text-primary mx-2 rounded border border-gray-200 bg-yellow-50 px-1.5 py-0.5 text-xs font-normal">
+            {contractType}
+          </strong>
+          {/* Company logo */}
+          {company && (
+            <Image
+              src={iconPath}
+              alt={company}
+              title={company}
+              height={iconHeight}
+              width={iconWidth}
+              loading="lazy"
+              role="img"
+              aria-label={company}
+              className="cursor-pointer transition-transform hover:scale-110"
+              onClick={handleLogoClick}
+            />
+          )}
+        </div>
+      </div>
 
-        <p className="mt-4 line-clamp-5 text-sm text-gray-600 dark:text-gray-200">{summary}</p>
-      </article>
-    </Link>
+      {company && <p className="text-sm text-gray-600 dark:text-gray-200">@ {company}</p>}
+
+      <p className="mt-4 text-base font-normal text-gray-600 dark:text-gray-200">{summary}</p>
+
+      <button
+        className="bg-primary mt-3 flex transform cursor-pointer items-center justify-between gap-2 rounded-md px-4 py-2 text-left text-sm font-medium text-white shadow-sm transition-all duration-300 hover:scale-102"
+        aria-labelledby={`experience-title-${_id}`}
+        data-testid="experience-card"
+        onClick={toggleExpand}
+      >
+        {/* <span className="font-medium transition-colors group-hover:text-white"> Achievements </span> */}
+        Achievements
+        <span
+          className={`text-md transform transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'rotate-0'}`}
+        >
+          &#8250; {/* Chevron icon */}
+        </span>
+      </button>
+
+      {/* Company contributions */}
+      {isExpanded && (
+        <ul className="mt-3 list-disc space-y-5 rounded-lg bg-gray-50 p-8 text-sm text-gray-700 shadow-sm dark:bg-gray-800 dark:text-gray-200">
+          {contributions.map((contribution, index) => (
+            <li key={index}>{contribution}</li>
+          ))}
+        </ul>
+      )}
+    </li>
   );
 };
 

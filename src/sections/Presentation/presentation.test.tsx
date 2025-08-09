@@ -1,16 +1,22 @@
-import { expect, test, describe, afterEach } from 'vitest';
+import { expect, test, describe, afterEach, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 
 // local files
 import Presentation from './Presentation';
 
 const mockData = {
-  Name: 'John Doe',
-  JobTitle: 'Software Engineer',
+  name: 'John Doe',
+  jobTitle: 'Software Engineer',
   yearsOfExperience: '1000 years',
   description: 'Self motivated, agile mind software engineer.',
-  CvPdfLink: 'https://drive.google.com/file/test',
 };
+
+// Mock ButtonLink component
+vi.mock('@/components/ButtonLink', () => ({
+  default: ({ link, label, ariaLabel }: { link: string; label: string; ariaLabel: string }) => (
+    <a href={link} aria-label={ariaLabel}>{label}</a>
+  ),
+}));
 
 describe('Presentation Section', () => {
   /**
@@ -30,13 +36,13 @@ describe('Presentation Section', () => {
   });
 
   test('should renders the name correctly', () => {
-    render(<Presentation name={mockData.Name} />);
+    render(<Presentation name={mockData.name} />);
     expect(screen.getByRole('heading', { name: 'Hi, I am John Doe' })).toBeDefined();
   });
 
   test('should renders job titles correctly', () => {
-    render(<Presentation name="" jobTitle={mockData.JobTitle} />);
-    expect(screen.getByText(mockData.JobTitle)).toBeDefined();
+    render(<Presentation name="" jobTitle={mockData.jobTitle} />);
+    expect(screen.getByText(mockData.jobTitle)).toBeDefined();
   });
 
   test('should renders years of experience correctly', () => {
@@ -49,18 +55,15 @@ describe('Presentation Section', () => {
     expect(screen.getByText(mockData.description)).toBeDefined();
   });
 
-  test('should renders download button correctly', () => {
+  test('should renders contact button correctly', () => {
     render(
       <Presentation
-        name={mockData.Name}
-        jobTitle={mockData.JobTitle}
-        cvPdfLink={mockData.CvPdfLink}
+        name={mockData.name}
+        jobTitle={mockData.jobTitle}
       />,
     );
-    expect(
-      screen
-        .getByRole('link', { name: `Download ${mockData.Name}'s resume as PDF` })
-        .getAttribute('href'),
-    ).toBe(mockData.CvPdfLink);
+    const contactButton = screen.getByRole('link', { name: 'Link to contact page' });
+    expect(contactButton.getAttribute('href')).toBe('/contact');
+    expect(screen.getByText('Lets discuss your needs')).toBeDefined();
   });
 });

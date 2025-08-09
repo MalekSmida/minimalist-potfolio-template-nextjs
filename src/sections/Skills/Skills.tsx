@@ -3,11 +3,11 @@ import { ISkill } from './skills.types';
 import SkillsBlock from './SkillsBlock';
 
 interface PropsSkills {
-  blockList: Array<{ title: string; skillList: Array<ISkill> }>;
+  blockList?: Array<{ title: string; skillList: Array<ISkill> }>;
 }
 
 const Skills: React.FC<PropsSkills> = ({ blockList }) => {
-  if (!blockList.length) return;
+  if (!blockList?.length) return;
 
   return (
     <section className="my-10 flex w-full flex-col rounded-md px-8" id="skills">

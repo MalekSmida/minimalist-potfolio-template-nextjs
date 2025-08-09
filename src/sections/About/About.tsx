@@ -1,12 +1,8 @@
 // local files
 import { AnimatedGuitarPlayerImage } from '@/components';
 
-/**
- * Props for the About section component
- * @property {Array<{title: string, aboutList: string[]}>} blockList - Array of content blocks with titles and list items
- */
 interface PropsAbout {
-  blockList: Array<{ title: string; aboutList: string[] }>;
+  blockList?: Array<{ title: string; aboutList: string[] }>;
 }
 
 /**
@@ -66,7 +62,7 @@ const AboutBlock: React.FC<{ title: string; itemList: string[] }> = ({ title, it
  * <About blockList={aboutData} />
  */
 const About: React.FC<PropsAbout> = ({ blockList }) => {
-  if (!blockList.length) return;
+  if (!blockList?.length) return;
 
   return (
     <section className="my-10 grid grid-cols-1 lg:grid-cols-2" id="about">
