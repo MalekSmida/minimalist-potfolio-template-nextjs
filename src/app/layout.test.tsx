@@ -8,18 +8,22 @@ vi.mock('../styles/globals.css', () => ({}));
 vi.mock('@/components', () => ({
   BackToTopButton: () => <div>Back to Top Button</div>,
   Footer: () => <div>Footer</div>,
+  NavHeader: () => <div>Navigation Header</div>,
 }));
 
 // Mock the data services
 vi.mock('@/services', () => ({
   getContactData: vi.fn().mockResolvedValue({
-    email: 'test@example.com',
-    address: 'Test Address',
-    phone: '+1234567890',
-    googleMapsLink: 'https://maps.example.com',
-    linkedinProfile: 'https://linkedin.com/test',
-    githubProfile: 'https://github.com/test',
-    githubRepository: 'https://github.com/test/repo',
+    contact: {
+      email: 'test@example.com',
+      phone: '+1234567890',
+    },
+    links: {
+      linkedin: 'https://linkedin.com/test',
+      github: 'https://github.com/test',
+      stackoverflow: 'https://stackoverflow.com/test',
+      websiteRepo: 'https://github.com/test/repo',
+    },
   }),
   getMetaData: vi.fn().mockResolvedValue({
     title: 'Test Title',
@@ -49,11 +53,13 @@ describe('RootLayout', () => {
     // Check for the "Skip to main content" link
     expect(screen.getByText('Skip to main content')).toBeDefined();
 
-    // Check for footer with correct email
-    expect(screen.getByText('Footer with email: test@example.com')).toBeDefined();
+    // Check for footer
+    expect(screen.getByText('Footer')).toBeDefined();
 
-    // Check for other elements
-    expect(screen.getByText('Scroll Progress Indicator')).toBeDefined();
+    // Check for navigation header
+    expect(screen.getByText('Navigation Header')).toBeDefined();
+
+    // Check for back to top button
     expect(screen.getByText('Back to Top Button')).toBeDefined();
 
     // Check for main element with correct role

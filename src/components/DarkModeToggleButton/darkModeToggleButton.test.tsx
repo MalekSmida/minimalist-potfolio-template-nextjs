@@ -3,14 +3,16 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
 // Local files
 import DarkModeToggleButton from './DarkModeToggleButton';
-import { useDarkMode } from '@/hooks';
+import { useDarkMode, useAnalytics } from '@/hooks';
 
-// Mock the hook
+// Mock the hooks
 vi.mock('@/hooks', () => ({
   useDarkMode: vi.fn(),
+  useAnalytics: vi.fn(),
 }));
-// toggleDarkMode function of the custom hook useDarkMode
+// Mock functions
 const toggleDarkMode = vi.fn();
+const trackDarkModeToggle = vi.fn();
 
 describe('DarkModeToggleButton Component', () => {
   /**
@@ -25,8 +27,9 @@ describe('DarkModeToggleButton Component', () => {
   });
 
   test('should render moon button when isDark is false', () => {
-    // Mock the hook return
+    // Mock the hook returns
     vi.mocked(useDarkMode).mockReturnValue({ isDark: false, toggleDarkMode });
+    vi.mocked(useAnalytics).mockReturnValue({ trackDarkModeToggle } as ReturnType<typeof useAnalytics>);
 
     render(<DarkModeToggleButton />);
 
@@ -40,8 +43,9 @@ describe('DarkModeToggleButton Component', () => {
   });
 
   test('should render sun button when isDark is true', () => {
-    // Mock the hook return
+    // Mock the hook returns
     vi.mocked(useDarkMode).mockReturnValue({ isDark: true, toggleDarkMode });
+    vi.mocked(useAnalytics).mockReturnValue({ trackDarkModeToggle } as ReturnType<typeof useAnalytics>);
 
     render(<DarkModeToggleButton />);
 
@@ -55,8 +59,9 @@ describe('DarkModeToggleButton Component', () => {
   });
 
   test('should call toggleDarkMode when moon button is clicked', () => {
-    // Mock the hook return
+    // Mock the hook returns
     vi.mocked(useDarkMode).mockReturnValue({ isDark: false, toggleDarkMode });
+    vi.mocked(useAnalytics).mockReturnValue({ trackDarkModeToggle } as ReturnType<typeof useAnalytics>);
 
     render(<DarkModeToggleButton />);
 
@@ -64,13 +69,15 @@ describe('DarkModeToggleButton Component', () => {
     const moonButton = screen.getByRole('button', { name: /Switch to dark mode/i });
     fireEvent.click(moonButton);
 
-    // Check if toggleDarkMode was called
+    // Check if toggleDarkMode and trackDarkModeToggle were called
     expect(toggleDarkMode).toHaveBeenCalledTimes(1);
+    expect(trackDarkModeToggle).toHaveBeenCalledWith(true);
   });
 
   test('should call toggleDarkMode when sun button is clicked', () => {
-    // Mock the hook return
+    // Mock the hook returns
     vi.mocked(useDarkMode).mockReturnValue({ isDark: true, toggleDarkMode });
+    vi.mocked(useAnalytics).mockReturnValue({ trackDarkModeToggle } as ReturnType<typeof useAnalytics>);
 
     render(<DarkModeToggleButton />);
 
@@ -78,7 +85,8 @@ describe('DarkModeToggleButton Component', () => {
     const sunButton = screen.getByRole('button', { name: /Switch to light mode/i });
     fireEvent.click(sunButton);
 
-    // Check if toggleDarkMode was called
+    // Check if toggleDarkMode and trackDarkModeToggle were called
     expect(toggleDarkMode).toHaveBeenCalledTimes(1);
+    expect(trackDarkModeToggle).toHaveBeenCalledWith(false);
   });
 });
