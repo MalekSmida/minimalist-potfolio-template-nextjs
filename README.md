@@ -91,14 +91,24 @@ The project relies on the following environment variables:
 ```plaintext
 # GitHub Gist URLs for Portfolio Data
 NEXT_PUBLIC_GIST_SITE_CONFIG_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-NEXT_PUBLIC_GIST_SKILLS_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-NEXT_PUBLIC_GIST_PRESENTATION_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_HOME_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+NEXT_PUBLIC_GIST_CONSULTING_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
 NEXT_PUBLIC_GIST_CAREER_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-NEXT_PUBLIC_GIST_ABOUT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
 NEXT_PUBLIC_GIST_CONTACT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+# PostHog Analytics Configuration
+NEXT_PUBLIC_POSTHOG_KEY='your-posthog-key'
+NEXT_PUBLIC_POSTHOG_HOST='your-posthog-host' # example: https://us.i.posthog.com
 ```
 
-Copy the content of `.env.example` into your `.env.local` file (create it) and replace the placeholder values with your actual information.
+Copy the content of `.env.example` into your `.env` file (create it) and replace the placeholder values with your actual information.
+
+## PostHog Configuration
+
+We use PostHog for analytics, if you want to activate it, you should:
+
+1. Create an account on [PostHog](https://posthog.com/) (if you don't already have an account).
+2. When selecting the type of product you want to use, go with `Product Analytics` (for tracking user behavior and feature usage) and `Web Analytics` (focuses on website traffic and visitor behavior).
+3. Update env variables `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST`.
 
 ## Available Scripts
 
@@ -148,6 +158,16 @@ This portfolio template fetches all content data from GitHub Gists, which provid
 2. **Version control**: Gists are version controlled, allowing you to track changes
 3. **External CMS-like experience**: Edit your content through GitHub's interface
 
+#### My public Gists, I am currently using
+
+Each Gist should contain a JSON file with the appropriate structure for that section or page. See the example Gists for reference:
+
+- [Site Config Example](https://gist.githubusercontent.com/MalekSmida/5bdb952bc527ec98baf9bccd46e051e8/raw)
+- [Home Page Example](https://gist.githubusercontent.com/MalekSmida/276f02371a685522f4590b16d49bc3fc/raw)
+- [Consulting Page Example](https://gist.githubusercontent.com/MalekSmida/bce3829cd6cfdb956297282a83941d52/raw)
+- [Career Page Example](https://gist.githubusercontent.com/MalekSmida/20e4fa74cb974429182dbd1dfc6bb98e/raw)
+- [Contact Page Example](https://gist.githubusercontent.com/MalekSmida/f8027a67e0c6dcae34b7742f1c3c0266/raw)
+
 #### How to Use GitHub Gists for Content
 
 1. Fork the example Gists from below to your own GitHub account (the easiest way to start):
@@ -169,48 +189,18 @@ This portfolio template fetches all content data from GitHub Gists, which provid
    - About section (about you)
    - Contact section (your contact information)
 
-3. Configure your GitHub Gists by setting environment variables in your `.env.local` file:
+3. Configure your GitHub Gists by setting environment variables in your `.env` file:
 
    ```plaintext
    # GitHub Gist URLs for Portfolio Data
-   NEXT_PUBLIC_GIST_SITE_CONFIG_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-   NEXT_PUBLIC_GIST_SKILLS_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-   NEXT_PUBLIC_GIST_PRESENTATION_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-   NEXT_PUBLIC_GIST_CAREER_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-   NEXT_PUBLIC_GIST_ABOUT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
-   NEXT_PUBLIC_GIST_CONTACT_URL='https://gist.githubusercontent.com/YOUR_USERNAME/your-gist-id/raw'
+   NEXT_PUBLIC_GIST_SITE_CONFIG_URL
+   NEXT_PUBLIC_GIST_HOME_URL
+   NEXT_PUBLIC_GIST_CONSULTING_URL
+   NEXT_PUBLIC_GIST_CAREER_URL
+   NEXT_PUBLIC_GIST_CONTACT_URL
    ```
 
    Note: The URLs are structured to exclude commit hashes, allowing you to update your Gists without having to update your environment variables.
-
-4. Each Gist should contain a JSON file with the appropriate structure for that section. See the example Gists for reference:
-   - [Site Config Example](https://gist.githubusercontent.com/MalekSmida/5bdb952bc527ec98baf9bccd46e051e8/raw)
-   - [Skills Section Example](https://gist.githubusercontent.com/MalekSmida/323e68e4793b5cd9648a0e6249deb049/raw)
-   - [Presentation Section Example](https://gist.githubusercontent.com/MalekSmida/1cf28fc583cb0e04c2762dd4012f5904/raw)
-   - [Career Section Example](https://gist.githubusercontent.com/MalekSmida/20e4fa74cb974429182dbd1dfc6bb98e/raw)
-   - [About Section Example](https://gist.githubusercontent.com/MalekSmida/1e03e9560c6c6d85a321e796fecb88d6/raw)
-   - [Contact Section Example](https://gist.githubusercontent.com/MalekSmida/f8027a67e0c6dcae34b7742f1c3c0266/raw)
-
-### Changing the Content
-
-To update your portfolio content:
-
-1. Edit your GitHub Gists with new information
-2. The changes will automatically be reflected in your portfolio on the next build or page refresh (depending on cache settings)
-
-### Site Configuration
-
-The project uses a centralized configuration approach for all site-wide settings:
-
-1. Edit the Gist containing your site configuration to update:
-
-   - Site metadata (title, description, etc.)
-   - OpenGraph and Twitter card data
-   - Robots.txt configuration
-   - Sitemap settings
-   - Web App Manifest for PWA support
-
-2. This centralized approach makes it easy to maintain consistency across different aspects of the site and simplifies updates.
 
 ### Styling
 
