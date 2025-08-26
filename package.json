@@ -1,7 +1,7 @@
 {
   "name": "minimalist-potfolio-template-nextjs",
   "description": "A minimalist portfolio template created using Nextjs and TailwindCSS",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "license": "MIT",
   "author": {
