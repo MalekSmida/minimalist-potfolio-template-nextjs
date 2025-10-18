@@ -9,6 +9,10 @@ import {
   StackOverflowIcon,
 } from '@/assets/svgIcons';
 
+// Force static generation for SSR
+export const dynamic = 'force-static';
+export const revalidate = 86400; // 24 hours
+
 /**
  * Contact Page Component
  *

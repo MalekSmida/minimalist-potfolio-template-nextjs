@@ -3,6 +3,10 @@ import { ButtonLink } from '@/components';
 import ConsultingCard from '@/components/ConsultingCard';
 import { getConsultingData } from '@/services';
 
+// Force static generation for SSR
+export const dynamic = 'force-static';
+export const revalidate = 86400; // 24 hours
+
 const Consulting: React.FC = async () => {
   // Fetch data from Gists using services
   const { descriptionList, serviceList } = await getConsultingData();
