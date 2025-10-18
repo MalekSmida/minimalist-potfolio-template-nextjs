@@ -1,5 +1,25 @@
 import type { NextConfig } from 'next';
 
+const isDev = process.env.NODE_ENV === 'development';
+
+const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://us.i.posthog.com https://internal-j.posthog.com;
+    connect-src 'self' https: https://us.i.posthog.com https://internal-j.posthog.com${
+      isDev ? ' http:' : ''
+    };
+    style-src 'self' 'unsafe-inline' https://us.i.posthog.com;
+    img-src 'self' blob: data: https:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-src 'self';
+    frame-ancestors 'none';
+    worker-src 'self' blob:;
+    upgrade-insecure-requests;
+`;
+
 /**
  * Security Headers Configuration
  *
@@ -16,57 +36,57 @@ import type { NextConfig } from 'next';
  * - Permissions policies for browser features
  */
 const securityHeaders = [
-  // Improve performance
+  // Content Security Policy (CSP) - Critical XSS Protection
+  // Defines trusted sources for scripts, styles, images, frames, and other resources
+  // Customized for specific needs:
+  // - PostHog analytics (us.i.posthog.com, internal-j.posthog.com)
+  // - Development: Allows HTTP connections for localhost
+  // - PostHog requires 'unsafe-eval' for event processing
+  // - Web workers for PostHog analytics ('self' blob:)
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+    key: 'Content-Security-Policy',
+    value: cspHeader.replace(/\n/g, ''),
   },
-  // Strict-Transport-Security (HSTS)
+
+  // HTTP Strict Transport Security (HSTS) - Force HTTPS
+  // Ensures all connections use HTTPS for 1 year
+  // includeSubDomains covers any future subdomains
   {
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload',
   },
-  {
-    key: 'X-XSS-Protection',
-    value: '1; mode=block',
-  },
+
+  // Frontend Domain Security Headers
+  // These headers protect the main user-facing domain where users interact with app
+
+  // X-Frame-Options: Prevent Clickjacking on Frontend
+  // Blocks embedding app in malicious iframes from other domains
   {
     key: 'X-Frame-Options',
     value: 'DENY',
   },
+
+  // X-Content-Type-Options: Prevent MIME Type Sniffing on Frontend
+  // Protects uploaded files and user content on app from being executed as scripts
   {
     key: 'X-Content-Type-Options',
     value: 'nosniff',
   },
+
+  // Referrer-Policy: Control Information Leakage from Frontend
+  // Prevents leaking sensitive data to external sites
   {
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
-  {
-    key: 'X-Permitted-Cross-Domain-Policies',
-    value: 'none',
-  },
-  // Permissions-Policy modern replacement for Feature-Policy
+
+  // Permissions-Policy: Disable Unnecessary Browser Features on Frontend
+  // Blocks access to camera, microphone, and location APIs on app
+  // Doesn't need these permissions on the main domain
+  // Prevents malicious scripts from accessing user devices
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-  },
-  {
-    key: 'Access-Control-Allow-Origin',
-    value: '*',
-  },
-  // Additional Cross-Origin headers
-  {
-    key: 'Cross-Origin-Embedder-Policy',
-    value: 'require-corp',
-  },
-  {
-    key: 'Cross-Origin-Opener-Policy',
-    value: 'same-origin',
-  },
-  {
-    key: 'Cross-Origin-Resource-Policy',
-    value: 'same-origin',
+    value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
 
