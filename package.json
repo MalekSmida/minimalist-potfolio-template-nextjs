@@ -1,7 +1,7 @@
 {
   "name": "minimalist-potfolio-template-nextjs",
   "description": "A minimalist portfolio template created using Nextjs and TailwindCSS",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "license": "MIT",
   "author": {
@@ -24,11 +24,11 @@
     "test:e2e:showReport": "playwright show-report"
   },
   "dependencies": {
-    "next": "15.4.5",
+    "next": "15.4.8",
     "posthog-js": "^1.259.0",
     "posthog-node": "^5.6.0",
-    "react": "19.1.1",
-    "react-dom": "19.1.1"
+    "react": "19.1.2",
+    "react-dom": "19.1.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -43,7 +43,7 @@
     "@vitest/coverage-v8": "^3.0.8",
     "dotenv": "^16.5.0",
     "eslint": "^9",
-    "eslint-config-next": "15.4.5",
+    "eslint-config-next": "15.4.8",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
     "jsdom": "^26.0.0",
@@ -57,6 +57,7 @@
   "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
   "pnpm": {
     "onlyBuiltDependencies": [
+      "core-js",
       "esbuild",
       "sharp"
     ],
