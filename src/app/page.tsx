@@ -8,7 +8,8 @@ export const revalidate = 86400; // 24 hours
 
 const Home: React.FC = async () => {
   // Fetch data from Gists using services
-  const { name, jobTitle, yearsOfExperience, description, about, skills } = await getHomeData();
+  const { name, jobTitle, yearsOfExperience, description, about, skills, consultingMention } =
+    await getHomeData();
 
   return (
     <>
@@ -17,6 +18,7 @@ const Home: React.FC = async () => {
         jobTitle={jobTitle}
         yearsOfExperience={yearsOfExperience}
         description={description}
+        consultingMention={consultingMention}
       />
       <About blockList={about} />
       <Skills blockList={skills} />

@@ -2,12 +2,14 @@ import Image from 'next/image';
 
 // local imports
 import ButtonLink from '@/components/ButtonLink';
+import { ConsultingMention } from '@/services/types';
 
 interface PropsPresentation {
   name?: string;
   jobTitle?: string;
   yearsOfExperience?: string;
   description?: string;
+  consultingMention?: ConsultingMention;
 }
 
 const Presentation: React.FC<PropsPresentation> = ({
@@ -15,6 +17,7 @@ const Presentation: React.FC<PropsPresentation> = ({
   jobTitle,
   yearsOfExperience,
   description,
+  consultingMention,
 }) => {
   const displayName = name || 'No body';
 
@@ -49,6 +52,20 @@ const Presentation: React.FC<PropsPresentation> = ({
           isNavigation
           isPrimary
         />
+        {consultingMention && (
+          <p className="mx-auto mt-6 max-w-sm text-gray-600 lg:mx-0 dark:text-gray-300">
+            {consultingMention.text}{' '}
+            <a
+              href={consultingMention.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary dark:text-secondary font-medium underline"
+              aria-label={`Visit ${consultingMention.linkLabel} (opens in new tab)`}
+            >
+              {consultingMention.linkLabel}
+            </a>
+          </p>
+        )}
       </div>
 
       {/* Images Section */}

@@ -9,6 +9,9 @@ interface PropsFooter {
   github?: string;
   stackoverflow?: string;
   websiteRepo?: string;
+  consultingCtaText?: string;
+  consultingCtaLabel?: string;
+  consultingCtaUrl?: string;
 }
 
 /**
@@ -38,6 +41,9 @@ const Footer: React.FC<PropsFooter> = ({
   github,
   stackoverflow,
   websiteRepo,
+  consultingCtaText,
+  consultingCtaLabel,
+  consultingCtaUrl,
 }) => {
   return (
     <footer
@@ -54,6 +60,21 @@ const Footer: React.FC<PropsFooter> = ({
       />
 
       <hr className="my-4 h-0.5 w-full bg-gray-800 opacity-5" aria-hidden="true" />
+
+      {consultingCtaUrl && (
+        <p className="mb-4 text-center text-sm text-gray-400">
+          {consultingCtaText}{' '}
+          <a
+            href={consultingCtaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white underline hover:text-gray-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+            aria-label={`Visit ${consultingCtaLabel} (opens in new tab)`}
+          >
+            {consultingCtaLabel}
+          </a>
+        </p>
+      )}
 
       <CopyrightSection githubRepository={websiteRepo} />
     </footer>
