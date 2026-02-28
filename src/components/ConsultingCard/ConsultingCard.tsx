@@ -25,9 +25,12 @@ const ConsultingCard: React.FC<Service> = ({ _id, name, prices, tasks, achieveme
     e.preventDefault();
     const newExpandedState = !isExpanded;
     setIsExpanded(newExpandedState);
-    
+
     // Track expansion/collapse events
-    trackServiceCardInteraction(name, newExpandedState ? 'expand_achievements' : 'collapse_achievements');
+    trackServiceCardInteraction(
+      name,
+      newExpandedState ? 'expand_achievements' : 'collapse_achievements',
+    );
   };
 
   const handleGetStartedClick = () => {

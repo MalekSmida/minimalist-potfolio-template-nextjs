@@ -151,7 +151,15 @@ export interface ContactData {
     github?: string;
     stackoverflow?: string;
     websiteRepo?: string;
+    booking?: string;
   };
+  consultingCta?: { text: string; linkLabel: string; linkUrl: string };
+}
+
+export interface ConsultingMention {
+  text: string;
+  linkLabel: string;
+  linkUrl: string;
 }
 
 export interface HomeData {
@@ -161,6 +169,7 @@ export interface HomeData {
   yearsOfExperience?: string;
   about?: AboutData[];
   skills?: SkillsData;
+  consultingMention?: ConsultingMention;
 }
 
 export interface Service {

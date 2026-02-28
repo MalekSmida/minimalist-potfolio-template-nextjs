@@ -50,5 +50,5 @@ node_modules/
 /playwright/.cache/
 
 # AI tools
-CLAUDE.md
+.claude
 repomix-output.xml

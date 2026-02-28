@@ -66,4 +66,22 @@ describe('Presentation Section', () => {
     expect(contactButton.getAttribute('href')).toBe('/contact');
     expect(screen.getByText('Lets discuss your needs')).toBeDefined();
   });
+
+  test('should not render consulting mention when not provided', () => {
+    render(<Presentation name={mockData.name} />);
+    expect(screen.queryByText('Check out my consulting')).toBeNull();
+  });
+
+  test('should render consulting mention when provided', () => {
+    const consultingMention = {
+      text: 'Need expert help?',
+      linkLabel: 'My Consulting Page',
+      linkUrl: 'https://example.com/consulting',
+    };
+    render(<Presentation name={mockData.name} consultingMention={consultingMention} />);
+    expect(screen.getByText(/Need expert help\?/)).toBeDefined();
+    const link = screen.getByRole('link', { name: 'Visit My Consulting Page (opens in new tab)' });
+    expect(link.getAttribute('href')).toBe('https://example.com/consulting');
+    expect(screen.getByText('My Consulting Page')).toBeDefined();
+  });
 });

@@ -13,15 +13,16 @@ vi.mock('@/services', () => ({
       github: 'https://github.com/test',
       stackoverflow: 'https://stackoverflow.com/test',
       cvPdf: 'https://example.com/cv.pdf',
+      booking: 'https://example.com/booking',
     },
   }),
 }));
 
 // Mock ContactCard and ButtonLink
 vi.mock('@/components', () => ({
-  ContactCard: ({ title, description }: { title: string; description: string }) => (
+  ContactCard: ({ title }: { title: string }) => (
     <div data-testid="contact-card">
-      {title}: {description}
+      {title}
     </div>
   ),
   ButtonLink: ({ label }: { label: string }) => (
@@ -36,6 +37,7 @@ vi.mock('@/assets/svgIcons', () => ({
   LinkedinIcon: () => <div data-testid="linkedin-icon" />,
   GithubIcon: () => <div data-testid="github-icon" />,
   StackOverflowIcon: () => <div data-testid="stackoverflow-icon" />,
+  WorkIcon: () => <div data-testid="work-icon" />,
 }));
 
 // Import after mocking
@@ -50,16 +52,17 @@ describe('Contact Page', () => {
     const ContactElement = await Contact();
     render(ContactElement);
 
-    expect(screen.getByText('Get In Touch 👋')).toBeDefined();
-    expect(screen.getByText(/Hiring for a consulting role/)).toBeDefined();
+    expect(screen.getByText('Get In Touch')).toBeDefined();
   });
 
-  test('should render CV download button', async () => {
+  test('should render primary action buttons', async () => {
     const ContactElement = await Contact();
     render(ContactElement);
 
-    expect(screen.getByTestId('button-link')).toBeDefined();
-    expect(screen.getByText('Download CV')).toBeDefined();
+    const buttons = screen.getAllByTestId('button-link');
+    expect(buttons.length).toBeGreaterThan(0);
+    expect(screen.getByText('Book a discovery call')).toBeDefined();
+    expect(screen.getByText('Send me an email')).toBeDefined();
   });
 
   test('should render contact methods', async () => {
@@ -74,7 +77,7 @@ describe('Contact Page', () => {
     const ContactElement = await Contact();
     render(ContactElement);
 
-    const heading = screen.getByRole('heading', { name: 'Get In Touch 👋' });
+    const heading = screen.getByRole('heading', { name: 'Get In Touch' });
     expect(heading.tagName).toBe('H1');
 
     const hiddenHeading = screen.getByText('Contact Methods');

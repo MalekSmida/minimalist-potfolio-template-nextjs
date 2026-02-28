@@ -100,6 +100,9 @@ const RootLayout = async ({
           github={contactData.links?.github}
           stackoverflow={contactData.links?.stackoverflow}
           websiteRepo={contactData.links?.websiteRepo}
+          consultingCtaText={contactData?.consultingCta?.text}
+          consultingCtaLabel={contactData?.consultingCta?.linkLabel}
+          consultingCtaUrl={contactData?.consultingCta?.linkUrl}
         />
 
         <BackToTopButton />

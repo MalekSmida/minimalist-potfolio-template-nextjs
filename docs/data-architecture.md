@@ -296,14 +296,40 @@ const About: React.FC<PropsAbout> = ({ blockList }) => {
 
 ```json
 {
-  "email": "your.email@example.com",
-  "address": "Your Address",
-  "phone": "+1234567890",
-  "googleMapsLink": "https://www.google.com/maps/place/Your+Address",
-  "linkedinProfile": "https://www.linkedin.com/in/yourprofile/",
-  "githubProfile": "https://github.com/yourgithub/",
-  "githubRepository": "https://github.com/yourgithub/your-repository"
+  "contact": {
+    "email": "your.email@example.com",
+    "address": "Your Address",
+    "phone": "+1234567890"
+  },
+  "links": {
+    "cvPdf": "https://example.com/your-cv.pdf",
+    "addressMaps": "https://www.google.com/maps/place/Your+Address",
+    "linkedin": "https://www.linkedin.com/in/yourprofile/",
+    "github": "https://github.com/yourgithub/",
+    "stackoverflow": "https://stackoverflow.com/users/yourprofile/",
+    "websiteRepo": "https://github.com/yourgithub/your-repository",
+    "booking": "https://calendly.com/your-booking-link"
+  },
+  "consultingCta": {
+    "text": "Looking for consulting services?",
+    "linkLabel": "Book a session",
+    "linkUrl": "https://calendly.com/your-booking-link"
+  }
 }
 ```
+
+### Consulting & Home Data Types
+
+The `HomeData` type (used by the home page) includes an optional `consultingMention` field of type `ConsultingMention`, which renders a consulting call-to-action in the Presentation and Footer sections:
+
+```typescript
+export interface ConsultingMention {
+  text: string;
+  linkLabel: string;
+  linkUrl: string;
+}
+```
+
+The contact page also supports a `consultingCta` field in `ContactData` and can display consulting service cards using the `ConsultingData` type, which contains a list of services with pricing and achievements.
 
 See the README file for links to all example Gists.

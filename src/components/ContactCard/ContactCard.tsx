@@ -32,9 +32,6 @@ const ContactCard: React.FC<ContactCardProps> = ({ href, title, icon, descriptio
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-medium text-gray-900 dark:text-white">{title}</h3>
-          {description && (
-            <p className="mt-1 truncate text-sm text-gray-500 dark:text-gray-400">{description}</p>
-          )}
         </div>
         <div className="group-hover:text-primary dark:group-hover:text-secondary text-gray-400 transition-colors duration-300 dark:text-gray-500">
           <svg
